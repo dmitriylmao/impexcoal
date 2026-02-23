@@ -1,0 +1,15 @@
+{
+  "header": {
+    "title": "IMPEX Coal Company",
+    "subtitle": "Landing page and news feed"
+  },
+  "news": {
+    "title": "Latest News",
+    "empty": "No news yet. Check the admin panel.",
+    "category": "Category",
+    "date": "Date"
+  },
+  "switcher": {
+    "label": "Language"
+  }
+}

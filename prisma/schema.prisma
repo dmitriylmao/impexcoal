@@ -29,10 +29,24 @@ model News {
   content     String
   imgUrl      String?
   publishedAt DateTime @default(now())
-  
-  project     Project  @relation(fields: [projectId], references: [id])
+
+  project      Project           @relation(fields: [projectId], references: [id])
   projectId   String
-  
-  category    Category @relation(fields: [categoryId], references: [id])
+
+  category     Category          @relation(fields: [categoryId], references: [id])
   categoryId  String
+  translations NewsTranslation[]
+}
+
+model NewsTranslation {
+  id      String @id @default(cuid())
+  locale  String
+  title   String
+  content String
+
+  news   News   @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  newsId String
+
+  @@unique([newsId, locale])
+  @@index([locale])
 }

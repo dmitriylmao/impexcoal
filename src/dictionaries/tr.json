@@ -1,0 +1,15 @@
+{
+  "header": {
+    "title": "IMPEX Kömür Şirketi",
+    "subtitle": "Açılış sayfası ve haber akışı"
+  },
+  "news": {
+    "title": "Son Haberler",
+    "empty": "Henüz haber yok. Yönetici paneline göz atın.",
+    "category": "Kategori",
+    "date": "Tarih"
+  },
+  "switcher": {
+    "label": "Dil"
+  }
+}

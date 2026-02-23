@@ -1,5 +1,34 @@
-﻿import { revalidatePath } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
+import { i18n, type Locale } from '@/i18n/config';
+
+type TranslationInput = {
+  locale: Locale;
+  title: string;
+  content: string;
+};
+
+function getTranslationInputs(formData: FormData): TranslationInput[] {
+  return i18n.locales
+    .map((locale) => {
+      const title = String(formData.get(`title_${locale}`) ?? '').trim();
+      const content = String(formData.get(`content_${locale}`) ?? '').trim();
+
+      if (!title || !content) {
+        return null;
+      }
+
+      return { locale, title, content } satisfies TranslationInput;
+    })
+    .filter((item): item is TranslationInput => item !== null);
+}
+
+async function revalidatePublicPages() {
+  revalidatePath('/');
+  for (const locale of i18n.locales) {
+    revalidatePath(`/${locale}`);
+  }
+}
 
 export default async function AdminPage() {
   const [projects, categories, news] = await Promise.all([
@@ -27,7 +56,7 @@ export default async function AdminPage() {
     }),
     prisma.news.findMany({
       orderBy: { publishedAt: 'desc' },
-      include: { project: true, category: true },
+      include: { project: true, category: true, translations: true },
     }),
   ]);
 
@@ -64,28 +93,34 @@ export default async function AdminPage() {
   async function createNews(formData: FormData) {
     'use server';
 
-    const title = String(formData.get('title') ?? '').trim();
     const slug = String(formData.get('slug') ?? '').trim();
-    const content = String(formData.get('content') ?? '').trim();
     const imgUrlRaw = String(formData.get('imgUrl') ?? '').trim();
     const projectId = String(formData.get('projectId') ?? '').trim();
     const categoryId = String(formData.get('categoryId') ?? '').trim();
 
-    if (!title || !slug || !content || !projectId || !categoryId) return;
+    const translations = getTranslationInputs(formData);
+    const russian = translations.find((item) => item.locale === i18n.defaultLocale);
+
+    if (!slug || !projectId || !categoryId || !russian) return;
 
     await prisma.news.create({
       data: {
-        title,
         slug,
-        content,
         imgUrl: imgUrlRaw || null,
         projectId,
         categoryId,
+        title: russian.title,
+        content: russian.content,
+        translations: {
+          createMany: {
+            data: translations,
+          },
+        },
       },
     });
 
     revalidatePath('/admin');
-    revalidatePath('/');
+    await revalidatePublicPages();
   }
 
   async function deleteNews(formData: FormData) {
@@ -97,7 +132,7 @@ export default async function AdminPage() {
     await prisma.news.delete({ where: { id } });
 
     revalidatePath('/admin');
-    revalidatePath('/');
+    await revalidatePublicPages();
   }
 
   return (
@@ -107,18 +142,8 @@ export default async function AdminPage() {
       <section className="grid gap-4 rounded-2xl border border-zinc-200 p-5">
         <h2 className="text-xl font-semibold">1. Проекты</h2>
         <form action={createProject} className="grid gap-3 md:grid-cols-3">
-          <input
-            name="name"
-            placeholder="Название проекта"
-            required
-            className="rounded-md border p-3"
-          />
-          <input
-            name="slug"
-            placeholder="slug (например, coal)"
-            required
-            className="rounded-md border p-3"
-          />
+          <input name="name" placeholder="Название проекта" required className="rounded-md border p-3" />
+          <input name="slug" placeholder="slug (например, coal)" required className="rounded-md border p-3" />
           <button className="rounded-md bg-zinc-900 px-4 py-3 font-medium text-white" type="submit">
             Добавить проект
           </button>
@@ -157,12 +182,7 @@ export default async function AdminPage() {
       <section className="grid gap-4 rounded-2xl border border-zinc-200 p-5">
         <h2 className="text-xl font-semibold">2. Категории</h2>
         <form action={createCategory} className="grid gap-3 md:grid-cols-3">
-          <input
-            name="name"
-            placeholder="Название категории"
-            required
-            className="rounded-md border p-3"
-          />
+          <input name="name" placeholder="Название категории" required className="rounded-md border p-3" />
           <select name="projectId" defaultValue="" required className="rounded-md border p-3">
             <option value="" disabled>
               Выберите проект
@@ -211,22 +231,16 @@ export default async function AdminPage() {
       </section>
 
       <section className="grid gap-4 rounded-2xl border border-zinc-200 p-5">
-        <h2 className="text-xl font-semibold">3. Новости</h2>
-        <form action={createNews} className="grid gap-3">
-          <input name="title" placeholder="Заголовок" required className="rounded-md border p-3" />
+        <h2 className="text-xl font-semibold">3. Новости (с переводами)</h2>
+        <form action={createNews} className="grid gap-4">
           <input
             name="slug"
             placeholder="slug (например, postavki-iz-kuzbassa)"
             required
             className="rounded-md border p-3"
           />
-          <textarea
-            name="content"
-            placeholder="Текст новости"
-            required
-            className="min-h-40 rounded-md border p-3"
-          />
           <input name="imgUrl" placeholder="URL изображения (необязательно)" className="rounded-md border p-3" />
+
           <div className="grid gap-3 md:grid-cols-2">
             <select name="projectId" defaultValue="" required className="rounded-md border p-3">
               <option value="" disabled>
@@ -249,6 +263,32 @@ export default async function AdminPage() {
               ))}
             </select>
           </div>
+
+          <div className="grid gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-600">Контент по языкам</h3>
+
+            <div className="grid gap-3">
+              <label className="text-sm font-medium">Заголовок (RU, обязательно)</label>
+              <input name="title_ru" required className="rounded-md border bg-white p-3" />
+              <label className="text-sm font-medium">Текст (RU, обязательно)</label>
+              <textarea name="content_ru" required className="min-h-28 rounded-md border bg-white p-3" />
+            </div>
+
+            <div className="grid gap-3">
+              <label className="text-sm font-medium">Title (EN, optional)</label>
+              <input name="title_en" className="rounded-md border bg-white p-3" />
+              <label className="text-sm font-medium">Content (EN, optional)</label>
+              <textarea name="content_en" className="min-h-24 rounded-md border bg-white p-3" />
+            </div>
+
+            <div className="grid gap-3">
+              <label className="text-sm font-medium">Baslik (TR, optional)</label>
+              <input name="title_tr" className="rounded-md border bg-white p-3" />
+              <label className="text-sm font-medium">Icerik (TR, optional)</label>
+              <textarea name="content_tr" className="min-h-24 rounded-md border bg-white p-3" />
+            </div>
+          </div>
+
           <button
             className="w-fit rounded-md bg-zinc-900 px-4 py-3 font-medium text-white disabled:cursor-not-allowed disabled:bg-zinc-400"
             type="submit"
@@ -262,33 +302,54 @@ export default async function AdminPage() {
           <table className="w-full text-left text-sm">
             <thead className="bg-zinc-50">
               <tr>
-                <th className="p-3">Заголовок</th>
+                <th className="p-3">Заголовок (RU base)</th>
                 <th className="p-3">Проект</th>
                 <th className="p-3">Категория</th>
+                <th className="p-3">Переводы</th>
                 <th className="p-3">Дата</th>
                 <th className="p-3">Действие</th>
               </tr>
             </thead>
             <tbody>
-              {news.map((item) => (
-                <tr key={item.id} className="border-t">
-                  <td className="p-3">{item.title}</td>
-                  <td className="p-3">{item.project.name}</td>
-                  <td className="p-3">{item.category.name}</td>
-                  <td className="p-3">{new Date(item.publishedAt).toLocaleDateString('ru-RU')}</td>
-                  <td className="p-3">
-                    <form action={deleteNews}>
-                      <input type="hidden" name="id" value={item.id} />
-                      <button type="submit" className="text-red-600 hover:underline">
-                        Удалить
-                      </button>
-                    </form>
-                  </td>
-                </tr>
-              ))}
+              {news.map((item) => {
+                const translatedLocales = new Set(item.translations.map((translation) => translation.locale));
+
+                return (
+                  <tr key={item.id} className="border-t">
+                    <td className="p-3">{item.title}</td>
+                    <td className="p-3">{item.project.name}</td>
+                    <td className="p-3">{item.category.name}</td>
+                    <td className="p-3">
+                      <div className="flex gap-2">
+                        {i18n.locales.map((locale) => (
+                          <span
+                            key={locale}
+                            className={`rounded px-2 py-1 text-xs font-semibold ${
+                              translatedLocales.has(locale)
+                                ? 'bg-emerald-100 text-emerald-700'
+                                : 'bg-zinc-200 text-zinc-600'
+                            }`}
+                          >
+                            {locale.toUpperCase()}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
+                    <td className="p-3">{new Date(item.publishedAt).toLocaleDateString('ru-RU')}</td>
+                    <td className="p-3">
+                      <form action={deleteNews}>
+                        <input type="hidden" name="id" value={item.id} />
+                        <button type="submit" className="text-red-600 hover:underline">
+                          Удалить
+                        </button>
+                      </form>
+                    </td>
+                  </tr>
+                );
+              })}
               {news.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="p-3 text-zinc-500">
+                  <td colSpan={6} className="p-3 text-zinc-500">
                     Новостей пока нет.
                   </td>
                 </tr>
