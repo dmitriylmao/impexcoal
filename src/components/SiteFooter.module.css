@@ -1,0 +1,113 @@
+.root {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(2, 8, 20, 0.7), rgba(2, 8, 20, 0.96));
+}
+
+.inner {
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 86px 24px 30px;
+  display: grid;
+  gap: 46px;
+}
+
+.logoButton {
+  border: 0;
+  background: transparent;
+  width: fit-content;
+  padding: 0;
+  cursor: default;
+}
+
+.logo {
+  width: auto;
+  height: 52px;
+  object-fit: contain;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 42px;
+}
+
+.linkButton {
+  border: 0;
+  background: transparent;
+  color: var(--text-main);
+  font-size: 19px;
+  line-height: 1.1;
+  font-weight: 500;
+  padding: 0;
+  cursor: default;
+  transition: color 0.22s ease, transform 0.22s ease;
+}
+
+.linkButton:hover {
+  color: var(--text-strong);
+  transform: translateY(-1px);
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+}
+
+.socialButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  transition: border-color 0.22s ease, background-color 0.22s ease, transform 0.22s ease;
+}
+
+.socialButton:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-1px);
+}
+
+.telegramIcon {
+  filter: brightness(0) invert(1);
+}
+
+.bottomLine {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  color: var(--text-main);
+  font-size: 17px;
+}
+
+.switcher {
+  justify-content: center;
+}
+
+@media (max-width: 960px) {
+  .inner {
+    padding-top: 56px;
+    gap: 32px;
+  }
+
+  .logo {
+    height: 44px;
+  }
+
+  .linkButton {
+    font-size: 16px;
+  }
+
+  .bottomLine {
+    font-size: 14px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

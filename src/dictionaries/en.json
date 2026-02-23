@@ -11,5 +11,29 @@
   },
   "switcher": {
     "label": "Language"
+  },
+  "ui": {
+    "header": {
+      "nav": {
+        "home": "Home",
+        "about": "About",
+        "segments": "Supply Segments",
+        "products": "Products",
+        "news": "News",
+        "contacts": "Contacts"
+      },
+      "contactButton": "Contact Email"
+    },
+    "footer": {
+      "links": {
+        "home": "Home",
+        "company": "Company",
+        "contacts": "Contacts",
+        "news": "News",
+        "privacy": "Privacy Policy"
+      },
+      "copyright": "© 2026 TD IMPEKS",
+      "email": "tdimpeks@support.com"
+    }
   }
 }

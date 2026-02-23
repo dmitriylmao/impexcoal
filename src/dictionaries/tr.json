@@ -5,11 +5,35 @@
   },
   "news": {
     "title": "Son Haberler",
-    "empty": "Henüz haber yok. Yönetici paneline göz atın.",
+    "empty": "Henüz haber yok. Yönetici panelini kontrol edin.",
     "category": "Kategori",
     "date": "Tarih"
   },
   "switcher": {
     "label": "Dil"
+  },
+  "ui": {
+    "header": {
+      "nav": {
+        "home": "Ana Sayfa",
+        "about": "Hakkımızda",
+        "segments": "Tedarik Segmentleri",
+        "products": "Ürünler",
+        "news": "Haberler",
+        "contacts": "İletişim"
+      },
+      "contactButton": "İletişim E-postası"
+    },
+    "footer": {
+      "links": {
+        "home": "Ana Sayfa",
+        "company": "Şirket",
+        "contacts": "İletişim",
+        "news": "Haberler",
+        "privacy": "Gizlilik Politikası"
+      },
+      "copyright": "© 2026 TD IMPEKS",
+      "email": "tdimpeks@support.com"
+    }
   }
 }

@@ -1,7 +1,7 @@
 {
   "header": {
     "title": "Угольная компания IMPEX",
-    "subtitle": "Лэндинг и лента новостей"
+    "subtitle": "Лендинг и лента новостей"
   },
   "news": {
     "title": "Последние новости",
@@ -11,5 +11,29 @@
   },
   "switcher": {
     "label": "Язык"
+  },
+  "ui": {
+    "header": {
+      "nav": {
+        "home": "Главная",
+        "about": "О нас",
+        "segments": "Сегменты поставок",
+        "products": "Продукция",
+        "news": "Новости",
+        "contacts": "Контакты"
+      },
+      "contactButton": "Почта для связи"
+    },
+    "footer": {
+      "links": {
+        "home": "Главная",
+        "company": "О компании",
+        "contacts": "Контакты",
+        "news": "Новости",
+        "privacy": "Политика конфиденциальности"
+      },
+      "copyright": "© 2026 ТД «ИМПЭКС»",
+      "email": "tdimpeks@support.com"
+    }
   }
 }

@@ -1,10 +1,14 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 import { i18n, type Locale } from '@/i18n/config';
 
-export default function LangSwitcher() {
+type Props = {
+  className?: string;
+};
+
+export default function LangSwitcher({ className }: Props) {
   const pathname = usePathname();
   const params = useParams<{ lang?: string }>();
   const currentLocale = (params?.lang ?? i18n.defaultLocale) as Locale;
@@ -26,16 +30,12 @@ export default function LangSwitcher() {
   };
 
   return (
-    <div className="flex gap-4 text-sm font-medium">
+    <div className={className ?? 'lang-switcher'}>
       {i18n.locales.map((locale) => (
         <Link
           key={locale}
           href={getLink(locale)}
-          className={
-            locale === currentLocale
-              ? 'text-zinc-900 dark:text-white'
-              : 'text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-white'
-          }
+          className={locale === currentLocale ? 'lang-link lang-link-active' : 'lang-link'}
         >
           {locale.toUpperCase()}
         </Link>
