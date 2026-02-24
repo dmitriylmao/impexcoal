@@ -1,29 +1,45 @@
+/* --- ОБЩИЕ ПЕРЕМЕННЫЕ ДЛЯ ФОНА --- */
+/* Чтобы верх и низ были идеально одного цвета */
+.glassEffect {
+  background: rgba(2, 7, 16, 0.85); /* Чуть плотнее, чтобы текст под ним не мешал */
+  backdrop-filter: blur(16px) saturate(125%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .root {
   position: sticky;
   top: 0;
-  z-index: 70;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(2, 7, 16, 0.58);
-  backdrop-filter: blur(14px) saturate(125%);
+  z-index: 80;
+  /* Фон задаем не здесь, а элементам внутри, чтобы избежать наложений */
 }
 
+/* Верхняя полоса (основной хедер) */
 .inner {
-  max-width: 1460px;
-  margin: 0 auto;
+  composes: glassEffect; /* Применяем общий фон */
+  position: relative;
+  z-index: 2; /* Выше выпадающего меню */
+  max-width: 100%; /* На всю ширину, контент внутри ограничим */
+  display: flex;
+  justify-content: center; /* Центрируем контейнер контента */
+}
+
+.contentContainer {
+  width: 100%;
+  max-width: 1200px;
   min-height: 92px;
   padding: 12px 24px;
-  display: grid;
-  grid-template-columns: 240px 1fr 250px;
+  display: flex;
   align-items: center;
-  gap: 18px;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .logoButton {
-  justify-self: start;
   border: 0;
   background: transparent;
   padding: 0;
-  cursor: default;
+  cursor: pointer;
+  flex: 0 0 auto;
 }
 
 .logo {
@@ -32,9 +48,15 @@
   object-fit: contain;
 }
 
-.nav {
-  margin: 0 auto;
-  width: fit-content;
+/* --- ПРАВАЯ ЧАСТЬ (ДЕСКТОП) --- */
+.desktopRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.navDesktop {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -50,62 +72,142 @@
   border-radius: 999px;
   background: transparent;
   color: var(--text-main);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   font-weight: 550;
+  white-space: nowrap;
   padding: 12px 18px;
-  cursor: default;
-  transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .navButton:hover {
   background: rgba(255, 255, 255, 0.06);
   color: var(--text-strong);
-  transform: translateY(-1px);
 }
 
 .contactButton {
-  justify-self: end;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  background: rgba(9, 17, 31, 0.75);
+  border-radius: 14px;
+  background: rgba(9, 17, 31, 0.78);
   color: var(--text-strong);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   font-weight: 650;
-  padding: 13px 18px;
-  cursor: default;
-  transition: border-color 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+  white-space: nowrap;
+  padding: 13px 20px;
+  cursor: pointer;
+  width: fit-content; /* Чтобы не растягивалась */
+  transition: all 0.2s ease;
 }
 
 .contactButton:hover {
+  background: rgba(15, 24, 40, 0.9);
   border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(11, 22, 39, 0.9);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32);
-  transform: translateY(-1px);
 }
 
-.telegramIcon {
-  filter: brightness(0) invert(1);
+/* --- БУРГЕР --- */
+.menuToggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-strong);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
 }
 
-@media (max-width: 1220px) {
-  .inner {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    gap: 12px;
-    justify-items: center;
-  }
+.menuLines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
 
-  .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.menuLines span {
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
-  .contactButton {
-    justify-self: center;
+/* Анимация крестика через CSS классы внутри span (опционально) или подмена иконки в JS */
+.menuCloseIcon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* === ВЫПАДАЮЩЕЕ МЕНЮ (DROPDOWN) === */
+.mobileDropdown {
+  composes: glassEffect; /* Тот же фон, что и у хедера */
+  position: absolute;
+  top: 100%; /* Приклеиваем к низу хедера */
+  left: 0;
+  right: 0;
+  z-index: 1; /* Под основным хедером, чтобы тень правильно падала */
+  
+  overflow: hidden;
+  max-height: 0; /* Скрыто по умолчанию */
+  opacity: 0;
+  
+  /* Плавная анимация раскрытия */
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  
+  border-bottom: none; /* Бордер появится когда меню откроется */
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Тонкий разделитель */
+}
+
+.mobileDropdownOpen {
+  max-height: 100vh; /* Достаточно много, чтобы влез контент */
+  opacity: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobileNavContent {
+  padding: 24px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mobileLink {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 16px; /* Аккуратный шрифт */
+  font-weight: 500;
+  text-align: left;
+  padding: 10px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.mobileLink:hover {
+  color: var(--text-strong);
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .desktopRight {
+    display: none;
+  }
+  .menuToggle {
+    display: flex;
+  }
+}
+
+@media (min-width: 1201px) {
+  .mobileDropdown {
+    display: none; /* На десктопе меню не нужно, даже если стейт открыт */
   }
 }

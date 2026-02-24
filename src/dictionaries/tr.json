@@ -24,6 +24,12 @@
       },
       "contactButton": "İletişim E-postası"
     },
+    "homeHero": {
+      "title": "Üreticiden Antrasit ve T Sınıfı Kömür",
+      "subtitle": "1 tondan gemi partilerine kadar kalite garantisiyle",
+      "cta": "Maliyet ve teslim süresini hesapla",
+      "scrollLabel": "Sonraki bölüme kaydır"
+    },
     "footer": {
       "links": {
         "home": "Ana Sayfa",
@@ -34,6 +40,17 @@
       },
       "copyright": "© 2026 TD IMPEKS",
       "email": "tdimpeks@support.com"
+    },
+    "newsList": {
+      "badge": "Haber alt başlığı",
+      "title": "TD \"IMPEKS\" Haberleri",
+      "subtitle": "Şirket yaşamından son gelişmeler",
+      "cardSubtitle": "Alt başlık",
+      "loadMore": "Daha fazla haber"
+    },
+    "newsArticle": {
+      "back": "Haberlere dön",
+      "subtitle": "Alt başlık"
     }
   }
 }

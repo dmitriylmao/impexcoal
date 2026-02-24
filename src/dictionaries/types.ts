@@ -24,6 +24,12 @@ export type SiteDictionary = {
       };
       contactButton: string;
     };
+    homeHero: {
+      title: string;
+      subtitle: string;
+      cta: string;
+      scrollLabel: string;
+    };
     footer: {
       links: {
         home: string;
@@ -34,6 +40,17 @@ export type SiteDictionary = {
       };
       copyright: string;
       email: string;
+    };
+    newsList: {
+      badge: string;
+      title: string;
+      subtitle: string;
+      cardSubtitle: string;
+      loadMore: string;
+    };
+    newsArticle: {
+      back: string;
+      subtitle: string;
     };
   };
 };

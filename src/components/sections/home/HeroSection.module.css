@@ -1,0 +1,288 @@
+.root {
+  position: relative;
+  width: 100%;
+  min-height: calc(100dvh - 92px);
+  overflow: hidden;
+}
+
+.inner {
+  position: relative;
+  width: min(1200px, 100%);
+  min-height: calc(100dvh - 92px);
+  margin: 0 auto;
+}
+
+.content {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  min-height: calc(100dvh - 92px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 40px 110px;
+  gap: 44px;
+}
+
+.logoWrap {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(4, 10, 20, 0.84);
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.logoGlow {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: -12px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(235, 109, 35, 0.56);
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.mainLogo {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+}
+
+.textBlock {
+  width: 100%;
+  max-width: 980px;
+  text-align: center;
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+  color: var(--text-strong);
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.subtitle {
+  width: 100%;
+  margin: 10px 0 0;
+  color: #b6c1ce;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: center;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.actionRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: rgba(8, 16, 32, 0.75);
+  color: var(--text-strong);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  padding: 17px 34px;
+  cursor: default;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.ctaButton:hover {
+  color: #c2cddb;
+  background: rgba(11, 22, 39, 0.88);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.socials {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  gap: 32px;
+}
+
+.socialButton {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  cursor: default;
+}
+
+.telegramIcon {
+  filter: brightness(0) invert(1);
+  opacity: 0.52;
+}
+
+.divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.scrollButton {
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  width: min-content;
+  height: min-content;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  border: 0;
+  border-radius: 36px;
+  background: transparent;
+  color: #d4652d;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.scrollButton:hover {
+  color: #ff894a;
+}
+
+.chevron {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 1200px) {
+  .root,
+  .inner,
+  .content {
+    min-height: calc(100dvh - 84px);
+  }
+
+  .content {
+    padding: 88px 34px 88px;
+    gap: 34px;
+  }
+
+  .logoWrap {
+    width: 126px;
+    height: 126px;
+  }
+
+  .mainLogo {
+    width: 82px;
+    height: 82px;
+  }
+
+  .title {
+    font-size: 62px;
+  }
+
+  .subtitle {
+    margin-top: 8px;
+    font-size: 20px;
+  }
+
+  .ctaButton {
+    font-size: 15px;
+    padding: 14px 22px;
+  }
+
+  .socials {
+    gap: 22px;
+  }
+}
+
+@media (max-width: 800px) {
+  .root,
+  .inner,
+  .content {
+    min-height: calc(100dvh - 84px);
+  }
+
+  .content {
+    justify-content: flex-start;
+    padding: 52px 16px 78px;
+    gap: 22px;
+  }
+
+  .logoWrap {
+    width: 106px;
+    height: 106px;
+    border-radius: 20px;
+  }
+
+  .mainLogo {
+    width: 68px;
+    height: 68px;
+  }
+
+  .title {
+    font-size: 54px;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .ctaButton {
+    width: 100%;
+    max-width: 360px;
+    font-size: 13px;
+    padding: 13px 14px;
+  }
+
+  .socials {
+    gap: 16px;
+  }
+
+  .socialButton {
+    width: 24px;
+    height: 24px;
+  }
+
+  .divider {
+    height: 18px;
+  }
+
+  .scrollButton {
+    bottom: 18px;
+  }
+}

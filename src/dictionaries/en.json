@@ -24,6 +24,12 @@
       },
       "contactButton": "Contact Email"
     },
+    "homeHero": {
+      "title": "Anthracite and T Grade from the Producer",
+      "subtitle": "From 1 ton to full vessel lots with quality guarantee",
+      "cta": "Calculate cost and delivery timeline",
+      "scrollLabel": "Scroll to the next section"
+    },
     "footer": {
       "links": {
         "home": "Home",
@@ -34,6 +40,17 @@
       },
       "copyright": "© 2026 TD IMPEKS",
       "email": "tdimpeks@support.com"
+    },
+    "newsList": {
+      "badge": "News subtitle",
+      "title": "TD \"IMPEKS\" News",
+      "subtitle": "Latest updates from company life",
+      "cardSubtitle": "Subtitle",
+      "loadMore": "More news"
+    },
+    "newsArticle": {
+      "back": "Back to news",
+      "subtitle": "Subtitle"
     }
   }
 }
