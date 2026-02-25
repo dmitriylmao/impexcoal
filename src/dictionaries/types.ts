@@ -46,6 +46,16 @@ export type SiteDictionary = {
       leadRest: string;
       body: string;
     };
+    homeDeck: {
+      badge: string;
+      cards: Array<{
+        title: string;
+        description: string;
+        metricValue: string;
+        metricLabel: string;
+        imageAlt: string;
+      }>;
+    };
     footer: {
       links: {
         home: string;

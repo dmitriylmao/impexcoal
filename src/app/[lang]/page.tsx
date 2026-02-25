@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import HeroSection from '@/components/sections/home/HeroSection';
 import WhyChooseSection from '@/components/sections/home/WhyChooseSection';
 import DifferencesSection from '@/components/sections/home/DifferencesSection';
+import DeckSection from '@/components/sections/home/DeckSection';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import styles from './page.module.css';
@@ -41,6 +42,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         leadRest={dict.ui.homeDifferences.leadRest}
         body={dict.ui.homeDifferences.body}
       />
+
+      <DeckSection badge={dict.ui.homeDeck.badge} cards={dict.ui.homeDeck.cards} />
     </div>
   );
 }

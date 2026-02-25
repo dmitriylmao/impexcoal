@@ -1,6 +1,7 @@
 .root {
   width: 100%;
   padding: 8px 0 72px;
+  background-color: rgb(25, 28, 35);
 }
 
 .inner {

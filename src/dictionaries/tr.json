@@ -63,6 +63,32 @@
       "leadRest": "\"Progress\" ve \"Komsomolets Donbassa\" madenlerinin münhasır temsilcisidir.",
       "body": "Üreticiyle doğrudan sözleşme, aracıları ortadan kaldırır, maliyetleri düşürür ve kalite kontrolünü üretim aşamasında sağlar. Bu sayede rekabetçi fiyatı korur ve doğrulanmış özelliklere sahip istikrarlı bir ürün sunarız."
     },
+    "homeDeck": {
+      "badge": "Uzun vadeli iş birliği için istikrarlı hacim ve planlı lojistik",
+      "cards": [
+        {
+          "title": "Tedarik coğrafyası",
+          "description": "Rusya, BDT ülkeleri, Türkiye ve Avrupa'ya kömür tedarik ediyor; ayda 150.000 tonun üzerinde istikrarlı sevkiyat sağlıyoruz.",
+          "metricValue": "0 %",
+          "metricLabel": "Mutlu müşteriler",
+          "imageAlt": "Tedarik haritası"
+        },
+        {
+          "title": "Uzun vadeli ortaklık",
+          "description": "Yaklaşımımız uzun vadeli iş birliğine odaklıdır: müşterilerimiz bizimle iki yıldan uzun süredir çalışır.",
+          "metricValue": "0 %",
+          "metricLabel": "Mutlu müşteriler",
+          "imageAlt": "Ortaklık"
+        },
+        {
+          "title": "Esnek lojistik",
+          "description": "Depodan limana esnek teslimat koşulları sunuyor, ayrıca charter süreçlerini yürütüyor ve her hacim için en uygun lojistik çözümleri seçiyoruz.",
+          "metricValue": "0 %",
+          "metricLabel": "Mutlu müşteriler",
+          "imageAlt": "Lojistik"
+        }
+      ]
+    },
     "footer": {
       "links": {
         "home": "Ana Sayfa",
