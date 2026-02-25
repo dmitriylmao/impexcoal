@@ -30,6 +30,39 @@
       "cta": "Maliyet ve teslim süresini hesapla",
       "scrollLabel": "Sonraki bölüme kaydır"
     },
+    "homeWhyChoose": {
+      "badge": "Avantajlarımız",
+      "title": "Neden TD \"IMPEKS\" seçiliyor",
+      "cards": [
+        {
+          "title": "Kül oranı %7'ye kadar antrasit",
+          "subtitle": "Madenden doğrudan istikrarlı kalite.",
+          "description": "Her partinin göstergelerini kontrol ediyoruz, böylece sipariş ettiğiniz kömürü tam olarak alırsınız."
+        },
+        {
+          "title": "Kalite garantisi",
+          "subtitle": "Her parti için belgeli kalite doğrulaması.",
+          "description": "Kalite pasaportu ve madenden yüklemeye kadar tüm aşamalarda kontrol."
+        },
+        {
+          "title": "Teslimat ve coğrafya",
+          "subtitle": "Rusya, BDT, Türkiye ve Avrupa'ya teslimat.",
+          "description": "Kamyon, demiryolu ve charter; Rostov limanındaki kendi terminalimiz üzerinden. Hacim ve süreye göre en uygun rotayı, tek kamyondan gemi partisine kadar seçiyoruz."
+        },
+        {
+          "title": "Hacim ve istikrar",
+          "subtitle": "Aylık 150.000+ ton ve istikrarlı tedarik.",
+          "description": "Kendi üretimimiz fiyatı, süreleri ve hacimleri istikrarlı tutar."
+        }
+      ]
+    },
+    "homeDifferences": {
+      "badge": "Avantajlarımız",
+      "title": "Bizi diğerlerinden ayıran nedir",
+      "leadAccent": "Ticaret evi \"IMPEKS\"",
+      "leadRest": "\"Progress\" ve \"Komsomolets Donbassa\" madenlerinin münhasır temsilcisidir.",
+      "body": "Üreticiyle doğrudan sözleşme, aracıları ortadan kaldırır, maliyetleri düşürür ve kalite kontrolünü üretim aşamasında sağlar. Bu sayede rekabetçi fiyatı korur ve doğrulanmış özelliklere sahip istikrarlı bir ürün sunarız."
+    },
     "footer": {
       "links": {
         "home": "Ana Sayfa",

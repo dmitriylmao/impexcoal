@@ -30,6 +30,39 @@
       "cta": "Calculate cost and delivery timeline",
       "scrollLabel": "Scroll to the next section"
     },
+    "homeWhyChoose": {
+      "badge": "Our advantages",
+      "title": "Why choose TD \"IMPEKS\"",
+      "cards": [
+        {
+          "title": "Anthracite with ash up to 7%",
+          "subtitle": "Stable quality directly from the mine.",
+          "description": "We control metrics for every batch so you get exactly the coal you ordered."
+        },
+        {
+          "title": "Quality guarantee",
+          "subtitle": "Documented quality confirmation for each shipment.",
+          "description": "Quality passport and control at every stage from the mine to loading."
+        },
+        {
+          "title": "Delivery and geography",
+          "subtitle": "Delivery across Russia, CIS, Turkey and Europe.",
+          "description": "Truck, rail and charter through our own terminal in Rostov port. We select the optimal route by volume and timing, from single truck loads to vessel lots."
+        },
+        {
+          "title": "Volume and stability",
+          "subtitle": "Over 150,000 tons per month with stable supply.",
+          "description": "Own production allows us to keep pricing, lead times and volumes stable."
+        }
+      ]
+    },
+    "homeDifferences": {
+      "badge": "Our advantages",
+      "title": "What sets us apart",
+      "leadAccent": "Trading House \"IMPEKS\"",
+      "leadRest": "is the exclusive representative of the \"Progress\" and \"Komsomolets Donbassa\" mines.",
+      "body": "A direct contract with the producer eliminates intermediaries, reduces costs, and ensures quality control at the extraction stage. This allows us to keep competitive pricing and deliver a stable product with verified characteristics."
+    },
     "footer": {
       "links": {
         "home": "Home",

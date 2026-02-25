@@ -3,6 +3,7 @@
   width: 100%;
   min-height: calc(100dvh - 92px);
   overflow: hidden;
+  background-color: #210000;
 }
 
 .inner {

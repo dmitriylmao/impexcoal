@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation';
 import HeroSection from '@/components/sections/home/HeroSection';
+import WhyChooseSection from '@/components/sections/home/WhyChooseSection';
+import DifferencesSection from '@/components/sections/home/DifferencesSection';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import styles from './page.module.css';
@@ -26,9 +28,19 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         scrollLabel={dict.ui.homeHero.scrollLabel}
       />
 
-      <section id="next-block" className={styles.placeholder} aria-label={dict.ui.homeHero.scrollLabel}>
-        <div className={styles.placeholderInner} />
-      </section>
+      <WhyChooseSection
+        badge={dict.ui.homeWhyChoose.badge}
+        title={dict.ui.homeWhyChoose.title}
+        cards={dict.ui.homeWhyChoose.cards}
+      />
+
+      <DifferencesSection
+        badge={dict.ui.homeDifferences.badge}
+        title={dict.ui.homeDifferences.title}
+        leadAccent={dict.ui.homeDifferences.leadAccent}
+        leadRest={dict.ui.homeDifferences.leadRest}
+        body={dict.ui.homeDifferences.body}
+      />
     </div>
   );
 }

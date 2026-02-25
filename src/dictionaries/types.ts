@@ -30,6 +30,22 @@ export type SiteDictionary = {
       cta: string;
       scrollLabel: string;
     };
+    homeWhyChoose: {
+      badge: string;
+      title: string;
+      cards: Array<{
+        title: string;
+        subtitle: string;
+        description: string;
+      }>;
+    };
+    homeDifferences: {
+      badge: string;
+      title: string;
+      leadAccent: string;
+      leadRest: string;
+      body: string;
+    };
     footer: {
       links: {
         home: string;
