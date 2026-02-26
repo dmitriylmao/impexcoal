@@ -1,0 +1,125 @@
+.root {
+  position: relative;
+  width: 100%;
+  padding: 18px 0 56px;
+  overflow-x: clip;
+}
+
+.viewport {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 8px 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 9%, black 91%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 9%, black 91%, transparent 100%);
+}
+
+.viewport::before,
+.viewport::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.viewport::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(3, 8, 18, 0.96), rgba(3, 8, 18, 0));
+}
+
+.viewport::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(3, 8, 18, 0.96), rgba(3, 8, 18, 0));
+}
+
+.rail {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  animation: marquee 36s linear infinite;
+  will-change: transform;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  gap: 132px;
+  padding-right: 132px;
+}
+
+.logoItem {
+  flex: 0 0 auto;
+  width: 64px;
+  display: grid;
+  place-items: center;
+  opacity: 0.54;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% + 66px));
+  }
+}
+
+@media (max-width: 1200px) {
+  .group {
+    gap: 108px;
+    padding-right: 108px;
+  }
+
+  .logoItem {
+    width: 58px;
+  }
+
+  .logo {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (max-width: 800px) {
+  .root {
+    padding-bottom: 38px;
+  }
+
+  .viewport {
+    mask-image: linear-gradient(to right, transparent 0%, black 23%, black 77%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 23%, black 77%, transparent 100%);
+  }
+
+  .viewport::before,
+  .viewport::after {
+    width: 56px;
+  }
+
+  .rail {
+    animation-duration: 30s;
+  }
+
+  .group {
+    gap: 74px;
+    padding-right: 74px;
+  }
+
+  .logoItem {
+    width: 46px;
+  }
+
+  .logo {
+    width: 38px;
+    height: 38px;
+  }
+}

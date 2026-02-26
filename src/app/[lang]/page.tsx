@@ -4,6 +4,7 @@ import WhyChooseSection from '@/components/sections/home/WhyChooseSection';
 import DifferencesSection from '@/components/sections/home/DifferencesSection';
 import DeckSection from '@/components/sections/home/DeckSection';
 import SegmentsSection from '@/components/sections/home/SegmentsSection';
+import LogoMarqueeSection from '@/components/sections/home/LogoMarqueeSection';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import styles from './page.module.css';
@@ -52,6 +53,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         cta={dict.ui.homeSegments.cta}
         tabs={dict.ui.homeSegments.tabs}
       />
+
+      <LogoMarqueeSection />
     </div>
   );
 }

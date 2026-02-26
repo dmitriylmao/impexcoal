@@ -1,3 +1,4 @@
 .page {
   background: #030812;
+  overflow-x: clip;
 }
