@@ -42,7 +42,7 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
 
     const timer = setInterval(() => {
       setOrder((prev) => [...prev.slice(1), prev[0]]);
-    }, 10000);
+    }, 15000);
 
     return () => clearInterval(timer);
   }, [order.length]);
@@ -108,6 +108,7 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
                 type="button"
                 className={order[0] === index ? `${styles.dot} ${styles.dotActive}` : styles.dot}
                 onClick={() => activateCard(index)}
+                onMouseDown={(event) => event.stopPropagation()}
                 aria-label={`Slide ${index + 1}`}
               />
             ))}
