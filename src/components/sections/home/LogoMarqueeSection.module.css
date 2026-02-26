@@ -71,7 +71,6 @@
   height: 80px;  /* Максимальная высота */
   object-fit: contain; /* Чтобы лого не искажалось */
   /* Если логотип все равно кажется маленьким, можно добавить scale */
-  transform: scale(1.1); 
 }
 @keyframes marquee {
   from {

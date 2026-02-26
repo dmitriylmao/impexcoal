@@ -26,7 +26,7 @@
 .contentContainer {
   width: 100%;
   max-width: 1200px;
-  min-height: 92px;
+  min-height: 82px;
   padding: 12px 24px;
   display: flex;
   align-items: center;
@@ -40,6 +40,7 @@
   padding: 0;
   cursor: pointer;
   flex: 0 0 auto;
+  margin-right: auto;
 }
 
 .logo {

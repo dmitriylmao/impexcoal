@@ -9,6 +9,7 @@
   padding: 86px 24px 30px;
   display: grid;
   gap: 46px;
+  justify-items: start;
 }
 
 .logoButton {
@@ -16,7 +17,8 @@
   background: transparent;
   width: fit-content;
   padding: 0;
-  cursor: default;
+  cursor: pointer;
+  margin-right: auto;
 }
 
 .logo {
