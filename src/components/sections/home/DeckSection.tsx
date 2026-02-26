@@ -92,7 +92,7 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
                       </div>
 
                       <div className={styles.cardMedia}>
-                        <Image src="/image.png" alt={card.imageAlt} fill className={styles.mediaImage} sizes="40vw" />
+                        <Image src="/image1.jpg" alt={card.imageAlt} fill className={styles.mediaImage} sizes="40vw" />
                       </div>
                     </div>
                   </div>

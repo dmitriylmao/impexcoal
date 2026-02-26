@@ -1,8 +1,12 @@
 .root {
   position: relative;
-  width: 100%;
-  padding: 18px 0 56px;
-  overflow-x: clip;
+  /* Заставляем секцию занимать всю ширину экрана, игнорируя родителей */
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw); /* Центрируем и вытягиваем на весь экран */
+  padding: 32px 0 32px;
+  overflow: hidden; /* Жестко обрезаем всё, что выходит за рамки экрана */
+  background-color: rgb(3, 0, 20);
 }
 
 .viewport {
@@ -47,24 +51,28 @@
 .group {
   display: flex;
   align-items: center;
-  gap: 132px;
-  padding-right: 132px;
+  gap: 20px; /* должны быть одинаковыми*/
+  padding-right: 20px;
 }
 
+/* УВЕЛИЧЕННЫЕ ЛОГОТИПЫ */
 .logoItem {
   flex: 0 0 auto;
-  width: 64px;
-  display: grid;
-  place-items: center;
-  opacity: 0.54;
+  width: 200px; /* Большой контейнер для лого */
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7; /* Сделал чуть ярче */
+  transition: opacity 0.3s ease;
 }
-
 .logo {
-  width: 52px;
-  height: 52px;
-  object-fit: contain;
+  width: 160px;  /* Максимальная ширина */
+  height: 80px;  /* Максимальная высота */
+  object-fit: contain; /* Чтобы лого не искажалось */
+  /* Если логотип все равно кажется маленьким, можно добавить scale */
+  transform: scale(1.1); 
 }
-
 @keyframes marquee {
   from {
     transform: translateX(0);
@@ -76,50 +84,16 @@
 
 @media (max-width: 1200px) {
   .group {
-    gap: 108px;
-    padding-right: 108px;
+    gap: 24px;
+    padding-right: 24px;
   }
-
-  .logoItem {
-    width: 58px;
-  }
-
-  .logo {
-    width: 46px;
-    height: 46px;
-  }
-}
-
-@media (max-width: 800px) {
-  .root {
-    padding-bottom: 38px;
-  }
-
-  .viewport {
-    mask-image: linear-gradient(to right, transparent 0%, black 23%, black 77%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 23%, black 77%, transparent 100%);
-  }
-
-  .viewport::before,
-  .viewport::after {
-    width: 56px;
-  }
-
-  .rail {
-    animation-duration: 30s;
-  }
-
-  .group {
-    gap: 74px;
-    padding-right: 74px;
-  }
-
-  .logoItem {
-    width: 46px;
-  }
-
-  .logo {
-    width: 38px;
-    height: 38px;
+  /* Подправляем анимацию для мобилок, если меняется gap */
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% + 54px)); /* Половина от 108px */
+    }
   }
 }
