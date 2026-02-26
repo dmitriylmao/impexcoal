@@ -1,0 +1,25 @@
+import Image from 'next/image';
+import styles from './ProductionCycleSection.module.css';
+
+type ProductionCycleSectionProps = {
+  badge: string;
+  title: string;
+  imageAlt: string;
+};
+
+export default function ProductionCycleSection({ badge, title, imageAlt }: ProductionCycleSectionProps) {
+  return (
+    <section className={styles.root} aria-label={title}>
+      <div className={styles.inner}>
+        <div className={styles.top}>
+          <span className={styles.badge}>{badge}</span>
+          <h2 className={styles.title}>{title}</h2>
+        </div>
+
+        <div className={styles.imageFrame}>
+          <Image src="/image2.jpg" alt={imageAlt} fill className={styles.image} sizes="(max-width: 800px) 100vw, 1200px" />
+        </div>
+      </div>
+    </section>
+  );
+}

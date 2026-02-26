@@ -111,6 +111,11 @@
         }
       ]
     },
+    "homeCycle": {
+      "badge": "Production and logistics cycle",
+      "title": "From extraction to client",
+      "imageAlt": "Production and logistics cycle"
+    },
     "footer": {
       "links": {
         "home": "Home",

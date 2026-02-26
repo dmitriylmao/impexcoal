@@ -111,6 +111,11 @@
         }
       ]
     },
+    "homeCycle": {
+      "badge": "Üretim ve lojistik döngüsü",
+      "title": "Çıkarımdan müşteriye",
+      "imageAlt": "Üretim ve lojistik döngüsü"
+    },
     "footer": {
       "links": {
         "home": "Ana Sayfa",

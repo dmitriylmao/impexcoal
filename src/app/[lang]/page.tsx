@@ -5,6 +5,7 @@ import DifferencesSection from '@/components/sections/home/DifferencesSection';
 import DeckSection from '@/components/sections/home/DeckSection';
 import SegmentsSection from '@/components/sections/home/SegmentsSection';
 import LogoMarqueeSection from '@/components/sections/home/LogoMarqueeSection';
+import ProductionCycleSection from '@/components/sections/home/ProductionCycleSection';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import styles from './page.module.css';
@@ -55,6 +56,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       />
 
       <LogoMarqueeSection />
+
+      <ProductionCycleSection
+        badge={dict.ui.homeCycle.badge}
+        title={dict.ui.homeCycle.title}
+        imageAlt={dict.ui.homeCycle.imageAlt}
+      />
     </div>
   );
 }

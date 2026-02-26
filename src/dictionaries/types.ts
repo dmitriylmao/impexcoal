@@ -66,6 +66,11 @@ export type SiteDictionary = {
         description: string;
       }>;
     };
+    homeCycle: {
+      badge: string;
+      title: string;
+      imageAlt: string;
+    };
     footer: {
       links: {
         home: string;
