@@ -89,6 +89,28 @@
         }
       ]
     },
+    "homeSegments": {
+      "badge": "Ana pazarlar ve teslimat formatları için çözümler",
+      "title": "Tedarik Segmentleri",
+      "cta": "Başvuru bırak",
+      "tabs": [
+        {
+          "tab": "Üretim için",
+          "title": "Üretimin istikrarlı çalışması için antrasit",
+          "description": "Yakıt parametrelerinin öngörülebilir ve hacimlerin kesintisiz olması gereken fabrikalar, kojenerasyon tesisleri ve kazan daireleri için tedarik. %7'ye kadar kül oranı, her partinin kontrolü ve madenlerle doğrudan sözleşmeler; istikrarlı ısıl değer, düşük üretim riski ve doğru maliyet planlaması sağlar."
+        },
+        {
+          "tab": "Depolar için",
+          "title": "Kafkas toptancıları ve bölgesel pazarlar için antrasit",
+          "description": "Dağıstan, Vladikavkaz ve diğer bölgelerde son kullanıcıya çalışan şirketler için uygun bir format. Esnek sevkiyat partileri, rahat lojistik ve istikrarlı kalite; rekabetçi fiyatı korumayı, stok devrini hızlandırmayı ve orta alım hacimlerinde marjı korumayı sağlar."
+        },
+        {
+          "tab": "Türk ortaklar için",
+          "title": "Türk pazarı için antrasit",
+          "description": "Açık teknik şartname ve belgeli performans göstergeleriyle ihracat sevkiyatları. Navlun organizasyonu, yükleme kontrolü ve istikrarlı aylık hacimler; uluslararası pazarda sözleşme güvenilirliği ve operasyon şeffaflığı sağlar."
+        }
+      ]
+    },
     "footer": {
       "links": {
         "home": "Ana Sayfa",

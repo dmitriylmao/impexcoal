@@ -56,6 +56,16 @@ export type SiteDictionary = {
         imageAlt: string;
       }>;
     };
+    homeSegments: {
+      badge: string;
+      title: string;
+      cta: string;
+      tabs: Array<{
+        tab: string;
+        title: string;
+        description: string;
+      }>;
+    };
     footer: {
       links: {
         home: string;

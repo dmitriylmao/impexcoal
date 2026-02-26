@@ -3,6 +3,7 @@ import HeroSection from '@/components/sections/home/HeroSection';
 import WhyChooseSection from '@/components/sections/home/WhyChooseSection';
 import DifferencesSection from '@/components/sections/home/DifferencesSection';
 import DeckSection from '@/components/sections/home/DeckSection';
+import SegmentsSection from '@/components/sections/home/SegmentsSection';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import styles from './page.module.css';
@@ -44,6 +45,13 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       />
 
       <DeckSection badge={dict.ui.homeDeck.badge} cards={dict.ui.homeDeck.cards} />
+
+      <SegmentsSection
+        badge={dict.ui.homeSegments.badge}
+        title={dict.ui.homeSegments.title}
+        cta={dict.ui.homeSegments.cta}
+        tabs={dict.ui.homeSegments.tabs}
+      />
     </div>
   );
 }

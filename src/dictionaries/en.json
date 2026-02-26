@@ -89,6 +89,28 @@
         }
       ]
     },
+    "homeSegments": {
+      "badge": "Solutions for key markets and delivery formats",
+      "title": "Supply Segments",
+      "cta": "Leave a request",
+      "tabs": [
+        {
+          "tab": "For production",
+          "title": "Anthracite for stable industrial operations",
+          "description": "Supply for plants, CHP facilities, and boiler houses where predictable fuel parameters and uninterrupted volumes are critical. Ash content up to 7%, control of every batch, and direct contracts with mines ensure stable calorific value, lower operational risks, and accurate cost planning."
+        },
+        {
+          "tab": "For warehouses",
+          "title": "Anthracite for Caucasus wholesalers and regional markets",
+          "description": "A format for companies serving retail demand in Dagestan, Vladikavkaz, and other regions. Flexible shipment batches, convenient logistics, and stable quality help maintain competitive pricing, accelerate inventory turnover, and preserve margins at moderate purchase volumes."
+        },
+        {
+          "tab": "For Turkish partners",
+          "title": "Anthracite for the Turkish market",
+          "description": "Export deliveries with clear specifications and documented performance indicators. Freight arrangement, shipment control, and stable monthly volumes ensure contract reliability and transparent operations in international trade."
+        }
+      ]
+    },
     "footer": {
       "links": {
         "home": "Home",
