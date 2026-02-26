@@ -17,6 +17,8 @@ type DeckSectionProps = {
   cards: DeckCard[];
 };
 
+const DECK_IMAGES = ['/image.png', '/image1.jpg', '/image2.jpg'] as const;
+
 function reorderDeck(current: number[], selected: number): number[] {
   if (current[0] === selected) {
     return current;
@@ -62,6 +64,7 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
           <div className={styles.stage}>
             {order.map((cardIndex, stackIndex) => {
               const card = cards[cardIndex];
+              const imageSrc = DECK_IMAGES[cardIndex % DECK_IMAGES.length];
               const positionClass =
                 stackIndex === 0 ? styles.positionFront : stackIndex === 1 ? styles.positionMiddle : styles.positionBack;
 
@@ -92,7 +95,7 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
                       </div>
 
                       <div className={styles.cardMedia}>
-                        <Image src="/image1.jpg" alt={card.imageAlt} fill className={styles.mediaImage} sizes="40vw" />
+                        <Image src={imageSrc} alt={card.imageAlt} fill className={styles.mediaImage} sizes="40vw" />
                       </div>
                     </div>
                   </div>
