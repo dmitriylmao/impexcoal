@@ -4,11 +4,6 @@ import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { getLocalizedNewsContent, normalizeImageUrl } from '@/lib/news-localization';
 import NewsListClient from '@/components/news/NewsListClient';
-import type { Prisma } from '@prisma/client';
-
-type NewsWithTranslations = Prisma.NewsGetPayload<{
-  include: { translations: true };
-}>;
 
 export default async function NewsPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -25,7 +20,7 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
     include: { translations: true },
   });
 
-  const cards = news.map((item: NewsWithTranslations) => {
+  const cards = news.map((item: (typeof news)[number]) => {
     const localized = getLocalizedNewsContent(item, locale, i18n.defaultLocale);
 
     return {
