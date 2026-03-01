@@ -5,26 +5,40 @@ import { revalidatePath } from 'next/cache';
 import { prisma } from '@/lib/prisma';
 import { signOutAdmin, requireAdminAuthOrRedirect } from '@/lib/admin-auth';
 import { i18n, type Locale } from '@/i18n/config';
+import { generateUniqueSlug } from '@/lib/slug';
 
-type TranslationInput = {
+type NewsTranslationInput = {
   locale: Locale;
   title: string;
   content: string;
 };
 
-function getTranslationInputs(formData: FormData): TranslationInput[] {
+type ProductTranslationInput = {
+  locale: Locale;
+  name: string;
+  description: string;
+};
+
+function getNewsTranslationInputs(formData: FormData): NewsTranslationInput[] {
   return i18n.locales
     .map((locale) => {
       const title = String(formData.get(`title_${locale}`) ?? '').trim();
       const content = String(formData.get(`content_${locale}`) ?? '').trim();
-
-      if (!title || !content) {
-        return null;
-      }
-
-      return { locale, title, content } satisfies TranslationInput;
+      if (!title || !content) return null;
+      return { locale, title, content } satisfies NewsTranslationInput;
     })
-    .filter((item): item is TranslationInput => item !== null);
+    .filter((item): item is NewsTranslationInput => item !== null);
+}
+
+function getProductTranslationInputs(formData: FormData): ProductTranslationInput[] {
+  return i18n.locales
+    .map((locale) => {
+      const name = String(formData.get(`name_${locale}`) ?? '').trim();
+      const description = String(formData.get(`description_${locale}`) ?? '').trim();
+      if (!name || !description) return null;
+      return { locale, name, description } satisfies ProductTranslationInput;
+    })
+    .filter((item): item is ProductTranslationInput => item !== null);
 }
 
 async function revalidatePublicPages() {
@@ -44,45 +58,38 @@ export async function createProjectAction(formData: FormData) {
   await requireAdminAuthOrRedirect();
 
   const name = String(formData.get('name') ?? '').trim();
-  const slug = String(formData.get('slug') ?? '').trim();
+  if (!name) return;
 
-  if (!name || !slug) return;
+  const slug = await generateUniqueSlug(name, async (candidate) => {
+    const exists = await prisma.project.findUnique({ where: { slug: candidate }, select: { id: true } });
+    return Boolean(exists);
+  });
 
   await prisma.project.create({ data: { name, slug } });
-  revalidatePath('/admin');
-}
-
-export async function createCategoryAction(formData: FormData) {
-  await requireAdminAuthOrRedirect();
-
-  const name = String(formData.get('name') ?? '').trim();
-  const projectId = String(formData.get('projectId') ?? '').trim();
-
-  if (!name || !projectId) return;
-
-  await prisma.category.create({ data: { name, projectId } });
   revalidatePath('/admin');
 }
 
 export async function createNewsAction(formData: FormData) {
   await requireAdminAuthOrRedirect();
 
-  const slug = String(formData.get('slug') ?? '').trim();
   const imgUrlRaw = String(formData.get('imgUrl') ?? '').trim();
   const projectId = String(formData.get('projectId') ?? '').trim();
-  const categoryId = String(formData.get('categoryId') ?? '').trim();
 
-  const translations = getTranslationInputs(formData);
+  const translations = getNewsTranslationInputs(formData);
   const russian = translations.find((item) => item.locale === i18n.defaultLocale);
 
-  if (!slug || !projectId || !categoryId || !russian) return;
+  if (!projectId || !russian) return;
+
+  const slug = await generateUniqueSlug(russian.title, async (candidate) => {
+    const exists = await prisma.news.findUnique({ where: { slug: candidate }, select: { id: true } });
+    return Boolean(exists);
+  });
 
   await prisma.news.create({
     data: {
       slug,
       imgUrl: imgUrlRaw || null,
       projectId,
-      categoryId,
       title: russian.title,
       content: russian.content,
       translations: {
@@ -101,15 +108,21 @@ export async function updateNewsAction(formData: FormData) {
   await requireAdminAuthOrRedirect();
 
   const id = String(formData.get('id') ?? '').trim();
-  const slug = String(formData.get('slug') ?? '').trim();
   const imgUrlRaw = String(formData.get('imgUrl') ?? '').trim();
   const projectId = String(formData.get('projectId') ?? '').trim();
-  const categoryId = String(formData.get('categoryId') ?? '').trim();
 
-  const translations = getTranslationInputs(formData);
+  const translations = getNewsTranslationInputs(formData);
   const russian = translations.find((item) => item.locale === i18n.defaultLocale);
 
-  if (!id || !slug || !projectId || !categoryId || !russian) return;
+  if (!id || !projectId || !russian) return;
+
+  const slug = await generateUniqueSlug(russian.title, async (candidate) => {
+    const exists = await prisma.news.findFirst({
+      where: { slug: candidate, NOT: { id } },
+      select: { id: true },
+    });
+    return Boolean(exists);
+  });
 
   await prisma.news.update({
     where: { id },
@@ -117,7 +130,6 @@ export async function updateNewsAction(formData: FormData) {
       slug,
       imgUrl: imgUrlRaw || null,
       projectId,
-      categoryId,
       title: russian.title,
       content: russian.content,
       translations: {
@@ -142,6 +154,96 @@ export async function deleteNewsAction(formData: FormData) {
   if (!id) return;
 
   await prisma.news.delete({ where: { id } });
+
+  revalidatePath('/admin');
+  await revalidatePublicPages();
+}
+
+export async function createProductAction(formData: FormData) {
+  await requireAdminAuthOrRedirect();
+
+  const imgUrl = String(formData.get('imgUrl') ?? '').trim();
+  const price = String(formData.get('price') ?? '').trim();
+  const projectId = String(formData.get('projectId') ?? '').trim();
+
+  const translations = getProductTranslationInputs(formData);
+  const russian = translations.find((item) => item.locale === i18n.defaultLocale);
+
+  if (!projectId || !imgUrl || !russian) return;
+
+  const slug = await generateUniqueSlug(russian.name, async (candidate) => {
+    const exists = await prisma.product.findUnique({ where: { slug: candidate }, select: { id: true } });
+    return Boolean(exists);
+  });
+
+  await prisma.product.create({
+    data: {
+      slug,
+      imgUrl,
+      price: price || null,
+      projectId,
+      translations: {
+        createMany: {
+          data: translations,
+        },
+      },
+    },
+  });
+
+  revalidatePath('/admin');
+  await revalidatePublicPages();
+}
+
+export async function updateProductAction(formData: FormData) {
+  await requireAdminAuthOrRedirect();
+
+  const id = String(formData.get('id') ?? '').trim();
+  const imgUrl = String(formData.get('imgUrl') ?? '').trim();
+  const price = String(formData.get('price') ?? '').trim();
+  const projectId = String(formData.get('projectId') ?? '').trim();
+
+  const translations = getProductTranslationInputs(formData);
+  const russian = translations.find((item) => item.locale === i18n.defaultLocale);
+
+  if (!id || !projectId || !imgUrl || !russian) return;
+
+  const slug = await generateUniqueSlug(russian.name, async (candidate) => {
+    const exists = await prisma.product.findFirst({
+      where: { slug: candidate, NOT: { id } },
+      select: { id: true },
+    });
+    return Boolean(exists);
+  });
+
+  await prisma.product.update({
+    where: { id },
+    data: {
+      slug,
+      imgUrl,
+      price: price || null,
+      projectId,
+      translations: {
+        deleteMany: {},
+        createMany: {
+          data: translations,
+        },
+      },
+    },
+  });
+
+  revalidatePath('/admin');
+  revalidatePath(`/admin/products/${id}`);
+  await revalidatePublicPages();
+  redirect('/admin');
+}
+
+export async function deleteProductAction(formData: FormData) {
+  await requireAdminAuthOrRedirect();
+
+  const id = String(formData.get('id') ?? '').trim();
+  if (!id) return;
+
+  await prisma.product.delete({ where: { id } });
 
   revalidatePath('/admin');
   await revalidatePublicPages();

@@ -14,10 +14,8 @@ type InitialTranslations = Partial<Record<Locale, { title: string; content: stri
 
 type NewsFormInitial = {
   id?: string;
-  slug?: string;
   imgUrl?: string | null;
   projectId?: string;
-  categoryId?: string;
   translations?: InitialTranslations;
 };
 
@@ -25,20 +23,17 @@ type Props = {
   action: FormAction;
   submitLabel: string;
   projects: Option[];
-  categories: Option[];
   locales: readonly Locale[];
   initial?: NewsFormInitial;
 };
 
 type PreviewData = {
-  slug: string;
   imageUrl: string;
   projectName: string;
-  categoryName: string;
   translations: Record<string, { title: string; content: string }>;
 };
 
-export default function NewsEditorForm({ action, submitLabel, projects, categories, locales, initial }: Props) {
+export default function NewsEditorForm({ action, submitLabel, projects, locales, initial }: Props) {
   const formRef = useRef<HTMLFormElement>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [preview, setPreview] = useState<PreviewData | null>(null);
@@ -57,7 +52,6 @@ export default function NewsEditorForm({ action, submitLabel, projects, categori
 
     const data = new FormData(formRef.current);
     const projectId = String(data.get('projectId') ?? '');
-    const categoryId = String(data.get('categoryId') ?? '');
 
     const translations: Record<string, { title: string; content: string }> = {};
     for (const locale of locales) {
@@ -68,18 +62,12 @@ export default function NewsEditorForm({ action, submitLabel, projects, categori
     }
 
     setPreview({
-      slug: String(data.get('slug') ?? '').trim(),
       imageUrl: String(data.get('imgUrl') ?? '').trim(),
       projectName: projects.find((project) => project.id === projectId)?.name ?? '-',
-      categoryName: categories.find((category) => category.id === categoryId)?.name ?? '-',
       translations,
     });
 
     dialogRef.current?.showModal();
-  };
-
-  const closePreview = () => {
-    dialogRef.current?.close();
   };
 
   return (
@@ -88,47 +76,22 @@ export default function NewsEditorForm({ action, submitLabel, projects, categori
         {initial?.id ? <input type="hidden" name="id" value={initial.id} /> : null}
 
         <input
-          name="slug"
-          placeholder="slug (например, postavki-iz-kuzbassa)"
-          required
-          defaultValue={initial?.slug ?? ''}
-          className="rounded-md border p-3"
-        />
-        <input
           name="imgUrl"
           placeholder="URL изображения (необязательно)"
           defaultValue={initial?.imgUrl ?? ''}
           className="rounded-md border p-3"
         />
 
-        <div className="grid gap-3 md:grid-cols-2">
-          <select name="projectId" defaultValue={initial?.projectId ?? ''} required className="rounded-md border p-3">
-            <option value="" disabled>
-              Выберите проект
+        <select name="projectId" defaultValue={initial?.projectId ?? ''} required className="rounded-md border p-3">
+          <option value="" disabled>
+            Выберите проект
+          </option>
+          {projects.map((project) => (
+            <option key={project.id} value={project.id}>
+              {project.name}
             </option>
-            {projects.map((project) => (
-              <option key={project.id} value={project.id}>
-                {project.name}
-              </option>
-            ))}
-          </select>
-
-          <select
-            name="categoryId"
-            defaultValue={initial?.categoryId ?? ''}
-            required
-            className="rounded-md border p-3"
-          >
-            <option value="" disabled>
-              Выберите категорию
-            </option>
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
-        </div>
+          ))}
+        </select>
 
         <div className="grid gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4">
           <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-600">Контент по языкам</h3>
@@ -171,7 +134,7 @@ export default function NewsEditorForm({ action, submitLabel, projects, categori
           <button
             className="rounded-md bg-zinc-900 px-4 py-3 font-medium text-white disabled:cursor-not-allowed disabled:bg-zinc-400"
             type="submit"
-            disabled={projects.length === 0 || categories.length === 0}
+            disabled={projects.length === 0}
           >
             {submitLabel}
           </button>
@@ -187,7 +150,7 @@ export default function NewsEditorForm({ action, submitLabel, projects, categori
             <h3 className="text-lg font-semibold">Предпросмотр новости</h3>
             <button
               type="button"
-              onClick={closePreview}
+              onClick={() => dialogRef.current?.close()}
               className="rounded-md border border-zinc-300 px-3 py-1 text-sm hover:bg-zinc-100"
             >
               Закрыть
@@ -198,13 +161,7 @@ export default function NewsEditorForm({ action, submitLabel, projects, categori
             <div className="grid gap-4">
               <div className="grid gap-2 text-sm text-zinc-600">
                 <p>
-                  <span className="font-medium text-zinc-900">Slug:</span> {preview.slug || '-'}
-                </p>
-                <p>
                   <span className="font-medium text-zinc-900">Проект:</span> {preview.projectName}
-                </p>
-                <p>
-                  <span className="font-medium text-zinc-900">Категория:</span> {preview.categoryName}
                 </p>
               </div>
 
