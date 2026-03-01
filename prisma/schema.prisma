@@ -7,19 +7,11 @@ generator client {
 }
 
 model Project {
-  id         String     @id @default(cuid())
-  name       String
-  slug       String     @unique
-  news       News[]
-  categories Category[]
-}
-
-model Category {
-  id        String   @id @default(cuid())
-  name      String   
-  project   Project  @relation(fields: [projectId], references: [id])
-  projectId String
-  news      News[]
+  id       String    @id @default(cuid())
+  name     String
+  slug     String    @unique
+  news     News[]
+  products Product[]
 }
 
 model News {
@@ -31,10 +23,7 @@ model News {
   publishedAt DateTime @default(now())
 
   project      Project           @relation(fields: [projectId], references: [id])
-  projectId   String
-
-  category     Category          @relation(fields: [categoryId], references: [id])
-  categoryId  String
+  projectId    String
   translations NewsTranslation[]
 }
 
@@ -48,5 +37,27 @@ model NewsTranslation {
   newsId String
 
   @@unique([newsId, locale])
+  @@index([locale])
+}
+
+model Product {
+  id           String               @id @default(cuid())
+  slug         String               @unique
+  imgUrl       String
+  price        String?
+  project      Project              @relation(fields: [projectId], references: [id])
+  projectId    String
+  translations ProductTranslation[]
+}
+
+model ProductTranslation {
+  id          String  @id @default(cuid())
+  locale      String
+  name        String
+  description String
+  product     Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId   String
+
+  @@unique([productId, locale])
   @@index([locale])
 }
