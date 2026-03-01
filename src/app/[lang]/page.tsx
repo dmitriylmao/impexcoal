@@ -6,8 +6,12 @@ import DeckSection from '@/components/sections/home/DeckSection';
 import SegmentsSection from '@/components/sections/home/SegmentsSection';
 import LogoMarqueeSection from '@/components/sections/home/LogoMarqueeSection';
 import ProductionCycleSection from '@/components/sections/home/ProductionCycleSection';
+import ProductsCatalogSection from '@/components/sections/home/ProductsCatalogSection';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
+import { prisma } from '@/lib/prisma';
+import { getLocalizedProductContent } from '@/lib/product-localization';
+import { normalizeImageUrl } from '@/lib/news-localization';
 import styles from './page.module.css';
 
 export function generateStaticParams() {
@@ -22,6 +26,23 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   }
 
   const dict = await getDictionary(lang as Locale);
+  const locale = lang as Locale;
+
+  const products = await prisma.product.findMany({
+    orderBy: { slug: 'asc' },
+    include: { translations: true },
+  });
+
+  const productCards = products.map((item) => {
+    const localized = getLocalizedProductContent(item, locale, i18n.defaultLocale);
+
+    return {
+      slug: item.slug,
+      name: localized.name,
+      description: localized.description,
+      imageUrl: normalizeImageUrl(item.imgUrl) ?? '/image.png',
+    };
+  });
 
   return (
     <div className={styles.page}>
@@ -61,6 +82,16 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         badge={dict.ui.homeCycle.badge}
         title={dict.ui.homeCycle.title}
         imageAlt={dict.ui.homeCycle.imageAlt}
+      />
+
+      <ProductsCatalogSection
+        badge={dict.ui.homeProducts.badge}
+        title={dict.ui.homeProducts.title}
+        subtitle={dict.ui.homeProducts.subtitle}
+        showAllLabel={dict.ui.homeProducts.showAll}
+        showLessLabel={dict.ui.homeProducts.showLess}
+        modalCloseLabel={dict.ui.homeProducts.modalClose}
+        cards={productCards}
       />
     </div>
   );

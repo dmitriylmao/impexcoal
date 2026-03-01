@@ -71,6 +71,14 @@ export type SiteDictionary = {
       title: string;
       imageAlt: string;
     };
+    homeProducts: {
+      badge: string;
+      title: string;
+      subtitle: string;
+      showAll: string;
+      showLess: string;
+      modalClose: string;
+    };
     footer: {
       links: {
         home: string;

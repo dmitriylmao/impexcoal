@@ -116,6 +116,14 @@
       "title": "From extraction to client",
       "imageAlt": "Production and logistics cycle"
     },
+    "homeProducts": {
+      "badge": "Wide coal range for different tasks",
+      "title": "More than 6 coal grades",
+      "subtitle": "For industrial and utility applications",
+      "showAll": "Show all",
+      "showLess": "Show less",
+      "modalClose": "Close"
+    },
     "footer": {
       "links": {
         "home": "Home",

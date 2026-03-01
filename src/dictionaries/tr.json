@@ -116,6 +116,14 @@
       "title": "Çıkarımdan müşteriye",
       "imageAlt": "Üretim ve lojistik döngüsü"
     },
+    "homeProducts": {
+      "badge": "Farklı görevler için geniş kömür seçimi",
+      "title": "6'dan fazla kömür çeşidi",
+      "subtitle": "Sanayi ve belediye ihtiyaçları için",
+      "showAll": "Tümünü göster",
+      "showLess": "Gizle",
+      "modalClose": "Kapat"
+    },
     "footer": {
       "links": {
         "home": "Ana Sayfa",
