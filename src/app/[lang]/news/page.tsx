@@ -20,7 +20,7 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
     include: { translations: true },
   });
 
-  const cards = news.map((item) => {
+  const cards = news.map((item: any) => {
     const localized = getLocalizedNewsContent(item, locale, i18n.defaultLocale);
 
     return {
