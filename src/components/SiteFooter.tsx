@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import LangSwitcher from '@/components/LangSwitcher';
 import { getUiDictionary } from '@/dictionaries/ui-dictionary';
@@ -9,13 +10,12 @@ import styles from './SiteFooter.module.css';
 export default function SiteFooter() {
   const params = useParams<{ lang?: string }>();
   const dict = getUiDictionary(params?.lang);
+  const locale = params?.lang ?? 'ru';
 
   const links = [
-    dict.ui.footer.links.home,
-    dict.ui.footer.links.company,
-    dict.ui.footer.links.contacts,
-    dict.ui.footer.links.news,
-    dict.ui.footer.links.privacy,
+    { label: dict.ui.footer.links.home, href: `/${locale}#top` },
+    { label: dict.ui.footer.links.contacts, href: `/${locale}/contacts` },
+    { label: dict.ui.footer.links.news, href: `/${locale}/news` },
   ];
 
   return (
@@ -27,9 +27,9 @@ export default function SiteFooter() {
 
         <div className={styles.links}>
           {links.map((item) => (
-            <button key={item} type="button" className={styles.linkButton}>
-              {item}
-            </button>
+            <Link key={item.label} href={item.href} className={styles.linkButton}>
+              {item.label}
+            </Link>
           ))}
         </div>
 

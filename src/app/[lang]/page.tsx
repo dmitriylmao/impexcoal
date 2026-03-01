@@ -47,7 +47,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   });
 
   return (
-    <div className={styles.page}>
+    <div id="top" className={styles.page}>
       <HeroSection
         title={dict.ui.homeHero.title}
         subtitle={dict.ui.homeHero.subtitle}
@@ -55,28 +55,34 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         scrollLabel={dict.ui.homeHero.scrollLabel}
       />
 
-      <WhyChooseSection
-        badge={dict.ui.homeWhyChoose.badge}
-        title={dict.ui.homeWhyChoose.title}
-        cards={dict.ui.homeWhyChoose.cards}
-      />
+      <div id="next-block">
+        <WhyChooseSection
+          badge={dict.ui.homeWhyChoose.badge}
+          title={dict.ui.homeWhyChoose.title}
+          cards={dict.ui.homeWhyChoose.cards}
+        />
+      </div>
 
-      <DifferencesSection
-        badge={dict.ui.homeDifferences.badge}
-        title={dict.ui.homeDifferences.title}
-        leadAccent={dict.ui.homeDifferences.leadAccent}
-        leadRest={dict.ui.homeDifferences.leadRest}
-        body={dict.ui.homeDifferences.body}
-      />
+      <div id="about" className={styles.anchorSection}>
+        <DifferencesSection
+          badge={dict.ui.homeDifferences.badge}
+          title={dict.ui.homeDifferences.title}
+          leadAccent={dict.ui.homeDifferences.leadAccent}
+          leadRest={dict.ui.homeDifferences.leadRest}
+          body={dict.ui.homeDifferences.body}
+        />
+      </div>
 
       <DeckSection badge={dict.ui.homeDeck.badge} cards={dict.ui.homeDeck.cards} />
 
-      <SegmentsSection
-        badge={dict.ui.homeSegments.badge}
-        title={dict.ui.homeSegments.title}
-        cta={dict.ui.homeSegments.cta}
-        tabs={dict.ui.homeSegments.tabs}
-      />
+      <div id="segments" className={styles.anchorSection}>
+        <SegmentsSection
+          badge={dict.ui.homeSegments.badge}
+          title={dict.ui.homeSegments.title}
+          cta={dict.ui.homeSegments.cta}
+          tabs={dict.ui.homeSegments.tabs}
+        />
+      </div>
 
       <LogoMarqueeSection />
 
@@ -86,15 +92,17 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         imageAlt={dict.ui.homeCycle.imageAlt}
       />
 
-      <ProductsCatalogSection
-        badge={dict.ui.homeProducts.badge}
-        title={dict.ui.homeProducts.title}
-        subtitle={dict.ui.homeProducts.subtitle}
-        showAllLabel={dict.ui.homeProducts.showAll}
-        showLessLabel={dict.ui.homeProducts.showLess}
-        modalCloseLabel={dict.ui.homeProducts.modalClose}
-        cards={productCards}
-      />
+      <div id="products" className={styles.anchorSection}>
+        <ProductsCatalogSection
+          badge={dict.ui.homeProducts.badge}
+          title={dict.ui.homeProducts.title}
+          subtitle={dict.ui.homeProducts.subtitle}
+          showAllLabel={dict.ui.homeProducts.showAll}
+          showLessLabel={dict.ui.homeProducts.showLess}
+          modalCloseLabel={dict.ui.homeProducts.modalClose}
+          cards={productCards}
+        />
+      </div>
 
       <FaqSection
         badge={dict.ui.homeFaq.badge}

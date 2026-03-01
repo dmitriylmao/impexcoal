@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { scrollToSection } from '@/lib/scroll-to-section';
 import styles from './HeroSection.module.css';
 
 type HeroSectionProps = {
@@ -12,12 +13,7 @@ type HeroSectionProps = {
 
 export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroSectionProps) {
   const scrollNext = () => {
-    const nextBlock = document.getElementById('next-block');
-    if (!nextBlock) {
-      return;
-    }
-
-    nextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    scrollToSection('next-block');
   };
 
   return (

@@ -3,84 +3,78 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { getUiDictionary } from '@/dictionaries/ui-dictionary';
+import { scrollToSection } from '@/lib/scroll-to-section';
 import styles from './SiteHeader.module.css';
+
+type NavItem =
+  | { label: string; kind: 'anchor'; target: 'top' | 'about' | 'segments' | 'products' }
+  | { label: string; kind: 'route'; href: string };
 
 export default function SiteHeader() {
   const params = useParams<{ lang?: string }>();
-  // Безопасное получение словаря с фоллбэком
-  const dict = getUiDictionary(params?.lang) || {
-    ui: {
-      header: {
-        nav: {
-          home: 'Главная',
-          about: 'О нас',
-          segments: 'Сегменты',
-          products: 'Продукция',
-          news: 'Новости',
-          contacts: 'Контакты'
-        },
-        contactButton: 'Связаться'
-      }
-    }
-  };
-  
+  const dict = getUiDictionary(params?.lang);
   const locale = params?.lang ?? 'ru';
+  const pathname = usePathname();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const navItems = [
-    { label: dict.ui.header.nav.home },
-    { label: dict.ui.header.nav.about },
-    { label: dict.ui.header.nav.segments },
-    { label: dict.ui.header.nav.products },
-    { label: dict.ui.header.nav.news, href: `/${locale}/news` },
-    { label: dict.ui.header.nav.contacts, href: `/${locale}/contacts` },
+  const homePath = `/${locale}`;
+
+  const navItems: NavItem[] = [
+    { label: dict.ui.header.nav.home, kind: 'anchor', target: 'top' },
+    { label: dict.ui.header.nav.about, kind: 'anchor', target: 'about' },
+    { label: dict.ui.header.nav.segments, kind: 'anchor', target: 'segments' },
+    { label: dict.ui.header.nav.products, kind: 'anchor', target: 'products' },
+    { label: dict.ui.header.nav.news, kind: 'route', href: `/${locale}/news` },
+    { label: dict.ui.header.nav.contacts, kind: 'route', href: `/${locale}/contacts` },
   ];
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
+
+  const handleAnchorNavigation = (target: NavItem & { kind: 'anchor' }) => {
+    closeMenu();
+
+    if (pathname !== homePath) {
+      router.push(`${homePath}#${target.target}`);
+      return;
+    }
+
+    scrollToSection(target.target);
+  };
+
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
     <header className={styles.root}>
-      {/* Верхняя плашка (Всегда видна) */}
       <div className={styles.inner}>
         <div className={styles.contentContainer}>
-          <button type="button" className={styles.logoButton} aria-label="IMPEKS logo">
-            <Image 
-              src="/logo.png" 
-              alt="ТД ИМПЭКС" 
-              width={196} 
-              height={44} 
-              className={styles.logo} 
-              priority 
-            />
+          <button type="button" className={styles.logoButton} aria-label="IMPEKS logo" onClick={() => handleAnchorNavigation({ label: '', kind: 'anchor', target: 'top' })}>
+            <Image src="/logo.png" alt='ТД "ИМПЭКС"' width={196} height={44} className={styles.logo} priority />
           </button>
 
-          {/* Десктопное меню */}
           <div className={styles.desktopRight}>
             <nav className={styles.navDesktop}>
               {navItems.map((item) =>
-                item.href ? (
-                  <Link key={item.label} href={item.href} className={styles.navButton}>
+                item.kind === 'route' ? (
+                  <Link key={item.label} href={item.href} className={styles.navButton} onClick={closeMenu}>
                     {item.label}
                   </Link>
                 ) : (
-                  <button key={item.label} type="button" className={styles.navButton}>
+                  <button key={item.label} type="button" className={styles.navButton} onClick={() => handleAnchorNavigation(item)}>
                     {item.label}
                   </button>
                 ),
               )}
 
               <button type="button" className={styles.contactButton}>
-              <span>{dict.ui.header.contactButton}</span>
-              <Image src="/telegram.svg" alt="Telegram" width={18} height={18} />
-            </button>
+                <span>{dict.ui.header.contactButton}</span>
+                <Image src="/telegram.svg" alt="Telegram" width={18} height={18} />
+              </button>
             </nav>
-            
           </div>
 
-          {/* Кнопка Бургер / Крестик */}
           <button
             type="button"
             className={styles.menuToggle}
@@ -101,28 +95,21 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {/* Выпадающее меню (Часть хедера) */}
       <div className={`${styles.mobileDropdown} ${menuOpen ? styles.mobileDropdownOpen : ''}`}>
         <nav className={styles.mobileNavContent}>
           {navItems.map((item) =>
-            item.href ? (
+            item.kind === 'route' ? (
               <Link key={item.label} href={item.href} className={styles.mobileLink} onClick={closeMenu}>
                 {item.label}
               </Link>
             ) : (
-              <button key={item.label} type="button" className={styles.mobileLink} onClick={closeMenu}>
+              <button key={item.label} type="button" className={styles.mobileLink} onClick={() => handleAnchorNavigation(item)}>
                 {item.label}
               </button>
             ),
           )}
-          
-          {/* Мобильная кнопка связи (компактная) */}
-          <button 
-            type="button" 
-            className={styles.contactButton} 
-            onClick={closeMenu}
-            style={{ marginTop: '10px' }}
-          >
+
+          <button type="button" className={styles.contactButton} style={{ marginTop: '10px' }}>
             <span>{dict.ui.header.contactButton}</span>
             <Image src="/telegram.svg" alt="Telegram" width={18} height={18} />
           </button>

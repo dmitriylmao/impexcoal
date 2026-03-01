@@ -72,6 +72,7 @@
   border: 0;
   border-radius: 999px;
   background: transparent;
+  text-decoration: none;
   color: var(--text-main);
   font-size: 16px;
   line-height: 1;
@@ -184,6 +185,7 @@
 .mobileLink {
   background: transparent;
   border: none;
+  text-decoration: none;
   color: var(--text-main);
   font-size: 16px; /* Аккуратный шрифт */
   font-weight: 500;

@@ -35,6 +35,7 @@
 .linkButton {
   border: 0;
   background: transparent;
+  text-decoration: none;
   color: var(--text-main);
   font-size: 19px;
   line-height: 1.1;

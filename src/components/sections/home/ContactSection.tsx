@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import styles from './ContactSection.module.css';
 
 type ContactSectionProps = {
@@ -10,6 +12,9 @@ type ContactSectionProps = {
 };
 
 export default function ContactSection({ badge, title, cta }: ContactSectionProps) {
+  const params = useParams<{ lang?: string }>();
+  const locale = params?.lang ?? 'ru';
+
   return (
     <section className={styles.root} aria-label={title}>
       <div className={styles.inner}>
@@ -21,9 +26,9 @@ export default function ContactSection({ badge, title, cta }: ContactSectionProp
 
         <h2 className={styles.title}>{title}</h2>
 
-        <button type="button" className={styles.ctaButton}>
+        <Link href={`/${locale}/contacts`} className={styles.ctaButton}>
           {cta}
-        </button>
+        </Link>
 
         <div className={styles.socials}>
           <button type="button" className={styles.socialButton} aria-label="Telegram">
