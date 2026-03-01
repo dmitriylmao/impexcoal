@@ -153,6 +153,11 @@
       "cardSubtitle": "Yönetici 5 dakika içinde yanıtlayacak",
       "cardButton": "Soru sor"
     },
+    "homeContact": {
+      "badge": "Sipariş vermeye hazır mısınız?",
+      "title": "Bizimle iletişime geçin",
+      "cta": "Yöneticiyle iletişime geç"
+    },
     "footer": {
       "links": {
         "home": "Ana Sayfa",

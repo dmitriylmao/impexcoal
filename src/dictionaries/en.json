@@ -153,6 +153,11 @@
       "cardSubtitle": "Our manager will reply within 5 minutes",
       "cardButton": "Ask a question"
     },
+    "homeContact": {
+      "badge": "Ready to place an order?",
+      "title": "Get in touch with us",
+      "cta": "Contact a manager"
+    },
     "footer": {
       "links": {
         "home": "Home",

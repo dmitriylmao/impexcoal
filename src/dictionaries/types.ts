@@ -90,6 +90,11 @@ export type SiteDictionary = {
       cardSubtitle: string;
       cardButton: string;
     };
+    homeContact: {
+      badge: string;
+      title: string;
+      cta: string;
+    };
     footer: {
       links: {
         home: string;
