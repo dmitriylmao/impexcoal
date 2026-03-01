@@ -124,6 +124,35 @@
       "showLess": "Gizle",
       "modalClose": "Kapat"
     },
+    "homeFaq": {
+      "badge": "Soru-cevap",
+      "title": "Sık sorulan sorular",
+      "items": [
+        {
+          "question": "1. DPR'den toptan kömür tedarikini hangi ülkelere yapıyorsunuz?",
+          "answer": "Türkiye'ye, Ermenistan'a ve Rusya Federasyonu'nun tamamına toptan kömür sevkiyatı yapıyoruz. Lojistik her güzergâhın özelliklerine göre planlanır."
+        },
+        {
+          "question": "2. Toptan alım için hangi kömür türleri mevcut?",
+          "answer": "Antrasit, taş kömürü ve koklaşabilir kömür mevcut. Farklı fraksiyonlarda sevkiyat mümkündür, ayrıca kömür markası müşteri taleplerine ve kullanım alanına göre seçilir."
+        },
+        {
+          "question": "3. Hangi hacimlerde teslimat mümkündür?",
+          "answer": "Teslimatlar birkaç yüz tondan başlayan toptan partiler halinde yapılır. Maksimum hacimler kömür türüne ve teslimat yönüne göre bireysel olarak kararlaştırılır."
+        },
+        {
+          "question": "4. Türkiye ve Ermenistan'a teslimat nasıl yapılıyor?",
+          "answer": "Teslimat demiryolu ve karayolu taşımacılığı ile organize edilir; ardından limanlar veya karasal hatlar üzerinden aktarma yapılır. Her sipariş için en uygun lojistik şeması seçilir."
+        },
+        {
+          "question": "5. Kömür teslimatında hangi belgeler sağlanır?",
+          "answer": "Her parti için menşe belgeleri, kalite sertifikaları ve gümrükleme ile teslim alma süreçleri için gerekli eşlik eden taşıma belgeleri sunulur."
+        }
+      ],
+      "cardTitle": "Sorularınız kaldı mı?",
+      "cardSubtitle": "Yönetici 5 dakika içinde yanıtlayacak",
+      "cardButton": "Soru sor"
+    },
     "footer": {
       "links": {
         "home": "Ana Sayfa",

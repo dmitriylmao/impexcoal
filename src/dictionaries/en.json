@@ -124,6 +124,35 @@
       "showLess": "Show less",
       "modalClose": "Close"
     },
+    "homeFaq": {
+      "badge": "FAQ",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "1. Which countries do you supply coal from DPR in wholesale?",
+          "answer": "We provide wholesale coal deliveries to Turkey, Armenia, and across the Russian Federation. Logistics are tailored to the specifics of each route."
+        },
+        {
+          "question": "2. What coal types are available for wholesale purchases?",
+          "answer": "We supply anthracite, hard coal, and coking coal. Different fractions are available, and the grade is selected according to client requirements and application area."
+        },
+        {
+          "question": "3. What delivery volumes are possible?",
+          "answer": "Deliveries are made in wholesale lots starting from several hundred tons. Maximum volumes are agreed individually depending on coal type and destination."
+        },
+        {
+          "question": "4. How is delivery to Turkey and Armenia organized?",
+          "answer": "Delivery is arranged by rail and road transport with further transshipment through ports or overland routes. We select the optimal logistics scheme for each specific order."
+        },
+        {
+          "question": "5. What documents are provided with coal deliveries?",
+          "answer": "Each shipment includes origin documents, quality certificates, and accompanying transport documentation required for customs clearance and cargo acceptance."
+        }
+      ],
+      "cardTitle": "Still have questions?",
+      "cardSubtitle": "Our manager will reply within 5 minutes",
+      "cardButton": "Ask a question"
+    },
     "footer": {
       "links": {
         "home": "Home",

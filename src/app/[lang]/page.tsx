@@ -7,6 +7,7 @@ import SegmentsSection from '@/components/sections/home/SegmentsSection';
 import LogoMarqueeSection from '@/components/sections/home/LogoMarqueeSection';
 import ProductionCycleSection from '@/components/sections/home/ProductionCycleSection';
 import ProductsCatalogSection from '@/components/sections/home/ProductsCatalogSection';
+import FaqSection from '@/components/sections/home/FaqSection';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { prisma } from '@/lib/prisma';
@@ -92,6 +93,15 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         showLessLabel={dict.ui.homeProducts.showLess}
         modalCloseLabel={dict.ui.homeProducts.modalClose}
         cards={productCards}
+      />
+
+      <FaqSection
+        badge={dict.ui.homeFaq.badge}
+        title={dict.ui.homeFaq.title}
+        items={dict.ui.homeFaq.items}
+        cardTitle={dict.ui.homeFaq.cardTitle}
+        cardSubtitle={dict.ui.homeFaq.cardSubtitle}
+        cardButton={dict.ui.homeFaq.cardButton}
       />
     </div>
   );

@@ -79,6 +79,17 @@ export type SiteDictionary = {
       showLess: string;
       modalClose: string;
     };
+    homeFaq: {
+      badge: string;
+      title: string;
+      items: Array<{
+        question: string;
+        answer: string;
+      }>;
+      cardTitle: string;
+      cardSubtitle: string;
+      cardButton: string;
+    };
     footer: {
       links: {
         home: string;
