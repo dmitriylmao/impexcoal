@@ -14,7 +14,12 @@ import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { prisma } from '@/lib/prisma';
 import { getLocalizedProductContent } from '@/lib/product-localization';
 import { normalizeImageUrl } from '@/lib/news-localization';
+import type { Prisma } from '@prisma/client';
 import styles from './page.module.css';
+
+type ProductWithTranslations = Prisma.ProductGetPayload<{
+  include: { translations: true };
+}>;
 
 export function generateStaticParams() {
   return i18n.locales.map((lang) => ({ lang }));
@@ -35,7 +40,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
     include: { translations: true },
   });
 
-  const productCards = products.map((item) => {
+  const productCards = products.map((item: ProductWithTranslations) => {
     const localized = getLocalizedProductContent(item, locale, i18n.defaultLocale);
 
     return {
