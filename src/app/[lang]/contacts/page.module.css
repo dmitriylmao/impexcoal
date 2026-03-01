@@ -1,0 +1,228 @@
+.page {
+  width: 100%;
+  background: #2e050d;
+}
+
+.topSection {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 34px 24px 64px;
+}
+
+.contactsGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.leftColumn {
+  display: grid;
+  gap: 20px;
+}
+
+.infoCard,
+.formCard {
+  border: 1px solid transparent;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(4, 12, 24, 0.72), rgba(2, 8, 16, 0.86)) padding-box,
+    linear-gradient(180deg, rgba(207, 231, 255, 0.32), rgba(207, 231, 255, 0.08)) border-box;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px) saturate(120%);
+  padding: 22px;
+}
+
+.formCard {
+  padding-bottom: 18px;
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.cardIconWrap {
+  width: 58px;
+  height: 58px;
+  border-radius: 10px;
+  background: rgba(9, 18, 32, 0.78);
+  border: 1px solid rgba(207, 231, 255, 0.14);
+  display: grid;
+  place-items: center;
+}
+
+.icon {
+  filter: invert(53%) sepia(90%) saturate(1500%) hue-rotate(1deg) brightness(102%) contrast(105%);
+}
+
+.cardTitle {
+  margin: 0;
+  color: #dbe5f5;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.cardText {
+  margin: 0;
+  color: #99aabd;
+  font-size: 16px;
+  line-height: 1.42;
+}
+
+.linkButton {
+  margin-top: 16px;
+  border: 0;
+  background: transparent;
+  color: #dce6f7;
+  text-decoration: underline;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 0;
+  cursor: default;
+  transition: color 0.2s ease;
+}
+
+.linkButton:hover {
+  color: #f0782c;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+.label {
+  display: grid;
+  gap: 8px;
+  color: #c8d3e2;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid rgba(207, 231, 255, 0.16);
+  border-radius: 10px;
+  background: rgba(8, 15, 28, 0.66);
+  color: #eaf1fb;
+  font-size: 16px;
+  line-height: 1.3;
+  padding: 12px 12px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #6f7f94;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: rgba(240, 120, 44, 0.42);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 122px;
+}
+
+.submitButton {
+  margin-top: 2px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(8, 16, 31, 0.84), rgba(6, 13, 25, 0.88)) padding-box,
+    linear-gradient(180deg, rgba(207, 231, 255, 0.26), rgba(240, 120, 44, 0.3)) border-box;
+  color: #e9effb;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 14px 20px;
+  cursor: default;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.submitButton:hover {
+  color: #c8d2e2;
+  border-color: rgba(240, 120, 44, 0.45);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1200px) {
+  .topSection {
+    padding: 28px 20px 52px;
+  }
+
+  .contactsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .formCard {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 800px) {
+  .topSection {
+    padding: 20px 12px 44px;
+  }
+
+  .contactsGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .leftColumn {
+    gap: 14px;
+  }
+
+  .formCard {
+    grid-column: auto;
+  }
+
+  .infoCard,
+  .formCard {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  .cardHead {
+    margin-bottom: 14px;
+  }
+
+  .cardIconWrap {
+    width: 44px;
+    height: 44px;
+  }
+
+  .cardTitle {
+    font-size: 18px;
+  }
+
+  .cardText,
+  .linkButton {
+    font-size: 14px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .input,
+  .textarea {
+    font-size: 15px;
+    padding: 11px 10px;
+  }
+
+  .submitButton {
+    font-size: 16px;
+    padding: 13px 16px;
+  }
+}

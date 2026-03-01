@@ -158,6 +158,25 @@
       "title": "Get in touch with us",
       "cta": "Contact a manager"
     },
+    "contactsPage": {
+      "emailTitle": "Email",
+      "emailSubtitle": "General Director's office",
+      "emailLink": "tdimpeks@support.com",
+      "managerTitle": "Message a manager",
+      "managerSubtitle": "A manager will reply within 5 minutes",
+      "managerLink": "Telegram",
+      "addressTitle": "Address",
+      "addressText": "Rostov-on-Don, Beregovaya street",
+      "mapLink": "Yandex Maps",
+      "feedbackTitle": "Feedback",
+      "fullNameLabel": "Full name",
+      "fullNamePlaceholder": "Ivan Ivanov",
+      "emailLabel": "Email",
+      "emailPlaceholder": "ivan.ivanov@impeks.ru",
+      "commentLabel": "Comment",
+      "commentPlaceholder": "Comment",
+      "submit": "Send"
+    },
     "footer": {
       "links": {
         "home": "Home",

@@ -158,6 +158,25 @@
       "title": "Связаться с нами",
       "cta": "Связаться с менеджером"
     },
+    "contactsPage": {
+      "emailTitle": "Email",
+      "emailSubtitle": "Приемная Генерального директора",
+      "emailLink": "tdimpeks@support.com",
+      "managerTitle": "Написать менеджеру",
+      "managerSubtitle": "Менеджер ответит в течении 5 минут",
+      "managerLink": "Telegram",
+      "addressTitle": "Адрес",
+      "addressText": "Ростов-на-Дону, Береговая улица",
+      "mapLink": "Яндекс карты",
+      "feedbackTitle": "Обратная связь",
+      "fullNameLabel": "ФИО",
+      "fullNamePlaceholder": "Ivan Ivanov",
+      "emailLabel": "Email",
+      "emailPlaceholder": "ivan.ivanov@impeks.ru",
+      "commentLabel": "Комментарий",
+      "commentPlaceholder": "Комментарий",
+      "submit": "Отправить"
+    },
     "footer": {
       "links": {
         "home": "Главная",

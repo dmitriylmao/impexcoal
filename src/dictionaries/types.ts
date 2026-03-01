@@ -95,6 +95,25 @@ export type SiteDictionary = {
       title: string;
       cta: string;
     };
+    contactsPage: {
+      emailTitle: string;
+      emailSubtitle: string;
+      emailLink: string;
+      managerTitle: string;
+      managerSubtitle: string;
+      managerLink: string;
+      addressTitle: string;
+      addressText: string;
+      mapLink: string;
+      feedbackTitle: string;
+      fullNameLabel: string;
+      fullNamePlaceholder: string;
+      emailLabel: string;
+      emailPlaceholder: string;
+      commentLabel: string;
+      commentPlaceholder: string;
+      submit: string;
+    };
     footer: {
       links: {
         home: string;

@@ -158,6 +158,25 @@
       "title": "Bizimle iletişime geçin",
       "cta": "Yöneticiyle iletişime geç"
     },
+    "contactsPage": {
+      "emailTitle": "Email",
+      "emailSubtitle": "Genel Müdür sekreterliği",
+      "emailLink": "tdimpeks@support.com",
+      "managerTitle": "Yöneticimize yazın",
+      "managerSubtitle": "Yönetici 5 dakika içinde yanıtlayacak",
+      "managerLink": "Telegram",
+      "addressTitle": "Adres",
+      "addressText": "Rostov-na-Donu, Beregovaya caddesi",
+      "mapLink": "Yandex haritalar",
+      "feedbackTitle": "Geri bildirim",
+      "fullNameLabel": "Ad Soyad",
+      "fullNamePlaceholder": "Ivan Ivanov",
+      "emailLabel": "Email",
+      "emailPlaceholder": "ivan.ivanov@impeks.ru",
+      "commentLabel": "Yorum",
+      "commentPlaceholder": "Yorum",
+      "submit": "Gönder"
+    },
     "footer": {
       "links": {
         "home": "Ana Sayfa",

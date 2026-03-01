@@ -35,7 +35,7 @@ export default function SiteHeader() {
     { label: dict.ui.header.nav.segments },
     { label: dict.ui.header.nav.products },
     { label: dict.ui.header.nav.news, href: `/${locale}/news` },
-    { label: dict.ui.header.nav.contacts },
+    { label: dict.ui.header.nav.contacts, href: `/${locale}/contacts` },
   ];
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
