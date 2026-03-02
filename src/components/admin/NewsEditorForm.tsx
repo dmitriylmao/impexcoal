@@ -79,10 +79,15 @@ export default function NewsEditorForm({ action, submitLabel, projects, locales,
           name="imgUrl"
           placeholder="URL изображения (необязательно)"
           defaultValue={initial?.imgUrl ?? ''}
-          className="rounded-md border p-3"
+          className="rounded-md border border-white/12 bg-[#071327] px-3 py-2 text-[#d8dfeb] outline-none placeholder:text-[#637188] focus:border-[#4e5f79]"
         />
 
-        <select name="projectId" defaultValue={initial?.projectId ?? ''} required className="rounded-md border p-3">
+        <select
+          name="projectId"
+          defaultValue={initial?.projectId ?? ''}
+          required
+          className="rounded-md border border-white/12 bg-[#071327] px-3 py-2 text-[#d8dfeb] outline-none focus:border-[#4e5f79]"
+        >
           <option value="" disabled>
             Выберите проект
           </option>
@@ -93,12 +98,12 @@ export default function NewsEditorForm({ action, submitLabel, projects, locales,
           ))}
         </select>
 
-        <div className="grid gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-600">Контент по языкам</h3>
+        <div className="grid gap-4 rounded-xl border border-white/12 bg-[#081428]/75 p-4">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa8be]">Контент по языкам</h3>
 
           {locales.map((locale) => (
-            <div key={locale} className="grid gap-3">
-              <label className="text-sm font-medium">
+            <div key={locale} className="grid gap-3 rounded-lg border border-white/10 bg-[#061224]/70 p-3">
+              <label className="text-sm font-medium text-[#bdc9db]">
                 Заголовок ({localeLabels[locale]}
                 {locale === 'ru' ? ', обязательно' : ', optional'})
               </label>
@@ -106,10 +111,10 @@ export default function NewsEditorForm({ action, submitLabel, projects, locales,
                 name={`title_${locale}`}
                 required={locale === 'ru'}
                 defaultValue={initial?.translations?.[locale]?.title ?? ''}
-                className="rounded-md border bg-white p-3"
+                className="rounded-md border border-white/12 bg-[#071327] px-3 py-2 text-[#d8dfeb] outline-none placeholder:text-[#637188] focus:border-[#4e5f79]"
               />
 
-              <label className="text-sm font-medium">
+              <label className="text-sm font-medium text-[#bdc9db]">
                 Текст ({localeLabels[locale]}
                 {locale === 'ru' ? ', обязательно' : ', optional'})
               </label>
@@ -117,7 +122,7 @@ export default function NewsEditorForm({ action, submitLabel, projects, locales,
                 name={`content_${locale}`}
                 required={locale === 'ru'}
                 defaultValue={initial?.translations?.[locale]?.content ?? ''}
-                className="min-h-24 rounded-md border bg-white p-3"
+                className="min-h-24 rounded-md border border-white/12 bg-[#071327] px-3 py-2 text-[#d8dfeb] outline-none placeholder:text-[#637188] focus:border-[#4e5f79]"
               />
             </div>
           ))}
@@ -127,12 +132,12 @@ export default function NewsEditorForm({ action, submitLabel, projects, locales,
           <button
             type="button"
             onClick={buildPreview}
-            className="rounded-md border border-zinc-300 px-4 py-3 font-medium text-zinc-700 hover:bg-zinc-100"
+            className="rounded-md border border-white/15 bg-[#0b1629] px-4 py-3 font-medium text-[#d9e0ed] transition hover:border-white/25 hover:text-white"
           >
             Предпросмотр
           </button>
           <button
-            className="rounded-md bg-zinc-900 px-4 py-3 font-medium text-white disabled:cursor-not-allowed disabled:bg-zinc-400"
+            className="rounded-md border border-white/15 bg-[#0b1629] px-4 py-3 font-medium text-[#d9e0ed] transition hover:border-[#ff6a00]/55 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
             type="submit"
             disabled={projects.length === 0}
           >
@@ -143,15 +148,15 @@ export default function NewsEditorForm({ action, submitLabel, projects, locales,
 
       <dialog
         ref={dialogRef}
-        className="w-full max-w-3xl rounded-xl border border-zinc-200 p-0 shadow-xl backdrop:bg-black/40"
+        className="w-full max-w-3xl rounded-xl border border-white/10 bg-[#061224] p-0 text-[#d8dfeb] shadow-xl backdrop:bg-black/60"
       >
         <div className="grid gap-5 p-6">
-          <div className="flex items-center justify-between gap-4 border-b border-zinc-200 pb-4">
+          <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
             <h3 className="text-lg font-semibold">Предпросмотр новости</h3>
             <button
               type="button"
               onClick={() => dialogRef.current?.close()}
-              className="rounded-md border border-zinc-300 px-3 py-1 text-sm hover:bg-zinc-100"
+              className="rounded-md border border-white/15 px-3 py-1 text-sm text-[#cdd7e6] transition hover:border-white/30 hover:text-white"
             >
               Закрыть
             </button>
@@ -159,9 +164,9 @@ export default function NewsEditorForm({ action, submitLabel, projects, locales,
 
           {preview ? (
             <div className="grid gap-4">
-              <div className="grid gap-2 text-sm text-zinc-600">
+              <div className="grid gap-2 text-sm text-[#99a8bf]">
                 <p>
-                  <span className="font-medium text-zinc-900">Проект:</span> {preview.projectName}
+                  <span className="font-medium text-[#dce4ef]">Проект:</span> {preview.projectName}
                 </p>
               </div>
 
@@ -173,12 +178,12 @@ export default function NewsEditorForm({ action, submitLabel, projects, locales,
                 {locales.map((locale) => {
                   const t = preview.translations[locale];
                   return (
-                    <article key={locale} className="rounded-lg border border-zinc-200 p-4">
-                      <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-zinc-600">
+                    <article key={locale} className="rounded-lg border border-white/10 bg-[#081428]/75 p-4">
+                      <h4 className="mb-2 text-sm font-semibold uppercase tracking-wide text-[#9aa8be]">
                         {localeLabels[locale]}
                       </h4>
-                      <p className="text-xl font-semibold text-zinc-900">{t?.title || '-'}</p>
-                      <p className="mt-2 whitespace-pre-wrap text-sm text-zinc-700">{t?.content || '-'}</p>
+                      <p className="text-xl font-semibold text-[#dce4ef]">{t?.title || '-'}</p>
+                      <p className="mt-2 whitespace-pre-wrap text-sm text-[#b4c0d4]">{t?.content || '-'}</p>
                     </article>
                   );
                 })}

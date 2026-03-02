@@ -47,16 +47,21 @@ export default function ProductEditorForm({ action, submitLabel, projects, local
         placeholder="URL изображения (обязательно)"
         required
         defaultValue={initial?.imgUrl ?? ''}
-        className="rounded-md border p-3"
+        className="rounded-md border border-white/12 bg-[#071327] px-3 py-2 text-[#d8dfeb] outline-none placeholder:text-[#637188] focus:border-[#4e5f79]"
       />
       <input
         name="price"
         placeholder="Цена (необязательно)"
         defaultValue={initial?.price ?? ''}
-        className="rounded-md border p-3"
+        className="rounded-md border border-white/12 bg-[#071327] px-3 py-2 text-[#d8dfeb] outline-none placeholder:text-[#637188] focus:border-[#4e5f79]"
       />
 
-      <select name="projectId" defaultValue={initial?.projectId ?? ''} required className="rounded-md border p-3">
+      <select
+        name="projectId"
+        defaultValue={initial?.projectId ?? ''}
+        required
+        className="rounded-md border border-white/12 bg-[#071327] px-3 py-2 text-[#d8dfeb] outline-none focus:border-[#4e5f79]"
+      >
         <option value="" disabled>
           Выберите проект
         </option>
@@ -67,12 +72,12 @@ export default function ProductEditorForm({ action, submitLabel, projects, local
         ))}
       </select>
 
-      <div className="grid gap-4 rounded-xl border border-zinc-200 bg-zinc-50 p-4">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-zinc-600">Контент по языкам</h3>
+      <div className="grid gap-4 rounded-xl border border-white/12 bg-[#081428]/75 p-4">
+        <h3 className="text-sm font-semibold uppercase tracking-wide text-[#9aa8be]">Контент по языкам</h3>
 
         {locales.map((locale) => (
-          <div key={locale} className="grid gap-3">
-            <label className="text-sm font-medium">
+          <div key={locale} className="grid gap-3 rounded-lg border border-white/10 bg-[#061224]/70 p-3">
+            <label className="text-sm font-medium text-[#bdc9db]">
               Название ({localeLabels[locale]}
               {locale === 'ru' ? ', обязательно' : ', optional'})
             </label>
@@ -80,10 +85,10 @@ export default function ProductEditorForm({ action, submitLabel, projects, local
               name={`name_${locale}`}
               required={locale === 'ru'}
               defaultValue={initial?.translations?.[locale]?.name ?? ''}
-              className="rounded-md border bg-white p-3"
+              className="rounded-md border border-white/12 bg-[#071327] px-3 py-2 text-[#d8dfeb] outline-none placeholder:text-[#637188] focus:border-[#4e5f79]"
             />
 
-            <label className="text-sm font-medium">
+            <label className="text-sm font-medium text-[#bdc9db]">
               Описание ({localeLabels[locale]}
               {locale === 'ru' ? ', обязательно' : ', optional'})
             </label>
@@ -91,14 +96,14 @@ export default function ProductEditorForm({ action, submitLabel, projects, local
               name={`description_${locale}`}
               required={locale === 'ru'}
               defaultValue={initial?.translations?.[locale]?.description ?? ''}
-              className="min-h-24 rounded-md border bg-white p-3"
+              className="min-h-24 rounded-md border border-white/12 bg-[#071327] px-3 py-2 text-[#d8dfeb] outline-none placeholder:text-[#637188] focus:border-[#4e5f79]"
             />
           </div>
         ))}
       </div>
 
       <button
-        className="rounded-md bg-zinc-900 px-4 py-3 font-medium text-white disabled:cursor-not-allowed disabled:bg-zinc-400"
+        className="rounded-md border border-white/15 bg-[#0b1629] px-4 py-3 font-medium text-[#d9e0ed] transition hover:border-[#ff6a00]/55 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
         type="submit"
         disabled={projects.length === 0}
       >

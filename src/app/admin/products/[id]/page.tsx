@@ -39,29 +39,34 @@ export default async function EditProductPage({
   );
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 p-6 md:p-10">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Редактирование товара</h1>
-        <Link href="/admin" className="rounded-md border border-zinc-300 px-4 py-2 text-sm hover:bg-zinc-100">
-          Назад в админку
-        </Link>
-      </div>
+    <div className="min-h-screen bg-[#020914]">
+      <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-6 md:px-8 md:py-8">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h1 className="text-3xl font-bold text-[#dce4ef]">Редактирование товара</h1>
+          <Link
+            href="/admin"
+            className="rounded-md border border-white/15 bg-[#0b1629] px-4 py-2 text-sm text-[#d9e0ed] transition hover:border-[#ff6a00]/55 hover:text-white"
+          >
+            Назад в админку
+          </Link>
+        </div>
 
-      <section className="rounded-2xl border border-zinc-200 p-5">
-        <ProductEditorForm
-          action={updateProductAction}
-          submitLabel="Сохранить изменения"
-          projects={projects.map((p) => ({ id: p.id, name: p.name }))}
-          locales={i18n.locales}
-          initial={{
-            id: product.id,
-            imgUrl: product.imgUrl,
-            price: product.price,
-            projectId: product.projectId,
-            translations,
-          }}
-        />
-      </section>
+        <section className="rounded-2xl border border-white/10 bg-[linear-gradient(160deg,rgba(9,19,35,0.9),rgba(4,10,22,0.88))] p-5">
+          <ProductEditorForm
+            action={updateProductAction}
+            submitLabel="Сохранить изменения"
+            projects={projects.map((p) => ({ id: p.id, name: p.name }))}
+            locales={i18n.locales}
+            initial={{
+              id: product.id,
+              imgUrl: product.imgUrl,
+              price: product.price,
+              projectId: product.projectId,
+              translations,
+            }}
+          />
+        </section>
+      </div>
     </div>
   );
 }
