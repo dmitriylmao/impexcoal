@@ -48,7 +48,7 @@ export default function SiteHeader() {
 
   return (
     <header className={styles.root}>
-      <div className={styles.inner}>
+      <div className={`${styles.inner} ${menuOpen ? styles.innerMenuOpen : ''}`}>
         <div className={styles.contentContainer}>
           <button type="button" className={styles.logoButton} aria-label="IMPEKS logo" onClick={() => handleAnchorNavigation({ label: '', kind: 'anchor', target: 'top' })}>
             <Image src="/logo.png" alt='ТД "ИМПЭКС"' width={196} height={44} className={styles.logo} priority />
@@ -70,7 +70,7 @@ export default function SiteHeader() {
 
               <button type="button" className={styles.contactButton}>
                 <span>{dict.ui.header.contactButton}</span>
-                <Image src="/icons/mailbox2.svg" alt="Telegram" className={styles.btnIcon} width={20} height={20} />
+                <Image src="/icons/mailbox2.svg" alt="mail" className={styles.btnIcon} width={20} height={20} />
               </button>
             </nav>
           </div>
@@ -109,9 +109,9 @@ export default function SiteHeader() {
             ),
           )}
 
-          <button type="button" className={styles.contactButton} style={{ marginTop: '10px' }}>
+          <button type="button" className={styles.contactButtonmobile} style={{ marginTop: '10px' }}>
             <span>{dict.ui.header.contactButton}</span>
-            <Image src="/telegram.svg" alt="Telegram" width={18} height={18} />
+              <Image src="/icons/mailbox2.svg" alt="mail" className={styles.btnIcon} width={20} height={20} />
           </button>
         </nav>
       </div>

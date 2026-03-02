@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Manrope } from 'next/font/google';
 import './globals.css';
 import SiteFrame from '@/components/SiteFrame';
@@ -12,6 +12,12 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: 'IMPEX Coal',
   description: 'IMPEX coal landing page and news feed',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
