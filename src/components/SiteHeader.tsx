@@ -70,7 +70,7 @@ export default function SiteHeader() {
 
               <button type="button" className={styles.contactButton}>
                 <span>{dict.ui.header.contactButton}</span>
-                <Image src="/telegram.svg" alt="Telegram" width={18} height={18} />
+                <Image src="/icons/mailbox2.svg" alt="Telegram" className={styles.btnIcon} width={20} height={20} />
               </button>
             </nav>
           </div>

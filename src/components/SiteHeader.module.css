@@ -1,19 +1,16 @@
-/* --- ОБЩИЕ ПЕРЕМЕННЫЕ ДЛЯ ФОНА --- */
-/* Чтобы верх и низ были идеально одного цвета */
+
 .glassEffect {
-  background: rgba(2, 7, 16, 0.85); /* Чуть плотнее, чтобы текст под ним не мешал */
-  backdrop-filter: blur(16px) saturate(125%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(7, 9, 11, 0.8); 
+  backdrop-filter: blur(12px) saturate(125%);
+  border-bottom: 2px solid #16191b;
 }
 
 .root {
   position: sticky;
   top: 0;
   z-index: 80;
-  /* Фон задаем не здесь, а элементам внутри, чтобы избежать наложений */
 }
 
-/* Верхняя полоса (основной хедер) */
 .inner {
   composes: glassEffect; /* Применяем общий фон */
   position: relative;
@@ -26,8 +23,8 @@
 .contentContainer {
   width: 100%;
   max-width: 1200px;
-  min-height: 82px;
-  padding: 12px 24px;
+  min-height: 64px;
+  padding: 4px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,7 +42,7 @@
 
 .logo {
   width: auto;
-  height: 44px;
+  height: 36px;
   object-fit: contain;
 }
 
@@ -60,12 +57,10 @@
 .navDesktop {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 6px;
+  gap: 0px;
+  padding: 2px 4px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(4, 11, 22, 0.55);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  border: 1px solid #16191b;
 }
 
 .navButton {
@@ -73,19 +68,18 @@
   border-radius: 999px;
   background: transparent;
   text-decoration: none;
-  color: var(--text-main);
-  font-size: 16px;
+  color: #c1c2c2;
+  font-size: 14px;
   line-height: 1;
-  font-weight: 550;
+  font-weight: 700;
   white-space: nowrap;
-  padding: 12px 18px;
+  padding: 16px 18px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .navButton:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-strong);
+  color: #ffffff;
 }
 
 .contactButton {
@@ -93,23 +87,28 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
-  background: rgba(9, 17, 31, 0.78);
-  color: var(--text-strong);
-  font-size: 16px;
+  border: 1px solid #16191b;
+  border-radius: 999px;
+  background: transparent;
+  text-decoration: none;
+  color: #c1c2c2;
+  font-size: 14px;
   line-height: 1;
-  font-weight: 650;
+  font-weight: 700;
   white-space: nowrap;
-  padding: 13px 20px;
+  padding: 10px 16px;
   cursor: pointer;
   width: fit-content; /* Чтобы не растягивалась */
   transition: all 0.2s ease;
 }
 
 .contactButton:hover {
-  background: rgba(15, 24, 40, 0.9);
-  border-color: rgba(255, 255, 255, 0.2);
+  color:  #ffffff;
+  border-color: #23282c;
+}
+
+.btnIcon{
+  filter: invert(36%) sepia(81%) saturate(4000%) hue-rotate(10deg) brightness(101%) contrast(105%);
 }
 
 /* --- БУРГЕР --- */
@@ -117,14 +116,12 @@
   display: none;
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
   color: var(--text-strong);
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all 0.4s ease-in-out;
 }
 
 .menuLines {
@@ -147,7 +144,6 @@
   line-height: 1;
 }
 
-/* === ВЫПАДАЮЩЕЕ МЕНЮ (DROPDOWN) === */
 .mobileDropdown {
   composes: glassEffect; /* Тот же фон, что и у хедера */
   position: absolute;
@@ -170,7 +166,7 @@
 .mobileDropdownOpen {
   max-height: 100vh; /* Достаточно много, чтобы влез контент */
   opacity: 1;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid #16191b;
 }
 
 .mobileNavContent {
