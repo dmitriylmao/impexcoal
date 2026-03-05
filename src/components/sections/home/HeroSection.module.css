@@ -44,18 +44,14 @@
   display: grid;
   place-items: center;
   padding: 16px;
-  box-shadow:
-    0 0.7065919983928324px 0.7065919983928324px -0.6666666666666666px rgba(232, 81, 2, 0.37),
-    0 1.8065619053231785px 1.8065619053231785px -1.3333333333333333px rgba(232, 81, 2, 0.36),
-    0 3.6217592146567767px 3.6217592146567767px -2px rgba(232, 81, 2, 0.34),
-    0 6.8655999097303715px 6.8655999097303715px -2.6666666666666665px rgba(232, 81, 2, 0.31),
-    0 13.646761411524492px 13.646761411524492px -3.3333333333333335px rgba(232, 81, 2, 0.25),
-    0 30px 30px -4px rgba(232, 81, 2, 0.09);
   background-color: #04070d;
   overflow: visible;
   position: relative;
   border-radius: 24px;
   isolation: isolate;
+  
+  /* --- Плавное дыхание внешней тени --- */
+  animation: outerGlowPulse 6s infinite ease-in-out;
 }
 
 .logoGlow {
@@ -65,20 +61,62 @@
   width: auto;
   height: auto;
   box-shadow:
-    0 0.7961918735236395px 0.7961918735236395px -0.875px rgba(232, 81, 2, 0.48),
-    0 2.414506143104518px 2.414506143104518px -1.75px rgba(232, 81, 2, 0.46),
-    0 6.382653521484461px 6.382653521484461px -2.625px rgba(232, 81, 2, 0.4),
+    0 0.8px 0.8px -0.8px rgba(232, 81, 2, 0.48),
+    0 2.4px 2.4px -1.7px rgba(232, 81, 2, 0.46),
+    0 6.4px 6.4px -2.6px rgba(232, 81, 2, 0.4),
     0 20px 20px -3.5px rgba(232, 81, 2, 0.21);
   background-color: #04070d;
   overflow: visible;
   border-radius: 16px;
   z-index: -1;
+  
+  /* --- Хаотичное мерцание внутреннего жара (только прозрачность) --- */
+  animation: innerEmberFlicker 4s infinite;
+  will-change: opacity;
 }
 
 .mainLogo {
   width: 100px;
   height: 100px;
   object-fit: contain;
+}
+
+/* ========================================= */
+/* АНИМАЦИИ ГОРЕНИЯ (БЕЗ ИЗМЕНЕНИЯ РАЗМЕРА)  */
+/* ========================================= */
+
+/* 1. Внутренний жар: нелинейно меняет прозрачность, создавая эффект тлеющего уголька */
+@keyframes innerEmberFlicker {
+  0%   { opacity: 0.6; }
+  18%  { opacity: 0.95; }
+  34%  { opacity: 0.9; }
+  52%  { opacity: 1.0; }
+  68%  { opacity: 0.8; }
+  84%  { opacity: 0.6; }
+  100% { opacity: 0.7; }
+}
+
+/* 2. Внешнее свечение: медленно "разгорается" и остывает. 
+      Увеличивается радиус размытия (с 30px до 45px) и яркость (с 0.09 до 0.22) */
+@keyframes outerGlowPulse {
+  0%, 100% {
+    box-shadow:
+      0 0.7px 0.7px -0.6px rgba(232, 81, 2, 0.37),
+      0 1.8px 1.8px -1.3px rgba(232, 81, 2, 0.36),
+      0 3.6px 3.6px -2px rgba(232, 81, 2, 0.34),
+      0 6.8px 6.8px -2.6px rgba(232, 81, 2, 0.31),
+      0 13.6px 13.6px -3.3px rgba(232, 81, 2, 0.25),
+      0 30px 30px -4px rgba(232, 81, 2, 0.09); /* Базовое состояние */
+  }
+  50% {
+    box-shadow:
+      0 0.7px 1px -0.6px rgba(232, 81, 2, 0.45),
+      0 1.8px 3px -1px rgba(232, 81, 2, 0.42),
+      0 3.6px 6px -1.5px rgba(232, 81, 2, 0.40),
+      0 6.8px 12px -2px rgba(232, 81, 2, 0.38),
+      0 13.6px 22px -2px rgba(232, 81, 2, 0.35),
+      0 30px 45px 0px rgba(232, 81, 2, 0.22); /* Пик разгорания: шире и ярче */
+  }
 }
 
 .textBlock {
@@ -193,7 +231,7 @@ align-items: center;
   /* --- ГДЕ МЕНЯТЬ ДЛИНУ ЛИНИИ (ДЕФОЛТ) --- */
   width: 400px; /* Сделал длиннее, чтобы заходила за края текста */
   
-  background: radial-gradient(20.7% 50% at 50% 100%, #e45217 0%, rgba(255, 255, 255, 0) 100%);
+  background: radial-gradient(20.7% 50% at 50% 100%, #fd4c00 0%, rgba(255, 255, 255, 0) 100%);
   opacity: 0.8;
   transition: opacity 0.8s ease, width 0.8s ease;
 }
@@ -410,6 +448,9 @@ align-items: center;
     font-size: 28px;
   }
   
+  .scrollButton {
+    display: none;
+  }
 }
 
 @media (max-width: 800px) {
@@ -422,7 +463,6 @@ align-items: center;
   }
 
   .textBlock{
-    background-color: brown;
     padding: 0 20px;
   }
   
