@@ -25,7 +25,7 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
       opacity: 1,
       transition: {
         duration: reduceMotion ? 0.01 : 0.5,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
         staggerChildren: reduceMotion ? 0 : 0.22,
         delayChildren: reduceMotion ? 0 : 0.18,
       },
@@ -62,7 +62,7 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
       opacity: 1,
       transition: {
         duration: reduceMotion ? 0.01 : 1.1,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
         delay: reduceMotion ? 0 : 0.4,
       },
     },
