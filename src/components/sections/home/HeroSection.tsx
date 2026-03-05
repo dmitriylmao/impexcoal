@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { motion, useReducedMotion } from 'framer-motion';
 import { scrollToSection } from '@/lib/scroll-to-section';
 import styles from './HeroSection.module.css';
 
@@ -16,6 +17,56 @@ type HeroSectionProps = {
 export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroSectionProps) {
   const params = useParams<{ lang?: string }>();
   const locale = params?.lang ?? 'ru';
+  const reduceMotion = useReducedMotion();
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: reduceMotion ? 0.01 : 0.5,
+        ease: 'easeOut',
+        staggerChildren: reduceMotion ? 0 : 0.22,
+        delayChildren: reduceMotion ? 0 : 0.18,
+      },
+    },
+  };
+
+  const scaleFadeVariants = {
+    hidden: { opacity: 0, scale: reduceMotion ? 1 : 0.96 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: reduceMotion ? 0.01 : 0.9,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    },
+  };
+
+  const logoVariants = {
+    hidden: { opacity: 0, scale: reduceMotion ? 1 : 0.94 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: reduceMotion ? 0.01 : 1.0,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    },
+  };
+
+  const videoVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        duration: reduceMotion ? 0.01 : 1.1,
+        ease: 'easeOut',
+        delay: reduceMotion ? 0 : 0.4,
+      },
+    },
+  };
 
   const scrollNext = () => {
     scrollToSection('next-block');
@@ -23,40 +74,52 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
 
   return (
     <section className={styles.root}>
-      <video className={styles.bgVideo} autoPlay loop muted playsInline preload="auto" aria-hidden>
+      <motion.video
+        className={styles.bgVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        aria-hidden
+        initial="hidden"
+        animate="show"
+        variants={videoVariants}
+      >
         <source src="/hero.webm" type="video/webm" />
-      </video>
+      </motion.video>
       <div className={styles.inner}>
-        <div className={styles.content}>
-          <div className={styles.logoWrap}>
+        <motion.div className={styles.content} initial="hidden" animate="show" variants={containerVariants}>
+          <motion.div className={styles.logoWrap} variants={logoVariants}>
             <div className={styles.logoGlow} />
             <Image src="/logo.png" alt="IMPEKS" width={98} height={98} className={styles.mainLogo} priority />
-          </div>
+          </motion.div>
 
-          <div className={styles.textBlock}>
-            <h1 className={styles.title}>{title}</h1>
-            <p className={styles.subtitle}>{subtitle}</p>
+          <motion.div className={styles.textBlock} variants={scaleFadeVariants}>
+            <motion.h1 className={styles.title} variants={scaleFadeVariants}>
+              {title}
+            </motion.h1>
+            <motion.p className={styles.subtitle} variants={scaleFadeVariants}>
+              {subtitle}
+            </motion.p>
 
-            <div className={styles.actionRow}>
-            <Link href={`/${locale}/contacts`} className={styles.ctaButton}>
-              <div className={styles.glow}></div>
-              
-              <div className={styles.borderWrapper}>
-                <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
-                <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
-              </div>
-              
-              <div className={styles.innerFill}></div>
-              
-              <span className={styles.ctaLabel}>{cta}</span>
-            </Link>
-          </div>
+            <motion.div className={styles.actionRow} variants={scaleFadeVariants}>
+              <Link href={`/${locale}/contacts`} className={styles.ctaButton}>
+                <div className={styles.glow}></div>
 
-          </div>
+                <div className={styles.borderWrapper}>
+                  <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
+                  <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
+                </div>
 
+                <div className={styles.innerFill}></div>
 
-          {/* Социальные сети и контакты */}
-          <div className={styles.socials}>
+                <span className={styles.ctaLabel}>{cta}</span>
+              </Link>
+            </motion.div>
+          </motion.div>
+
+          <motion.div className={styles.socials} variants={scaleFadeVariants}>
             <a href="tel:+79508655519" className={styles.socialButton} aria-label="Call us">
               <div className={styles.iconWrapper}>
                 <Image src="/icons/phone.svg" alt="" width={24} height={24} className={styles.iconDefault} />
@@ -66,11 +129,11 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
 
             <span className={styles.divider} />
 
-            <a 
-              href="https://t.me/wwwwwwwwwwwwwwwwwwvwwwwwwwwwww" 
-              className={styles.socialButton} 
-              aria-label="Write to Telegram" 
-              target="_blank" 
+            <a
+              href="https://t.me/wwwwwwwwwwwwwwwwwwvwwwwwwwwwww"
+              className={styles.socialButton}
+              aria-label="Write to Telegram"
+              target="_blank"
               rel="noreferrer"
             >
               <div className={styles.iconWrapper}>
@@ -87,15 +150,18 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
                 <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconHover} />
               </div>
             </a>
-          </div>
-        
+          </motion.div>
 
-          <button type="button" className={styles.scrollButton} onClick={scrollNext} aria-label={scrollLabel}>
+          <motion.button
+            type="button"
+            className={styles.scrollButton}
+            onClick={scrollNext}
+            aria-label={scrollLabel}
+            variants={scaleFadeVariants}
+          >
             <span className={styles.chevron} aria-hidden />
-          </button>
-        </div>
-
-        
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );
