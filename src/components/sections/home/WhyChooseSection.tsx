@@ -31,10 +31,12 @@ export default function WhyChooseSection({ badge, title, cards }: WhyChooseSecti
               <div className={styles.iconWrap}>
                 <Image src="/globe.svg" alt="" width={86} height={86} className={styles.cardIcon} />
               </div>
-
-              <h3 className={styles.cardTitle}>{card.title}</h3>
-              <p className={styles.cardSubtitle}>{card.subtitle}</p>
-              <p className={styles.cardDescription}>{card.description}</p>
+              <div className={styles.cardText}>
+                <h3 className={styles.cardTitle}>{card.title}</h3>
+                <p className={styles.cardDescription}>
+                  {card.subtitle ? `${card.subtitle} ${card.description}` : card.description}
+                </p>
+              </div>
             </article>
           ))}
         </div>
