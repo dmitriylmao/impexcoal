@@ -18,7 +18,10 @@ export default function WhyChooseSection({ badge, title, cards }: WhyChooseSecti
     <section id="next-block" className={styles.root} aria-label={title}>
       <div className={styles.inner}>
         <div className={styles.top}>
-          <span className={styles.badge}>{badge}</span>
+          <span className={styles.badge}>
+            <Image src="/icons/sparkle.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
+            {badge}
+          </span>
           <h2 className={styles.title}>{title}</h2>
         </div>
 
