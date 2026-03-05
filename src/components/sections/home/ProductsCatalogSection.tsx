@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import Image from 'next/image';
 import styles from './ProductsCatalogSection.module.css';
 
 type ProductCard = {
@@ -97,7 +98,10 @@ export default function ProductsCatalogSection({
     <section className={styles.root} aria-label={title}>
       <div className={styles.inner}>
         <div className={styles.top}>
-          <span className={styles.badge}>{badge}</span>
+          <span className={styles.badge}>
+            <Image src="/icons/sparkle.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
+            {badge}
+          </span>
           <h2 className={styles.title}>{title}</h2>
           <p className={styles.subtitle}>{subtitle}</p>
         </div>
@@ -144,3 +148,4 @@ export default function ProductsCatalogSection({
     </section>
   );
 }
+

@@ -57,7 +57,10 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
     <section className={styles.root} aria-label={badge}>
       <div className={styles.inner}>
         <div className={styles.badgeRow}>
-          <span className={styles.badge}>{badge}</span>
+          <span className={styles.badge}>
+            <Image src="/icons/sparkle.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
+            {badge}
+          </span>
         </div>
 
         <div className={styles.desktopDeck}>
@@ -145,3 +148,4 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
     </section>
   );
 }
+
