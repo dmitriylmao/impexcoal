@@ -1,6 +1,8 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import { scrollToSection } from '@/lib/scroll-to-section';
 import styles from './HeroSection.module.css';
 
@@ -12,6 +14,9 @@ type HeroSectionProps = {
 };
 
 export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroSectionProps) {
+  const params = useParams<{ lang?: string }>();
+  const locale = params?.lang ?? 'ru';
+
   const scrollNext = () => {
     scrollToSection('next-block');
   };
@@ -28,36 +33,66 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
           <div className={styles.textBlock}>
             <h1 className={styles.title}>{title}</h1>
             <p className={styles.subtitle}>{subtitle}</p>
+
+            <div className={styles.actionRow}>
+            <Link href={`/${locale}/contacts`} className={styles.ctaButton}>
+              <div className={styles.glow}></div>
+              
+              <div className={styles.borderWrapper}>
+                <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
+                <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
+              </div>
+              
+              <div className={styles.innerFill}></div>
+              
+              <span className={styles.ctaLabel}>{cta}</span>
+            </Link>
           </div>
 
-          <div className={styles.actionRow}>
-            <button type="button" className={styles.ctaButton}>
-              {cta}
-            </button>
           </div>
 
+
+          {/* Социальные сети и контакты */}
           <div className={styles.socials}>
-            <button type="button" className={styles.socialButton} aria-label="Telegram">
-              <Image src="/telegram.svg" alt="" width={20} height={20} className={styles.telegramIcon} />
-            </button>
+            <a href="tel:+79508655519" className={styles.socialButton} aria-label="Call us">
+              <div className={styles.iconWrapper}>
+                <Image src="/icons/phone.svg" alt="" width={24} height={24} className={styles.iconDefault} />
+                <Image src="/icons/phone.svg" alt="" width={24} height={24} className={styles.iconHover} />
+              </div>
+            </a>
 
             <span className={styles.divider} />
 
-            <button type="button" className={styles.socialButton} aria-label="Telegram">
-              <Image src="/telegram.svg" alt="" width={20} height={20} className={styles.telegramIcon} />
-            </button>
+            <a 
+              href="https://t.me/wwwwwwwwwwwwwwwwwwvwwwwwwwwwww" 
+              className={styles.socialButton} 
+              aria-label="Write to Telegram" 
+              target="_blank" 
+              rel="noreferrer"
+            >
+              <div className={styles.iconWrapper}>
+                <Image src="/icons/telegram.svg" alt="" width={24} height={24} className={styles.iconDefault} />
+                <Image src="/icons/telegram.svg" alt="" width={24} height={24} className={styles.iconHover} />
+              </div>
+            </a>
 
             <span className={styles.divider} />
 
-            <button type="button" className={styles.socialButton} aria-label="Telegram">
-              <Image src="/telegram.svg" alt="" width={20} height={20} className={styles.telegramIcon} />
-            </button>
+            <a href="mailto:tdimpeks@support.com" className={styles.socialButton} aria-label="Send email">
+              <div className={styles.iconWrapper}>
+                <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconDefault} />
+                <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconHover} />
+              </div>
+            </a>
           </div>
+        
+
+          <button type="button" className={styles.scrollButton} onClick={scrollNext} aria-label={scrollLabel}>
+            <span className={styles.chevron} aria-hidden />
+          </button>
         </div>
 
-        <button type="button" className={styles.scrollButton} onClick={scrollNext} aria-label={scrollLabel}>
-          <span className={styles.chevron} aria-hidden />
-        </button>
+        
       </div>
     </section>
   );
