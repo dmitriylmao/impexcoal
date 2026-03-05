@@ -23,6 +23,9 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
 
   return (
     <section className={styles.root}>
+      <video className={styles.bgVideo} autoPlay loop muted playsInline preload="auto" aria-hidden>
+        <source src="/hero.webm" type="video/webm" />
+      </video>
       <div className={styles.inner}>
         <div className={styles.content}>
           <div className={styles.logoWrap}>
