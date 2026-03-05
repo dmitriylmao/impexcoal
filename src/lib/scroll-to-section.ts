@@ -1,5 +1,5 @@
-export const HEADER_OFFSET_DESKTOP = 108;
-export const HEADER_OFFSET_MOBILE = 96;
+export const HEADER_OFFSET_DESKTOP = 64;
+export const HEADER_OFFSET_MOBILE = 64;
 
 // Tune per section if you need exact pixel-perfect positioning.
 export const SECTION_TUNE: Record<string, number> = {
