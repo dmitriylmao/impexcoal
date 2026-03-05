@@ -1,11 +1,12 @@
 .root {
   width: 100%;
-  padding: 8px 0 72px;
-  background-color: rgb(25, 28, 35);
+  padding: 40px 0 40px;
+  background-color: #10131c;
 }
 
 .inner {
-  width: min(1200px, 100%);
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -50,30 +51,32 @@
 
 
 .title {
-  width: 100%;
-  max-width: 1000px;
   margin: 0;
   color: #d5dbe6;
+  text-align: center;
   font-size: 44px;
   font-weight: 700;
   line-height: 1.2;
-  text-align: center;
+  letter-spacing: 0;
+  max-width: 640px;
+  width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .frame {
   box-sizing: border-box;
   width: 100%;
-  min-height: 520px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  padding: 80px;
+  padding: 80px 24px;
   border-radius: 15px;
   position: relative;
   overflow: hidden;
   background-color: #04070d;
-  box-shadow: inset 0 2px 1px 0 rgba(207, 231, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
 }
 
 .bgShape {
@@ -82,7 +85,7 @@
   display: block;
   position: absolute;
   left: 50%;
-  bottom: -180px;
+  bottom: -220px;
   background: radial-gradient(50% 50% at 50% 50%, rgba(213, 219, 230, 0.7) 0%, rgba(4, 7, 13, 0) 100%);
   opacity: 0.1;
   transform: translateX(-50%) rotate(-13deg);
@@ -91,17 +94,17 @@
 }
 
 .textWrap {
-  width: 80%;
+  width: 60%;
   position: relative;
   z-index: 2;
-  text-align: center;
+  text-align: start;
 }
 
 .lead {
   margin: 0;
-  color: #778394;
+  color: #d5dbe6;
   font-size: 35px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.03em;
   white-space: pre-wrap;
@@ -112,19 +115,19 @@
 .leadAccent {
   display: block;
   color: #e85102;
+  font-weight: 700;
 }
 
 .leadRest {
   display: block;
-  margin-top: 2px;
-  color: #778394;
+  color: #d5dbe6;
 }
 
 .body {
-  margin: 24px 0 0;
-  color: #778394;
+  margin: 40px 0 0;
+  color: #d5dbe6;
   font-size: 35px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.03em;
   white-space: pre-wrap;
@@ -133,43 +136,28 @@
 }
 
 @media (max-width: 1200px) {
-  .inner {
-    padding: 0 20px;
-  }
-
-  .title {
-    font-size: 38px;
-  }
-
-  .frame {
-    min-height: 440px;
-    padding: 56px 40px;
-  }
-
   .lead,
   .body {
-    font-size: 28px;
+    font-size: 30px;
   }
 }
 
 @media (max-width: 800px) {
-  .root {
-    padding-bottom: 40px;
-  }
 
-  .inner {
-    padding: 0 12px;
-    gap: 22px;
+  .inner{
+    gap:30px;
   }
-
-  .title {
-    font-size: 52px;
+  
+  .title{
+    font-size: 30px;
+    max-width: 300px;
+    letter-spacing: 0em;
+    line-height: 1.2;
+    font-weight: 800;
   }
 
   .frame {
-    min-height: 360px;
-    padding: 36px 20px;
-    border-radius: 12px;
+    padding: 40px 20px;
   }
 
   .textWrap {
@@ -178,9 +166,9 @@
 
   .lead,
   .body {
-    font-size: 16px;
+    font-size: 20px;
     line-height: 1.5;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.03em;
   }
 
   .body {
