@@ -53,9 +53,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         subtitle={dict.ui.homeHero.subtitle}
         cta={dict.ui.homeHero.cta}
         scrollLabel={dict.ui.homeHero.scrollLabel}
-      />
+      /> 
 
-      <div id="next-block">
+     <div id="next-block">
         <WhyChooseSection
           badge={dict.ui.homeWhyChoose.badge}
           title={dict.ui.homeWhyChoose.title}
@@ -73,7 +73,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         />
       </div>
 
-      <DeckSection badge={dict.ui.homeDeck.badge} cards={dict.ui.homeDeck.cards} />
+      {/*<DeckSection badge={dict.ui.homeDeck.badge} cards={dict.ui.homeDeck.cards} /> */}
 
       <div id="segments" className={styles.anchorSection}>
         <SegmentsSection
