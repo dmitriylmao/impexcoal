@@ -112,7 +112,7 @@
 }
 
 .btnIcon{
-  filter: invert(36%) sepia(81%) saturate(4000%) hue-rotate(10deg) brightness(101%) contrast(105%);
+  filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
 }
 
 /* --- БУРГЕР --- */

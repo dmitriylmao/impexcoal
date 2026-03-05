@@ -336,7 +336,7 @@ align-items: center;
   box-sizing: border-box;
   position: absolute;
   left: 50%;
-  bottom: 26px;
+  bottom: 48px;
   transform: translateX(-50%);
   width: min-content;
   height: min-content;
@@ -347,13 +347,14 @@ align-items: center;
   border: 0;
   border-radius: 36px;
   background: transparent;
-  color: #d4652d;
+  color: #db5018;
   cursor: pointer;
   transition: color 0.2s ease;
+  animation: scrollHintFloat 2.8s ease-in-out infinite;
 }
 
 .scrollButton:hover {
-  color: #ff894a;
+  color: #dd6839;
 }
 
 .chevron {
@@ -363,6 +364,18 @@ align-items: center;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   transform: rotate(45deg);
+}
+
+@keyframes scrollHintFloat {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(12px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 @media (max-width: 1200px) {
@@ -465,5 +478,11 @@ align-items: center;
 
   .scrollButton {
     bottom: 18px;
+  }
+}
+
+@media (max-height: 799px) {
+  .scrollButton {
+    display: none;
   }
 }
