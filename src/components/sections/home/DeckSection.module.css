@@ -1,18 +1,22 @@
 .root {
   width: 100%;
-  padding: 8px 0 84px;
-  background-color: #003d62;
+  padding: 80px 0 80px;
+  background-color: #04070d;
+  background-color: #3c4e72;
 }
 
 .inner {
-  width: min(1200px, 100%);
+  width: 100%;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 24px;
+  background-color: rgb(71, 38, 102);
 }
 
 .badgeRow {
   display: flex;
   justify-content: center;
+  background-color: #edf3ff;
 }
 
 .badge {
@@ -45,16 +49,17 @@
 
 .stage {
   position: relative;
-  height: 560px;
-  margin-top: 22px;
+  height: 520px;
+  margin-top: 20px;
   z-index: 1;
+  background-color: antiquewhite;
 }
 
 .deckCard {
   position: absolute;
   inset: 0;
   cursor: pointer;
-  transition: transform 0.75s cubic-bezier(0.2, 0.9, 0.22, 1), opacity 0.5s ease;
+  transition: transform 1s cubic-bezier(0.2, 0.9, 0.22, 1), opacity 0.5s ease;
 }
 
 .positionFront {
@@ -64,48 +69,52 @@
 
 .positionMiddle {
   z-index: 3;
-  transform: translateY(46px) scale(0.97);
+  transform: translateY(32px) scale(0.94);
+  filter: blur(1px);
 }
 
 .positionBack {
   z-index: 2;
-  transform: translateY(0) scale(0.94);
+  transform: translateY(-28px) scale(0.86);
+  filter: blur(2px);
 }
 
 .cardShell {
   width: 100%;
-  height: 460px;
-  border-radius: 16px;
-  border: 1px solid transparent;
-  background-color: rgba(4, 7, 13, 0.691);
+  height: min-content;
+  border-radius: 12px;
+  border: 2px solid rgba(216, 231, 242, 0.07);
+  border-top: none;
+  background-color: #04070d;
   /*background:
     linear-gradient(180deg, rgba(4, 12, 24, 0.7), rgba(2, 8, 16, 0.82)) padding-box,
     linear-gradient(180deg, rgba(207, 231, 255, 0.3), rgba(207, 231, 255, 0.08)) border-box; */
   overflow: hidden;
   backdrop-filter: blur(12px) saturate(120%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
+  transition: transform 0.28s ease, box-shadow 0.8s ease-in-out;
 }
 
 .deckCard:hover .cardShell {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.095);
+  transform: translateY(-6px);
 }
 
 .cardTop {
-  height: 56px;
+  height: 64px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0px -1px 1px 0px rgba(207, 231, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 18px;
+  padding: 18px 30px 18px 30px;
+  border-radius: 12px;
 }
 
 .cardArrow {
-  width: 14px;
-  height: 14px;
-  border-left: 2px solid rgba(232, 238, 249, 0.9);
-  border-bottom: 2px solid rgba(232, 238, 249, 0.9);
+  width: 12px;
+  height: 12px;
+  border-left: 2px solid rgba(213, 219, 230,1);
+  border-bottom: 2px solid rgba(213, 219, 230,1);
   transform: rotate(-45deg);
 }
 
@@ -118,70 +127,78 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(202, 215, 231, 0.16);
+  background: #1e2026;
 }
 
 .cardBody {
+  width: 100%;
+  height: min-content;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
-  gap: 28px;
-  padding: 30px 28px 24px;
-  height: calc(100% - 56px);
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 30px 30px 40px 30px;
 }
 
 .cardText {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: visible;
+  height: 100%;
+  padding: 0px;
+  align-content: flex-start;
+  gap: 12px;
 }
 
 .cardTitle {
-  margin: 0;
-  color: #d5dbe6;
-  font-size: 20px;
-  line-height: 1.2;
-  font-weight: 600;
+  color: rgb(213,219,230);
+  letter-spacing: -0.01em;
+  font-size: 28px;
+  line-height: 1.4;
+  font-weight: 400;
 }
 
 .cardDescription {
-  margin: 16px 0 0;
-  color: #7e8997;
-  font-size: 17px;
-  line-height: 1.45;
-  max-width: 640px;
+  color: rgba(213,219,230,0.7);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 400px;
 }
 
 .metricBox {
-  margin-top: auto;
   border: 1px solid transparent;
   border-radius: 12px;
   background:
-    linear-gradient(180deg, rgba(5, 13, 26, 0.84), rgba(4, 10, 20, 0.88)) padding-box,
-    linear-gradient(180deg, rgba(207, 231, 255, 0.34), rgba(207, 231, 255, 0.08)) border-box;
-  min-height: 106px;
+    linear-gradient(90deg, #04070d, #0d1016) padding-box,
+    linear-gradient(180deg, #3e4550, #171b21) border-box;
+  min-height: 107px;
+  width: 100%;
+  margin-top: 12px;
   display: grid;
   align-content: center;
   justify-items: center;
-  row-gap: 4px;
+  row-gap: 14px;
 }
 
 .metricValue {
-  color: #e9eef8;
-  font-size: 46px;
+  color: #fefefe;
+  font-size: 32px;
   line-height: 1;
   font-weight: 500;
 }
 
 .metricLabel {
-  color: #cdd7e7;
-  font-size: 17px;
+  color: #d4dbe6;
+  font-size: 16px;
   line-height: 1.2;
 }
 
 .cardMedia {
   position: relative;
-  min-height: 290px;
-  border-radius: 10px;
+  height: 100%; 
+  border-radius: 12px;
   overflow: hidden;
   background: #000;
 }
@@ -191,30 +208,31 @@
 }
 
 .navDots {
-  margin-top: 28px;
+  margin-top: 12px;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 16px;
   position: relative;
   z-index: 12;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   border: 0;
-  background: rgba(209, 219, 232, 0.25);
+  background: #343434;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.4s ease, transform 0.2s ease;
 }
 
 .dotActive {
-  background: #edf3ff;
+  background: #ffffff;
 }
 
 .dot:hover {
-  transform: scale(1.08);
+  transform: scale(1.1);
+  background-color: #4c4c4c;
 }
 
 .mobileList {
