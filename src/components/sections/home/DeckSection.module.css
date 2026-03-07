@@ -28,7 +28,7 @@
   font-size: 12px;
   font-weight: 700;
   line-height: 1.3;
-  white-space: nowrap;
+  white-space: wrap;
 }
 
 .badgeIcon {
@@ -323,6 +323,21 @@
   .metricValue {
     font-size: 42px;
   }
+
+  .badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
+    align-self: flex-start;
+    gap: 4px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+}
 }
 
 
