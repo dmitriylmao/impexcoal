@@ -172,7 +172,8 @@ align-items: center;
 .ctaButton {
   box-sizing: border-box;
   position: relative;
-  width: 374px;
+  width: 100%;
+  max-width: 374px;
   height: 48px;
   display: inline-flex;
   justify-content: center;
@@ -489,9 +490,8 @@ align-items: center;
   }
 
   .ctaButton {
-    max-width: none;
-    height: 48px;
-    font-size: 13px;
+    width: 100%;
+    max-width: 374px;
   }
 
   .scrollButton {
