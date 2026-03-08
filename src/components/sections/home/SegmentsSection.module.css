@@ -1,21 +1,33 @@
 .root {
   width: 100%;
-  padding: 16px 0 88px;
+  padding: 80px 0 80px;
+  background-color: #04070d;
   background-color: rgb(0, 26, 23);
+
 }
 
 .inner {
-  width: min(1200px, 100%);
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
   padding: 0 24px;
-  display: grid;
-  gap: 34px;
+  background-color: rgb(0, 54, 48);
 }
 
 .top {
-  display: grid;
-  justify-items: center;
-  gap: 12px;
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(0, 98, 87);
 }
 
 .badge {
@@ -45,70 +57,81 @@
 .title {
   margin: 0;
   color: #d5dbe6;
-  font-size: 58px;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
   text-align: center;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  max-width: 640px;
+  width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .panel {
+  height: min-content;
   border: 1px solid transparent;
   border-radius: 16px;
-  background:
-    linear-gradient(180deg, rgba(4, 12, 24, 0.68), rgba(2, 8, 16, 0.86)) padding-box,
-    linear-gradient(180deg, rgba(207, 231, 255, 0.28), rgba(207, 231, 255, 0.08)) border-box;
+  background-color: #08132a;
   backdrop-filter: blur(14px) saturate(120%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
-  padding: 18px 18px 24px;
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
+  padding: 24px;
+  gap: 20px;
 }
 
 .tabs {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  gap: 16px;
+  background-color: rgb(0, 0, 0);
 }
 
 .tabButton {
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  background: rgba(15, 23, 38, 0.42);
-  color: #9aa8bc;
-  font-size: 16px;
+  border-radius: 8px;
+  background-color: #0a0d14;
+  color: rgb(213,219,230);
+  font-size: 14px;
   font-weight: 600;
-  line-height: 1.2;
-  padding: 12px 10px;
+  line-height: 1.3;
+  padding: 12px;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  transition: color 0.4s ease, border-color 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease-in-out;
 }
 
 .tabButton:hover {
-  color: #c9d4e2;
-  border-color: rgba(255, 255, 255, 0.18);
-  transform: translateY(-1px);
+  color: rgba(255, 255, 255, 0.985);
+  box-shadow: inset 0px 1px 1px 0px rgba(207, 231, 255, 0.2);
+  background-color: #04070d;
 }
 
 .tabButtonActive {
+  box-shadow: inset 0px 1px 1px 0px rgba(207, 231, 255, 0.2);
   color: #eaf0ff;
-  border-color: rgba(207, 231, 255, 0.34);
-  background: rgba(21, 33, 54, 0.56);
+  background-color: #10131c;
 }
 
 .content {
-  margin-top: 24px;
+  height: min-content;
+  margin-top: 72px;
+  margin-bottom: 48px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.86fr);
-  gap: 28px;
+  gap: 24px;
   align-items: center;
+  background-color: rgb(33, 33, 33);
 }
 
 .visual {
   position: relative;
-  min-height: 370px;
+  height: 400px;
+  background-color: rgb(5, 82, 82);
 }
 
 .mainImageWrap {
   position: absolute;
-  inset: 0 16% 12% 0;
+  inset: 0 24% 24% 0;
   border-radius: 22px;
   border: 1px solid transparent;
   background:
@@ -136,22 +159,27 @@
 
 .text {
   display: grid;
-  gap: 20px;
+  padding: 10px 10px 20px 10px;
+  gap: 24px;
+  background-color: #0a510f;
 }
 
 .itemTitle {
   margin: 0;
-  color: #dbe2ee;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.28;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.20;
+  letter-spacing: -0.01em;
 }
 
 .itemDescription {
   margin: 0;
-  color: #8f9fb3;
-  font-size: 17px;
-  line-height: 1.5;
+  color: rgba(213,219,230,0.7);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+  letter-spacing: -0.02em;
   white-space: pre-wrap;
 }
 
