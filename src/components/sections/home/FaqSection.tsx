@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import styles from './FaqSection.module.css';
 
 type FaqItem = {
@@ -20,6 +22,8 @@ type FaqSectionProps = {
 
 export default function FaqSection({ badge, title, items, cardTitle, cardSubtitle, cardButton }: FaqSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const params = useParams<{ lang?: string }>();
+  const locale = params?.lang ?? 'ru';
   const safeItems = items.slice(0, 5);
 
   return (
@@ -61,17 +65,26 @@ export default function FaqSection({ badge, title, items, cardTitle, cardSubtitl
           </div>
 
           <aside className={styles.ctaCard}>
-            <div className={styles.ctaIcon}>?</div>
+            <div className={styles.ctaIcon}>
+              <Image src="/icons/question.svg" alt="" width={28} height={28} className={styles.ctaIconImage} aria-hidden />
+            </div>
             <h3 className={styles.ctaTitle}>{cardTitle}</h3>
             <p className={styles.ctaSubtitle}>{cardSubtitle}</p>
-            <button type="button" className={styles.ctaButton}>
-              {cardButton}
-              <span aria-hidden="true">↗</span>
-            </button>
+            <Link href={`/${locale}/contacts`} className={styles.ctaButton}>
+              <div className={styles.glow} />
+              <div className={styles.borderWrapper}>
+                <div className={`${styles.stroke} ${styles.strokeDefault}`} />
+                <div className={`${styles.stroke} ${styles.strokeHover}`} />
+              </div>
+              <div className={styles.innerFill} />
+              <span className={styles.ctaLabel}>{cardButton}</span>
+              <Image src="/icons/arrow-up-right.svg" alt="" width={16} height={16} className={styles.ctaArrow} aria-hidden />
+            </Link>
           </aside>
         </div>
       </div>
     </section>
   );
 }
+
 
