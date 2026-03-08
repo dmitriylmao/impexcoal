@@ -1,21 +1,29 @@
 .root {
   width: 100%;
-  padding: 10px 0 80px;
-  background-color: rgb(43, 101, 156);
+  padding: 0px 0 80px;
+  background-color: #04070d;
 }
 
 .inner {
-  width: min(600px, 100%);
+  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
   padding: 0 24px;
-  display: grid;
-  gap: 26px;
 }
 
 .top {
-  display: grid;
-  justify-items: center;
-  gap: 12px;
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .badge {
@@ -46,10 +54,15 @@
   margin: 0;
   color: #d5dbe6;
   text-align: center;
-  font-size: 48px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  max-width: 640px;
+  width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .imageFrame {
@@ -58,10 +71,9 @@
   min-height: 560px;
   border: 1px solid transparent;
   border-radius: 22px;
-  background:
-    linear-gradient(180deg, rgba(4, 12, 24, 0.68), rgba(2, 8, 16, 0.86)) padding-box,
-    linear-gradient(180deg, rgba(207, 231, 255, 0.3), rgba(207, 231, 255, 0.08)) border-box;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background-color: #04070d;
+  border: 1px solid rgba(216, 231, 242, 0.07);
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
   overflow: hidden;
 }
 
@@ -70,36 +82,27 @@
 }
 
 @media (max-width: 1200px) {
-  .inner {
-    padding: 0 20px;
-  }
-
-  .title {
-    font-size: 48px;
-  }
-
   .imageFrame {
-    min-height: 490px;
+    min-height: 500px;
   }
 }
 
 @media (max-width: 800px) {
-  .root {
-    padding-bottom: 48px;
+
+  .inner{
+    gap:30px;
   }
 
-  .inner {
-    padding: 0 12px;
-    gap: 18px;
-  }
-
-  .title {
-    font-size: 52px;
+  .title{
+    font-size: 30px;
+    max-width: 300px;
+    letter-spacing: 0em;
+    line-height: 1.2;
+    font-weight: 800;
   }
 
   .imageFrame {
     min-height: 430px;
-    border-radius: 16px;
   }
 }
 

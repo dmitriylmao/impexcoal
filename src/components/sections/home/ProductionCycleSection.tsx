@@ -20,7 +20,7 @@ export default function ProductionCycleSection({ badge, title, imageAlt }: Produ
         </div>
 
         <div className={styles.imageFrame}>
-          <Image src="/image2.jpg" alt={imageAlt} fill className={styles.image} sizes="(max-width: 800px) 100vw, 1200px" />
+          <Image src="/image1.jpg" alt={imageAlt} fill className={styles.image} sizes="(max-width: 800px) 100vw, 1200px" />
         </div>
       </div>
     </section>
