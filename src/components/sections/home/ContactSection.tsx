@@ -29,24 +29,44 @@ export default function ContactSection({ badge, title, cta }: ContactSectionProp
         <h2 className={styles.title}>{title}</h2>
 
         <Link href={`/${locale}/contacts`} className={styles.ctaButton}>
-          {cta}
+          <div className={styles.glow} />
+          <div className={styles.borderWrapper}>
+            <div className={`${styles.stroke} ${styles.strokeDefault}`} />
+            <div className={`${styles.stroke} ${styles.strokeHover}`} />
+          </div>
+          <div className={styles.innerFill} />
+          <span className={styles.ctaLabel}>{cta || 'Связаться с менеджером'}</span>
         </Link>
 
         <div className={styles.socials}>
-          <button type="button" className={styles.socialButton} aria-label="Telegram">
-            <Image src="/telegram.svg" alt="" width={20} height={20} className={styles.telegramIcon} />
-          </button>
+          <a href="tel:+79508655519" className={styles.socialButton} aria-label="Call us">
+            <div className={styles.iconWrapper}>
+              <Image src="/icons/phone.svg" alt="" width={24} height={24} className={styles.iconDefault} />
+              <Image src="/icons/phone.svg" alt="" width={24} height={24} className={styles.iconHover} />
+            </div>
+          </a>
           <span className={styles.divider} />
-          <button type="button" className={styles.socialButton} aria-label="Telegram">
-            <Image src="/telegram.svg" alt="" width={20} height={20} className={styles.telegramIcon} />
-          </button>
+          <a
+            href="https://t.me/wwwwwwwwwwwwwwwwwwvwwwwwwwwwww"
+            className={styles.socialButton}
+            aria-label="Write to Telegram"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className={styles.iconWrapper}>
+              <Image src="/icons/telegram.svg" alt="" width={24} height={24} className={styles.iconDefault} />
+              <Image src="/icons/telegram.svg" alt="" width={24} height={24} className={styles.iconHover} />
+            </div>
+          </a>
           <span className={styles.divider} />
-          <button type="button" className={styles.socialButton} aria-label="Telegram">
-            <Image src="/telegram.svg" alt="" width={20} height={20} className={styles.telegramIcon} />
-          </button>
+          <a href="mailto:tdimpeks@support.com" className={styles.socialButton} aria-label="Send email">
+            <div className={styles.iconWrapper}>
+              <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconDefault} />
+              <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconHover} />
+            </div>
+          </a>
         </div>
       </div>
     </section>
   );
 }
-

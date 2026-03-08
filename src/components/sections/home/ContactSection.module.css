@@ -2,7 +2,6 @@
   width: 100%;
   padding: 100px 0 100px;
   background-color: #04070d;
-  background: #232100;
 }
 
 .inner {
@@ -21,7 +20,6 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  background-color: #04070d;
 }
 
 .badgeLine {
@@ -52,7 +50,7 @@
   text-align: center;
   font-size: 44px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1;
   letter-spacing: 0;
   max-width: 640px;
   width: 100%;
@@ -62,50 +60,181 @@
 }
 
 .ctaButton {
-  border: 1px solid rgba(207, 231, 255, 0.22);
-  border-radius: 12px;
-  background:
-    linear-gradient(180deg, rgba(8, 16, 31, 0.84), rgba(6, 13, 25, 0.88)) padding-box,
-    linear-gradient(180deg, rgba(207, 231, 255, 0.26), rgba(240, 120, 44, 0.3)) border-box;
-  color: #e9effb;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1;
-  padding: 18px 26px;
-  cursor: default;
-  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  box-sizing: border-box;
+  position: relative;
+  width: 260px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  isolation: isolate;
+  outline: none;
 }
 
-.ctaButton:hover {
-  color: #c8d2e2;
-  border-color: rgba(240, 120, 44, 0.45);
-  transform: translateY(-1px);
+.glow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 236px;
+  height: 60px;
+  background: radial-gradient(25% 50% at 50% 100%, #e45217 0%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(18px);
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+.borderWrapper {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stroke {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 55px;
+  border-radius: 10px;
+}
+
+.strokeDefault {
+  width: 300px;
+  background: radial-gradient(20.7% 50% at 50% 100%, #fd4c00 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.8;
+  transition: opacity 0.8s ease, width 0.8s ease;
+}
+
+.strokeHover {
+  width: 420px;
+  background: radial-gradient(60.1% 50% at 50% 100%, #e45217 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.8s ease, width 0.8s ease;
+}
+
+.innerFill {
+  position: absolute;
+  inset: 2px;
+  background-color: rgb(4, 7, 13);
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: box-shadow 0.8s ease;
+  pointer-events: none;
+}
+
+.ctaLabel {
+  position: relative;
+  z-index: 2;
+  color: rgb(213, 219, 230);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: color 0.8s ease;
+}
+
+.ctaButton:hover .glow {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.6, 0.8);
+}
+
+.ctaButton:hover .strokeDefault {
+  opacity: 0;
+}
+
+.ctaButton:hover .strokeHover {
+  opacity: 1;
+}
+
+.ctaButton:hover .innerFill {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 15px rgba(228, 82, 23, 0.15);
+}
+
+.ctaButton:hover .ctaLabel {
+  color: #ffffff;
 }
 
 .socials {
-  margin-top: 8px;
   width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  overflow: hidden;
+  gap: 30px;
 }
 
 .socialButton {
-  width: 28px;
-  height: 28px;
+  width: 44px;
+  height: 44px;
   border: 0;
   background: transparent;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   padding: 0;
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
 }
 
-.telegramIcon {
+.iconWrapper {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.socialButton:hover .iconWrapper {
+  transform: scale(1.02);
+}
+
+.iconDefault,
+.iconHover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.iconDefault {
+  filter: brightness(0) saturate(100%) invert(78%) sepia(11%) saturate(294%) hue-rotate(177deg) brightness(88%) contrast(86%);
+  opacity: 0.5;
+}
+
+.iconHover {
   filter: brightness(0) invert(1);
-  opacity: 0.52;
+  opacity: 0;
+}
+
+.socialButton:hover .iconDefault {
+  opacity: 0;
+}
+
+.socialButton:hover .iconHover {
+  opacity: 0.8;
 }
 
 .divider {
@@ -114,102 +243,25 @@
   background: rgba(255, 255, 255, 0.12);
 }
 
-@media (max-width: 1200px) {
-  .inner {
-    padding: 0 20px;
-  }
-
-  .badgeLine {
-    width: 56px;
-  }
-
-  .badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #04070d;
-  color: #d5dbe6;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.3;
-  white-space: nowrap;
-}
-
-.badgeIcon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
-}
-
-  .ctaButton {
-    font-size: 18px;
-    padding: 16px 22px;
-  }
-}
 
 @media (max-width: 800px) {
+  .inner{
+    gap:20px;
+  }
+
   .root {
-    padding: 30px 0 70px;
-  }
-
-  .inner {
-    padding: 0 12px;
-    gap: 18px;
-  }
-
-  .badgeLine {
-    width: 40px;
-  }
-
-  .badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 7px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: #04070d;
-  color: #d5dbe6;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.3;
-  white-space: nowrap;
-}
-
-.badgeIcon {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
-}
-
-  .title {
-    font-size: clamp(28px, 11.5vw, 46px);
-  }
-
-  .ctaButton {
     width: 100%;
-    max-width: 360px;
-    font-size: 16px;
-    padding: 14px 16px;
+    padding: 80px 0 80px;
+  }
+  .title{
+    font-size: 30px;
+    max-width: 300px;
+    letter-spacing: 0em;
+    line-height: 1.2;
+    font-weight: 800;
   }
 
-  .socials {
-    gap: 16px;
-  }
-
-  .divider {
-    height: 18px;
-  }
 }
-
-
 
 
 
