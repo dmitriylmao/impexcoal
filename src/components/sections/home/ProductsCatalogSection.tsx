@@ -21,43 +21,14 @@ type ProductsCatalogSectionProps = {
   cards: ProductCard[];
 };
 
-const DESKTOP_MIN = 1200;
-const TABLET_MIN = 800;
-
-function getInitialVisibleCount(width: number) {
-  if (width < TABLET_MIN) {
-    return 3;
-  }
-
-  if (width <= DESKTOP_MIN) {
-    return 2;
-  }
-
-  return 3;
-}
-
 export default function ProductsCatalogSection({
   badge,
   title,
   subtitle,
-  showAllLabel,
-  showLessLabel,
   modalCloseLabel,
   cards,
 }: ProductsCatalogSectionProps) {
-  const [visibleLimit, setVisibleLimit] = useState(3);
-  const [expanded, setExpanded] = useState(false);
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
-
-  useEffect(() => {
-    const apply = () => {
-      setVisibleLimit(getInitialVisibleCount(window.innerWidth));
-    };
-
-    apply();
-    window.addEventListener('resize', apply);
-    return () => window.removeEventListener('resize', apply);
-  }, []);
 
   useEffect(() => {
     if (!activeSlug) {
@@ -79,15 +50,6 @@ export default function ProductsCatalogSection({
     };
   }, [activeSlug]);
 
-  const canExpand = cards.length > visibleLimit;
-  const visibleCards = useMemo(() => {
-    if (!canExpand || expanded) {
-      return cards;
-    }
-
-    return cards.slice(0, visibleLimit);
-  }, [canExpand, cards, expanded, visibleLimit]);
-
   const activeCard = useMemo(() => cards.find((item) => item.slug === activeSlug) ?? null, [activeSlug, cards]);
 
   if (cards.length === 0) {
@@ -107,7 +69,7 @@ export default function ProductsCatalogSection({
         </div>
 
         <div className={styles.grid}>
-          {visibleCards.map((item) => (
+          {cards.map((item) => (
             <button key={item.slug} type="button" className={styles.card} onClick={() => setActiveSlug(item.slug)}>
               <div className={styles.imageWrap}>
                 <img src={item.imageUrl} alt={item.name} className={styles.image} loading="lazy" />
@@ -117,14 +79,6 @@ export default function ProductsCatalogSection({
             </button>
           ))}
         </div>
-
-        {canExpand ? (
-          <div className={styles.actions}>
-            <button type="button" className={styles.showAllButton} onClick={() => setExpanded((prev) => !prev)}>
-              {expanded ? showLessLabel : showAllLabel}
-            </button>
-          </div>
-        ) : null}
       </div>
 
       {activeCard ? (
@@ -148,4 +102,3 @@ export default function ProductsCatalogSection({
     </section>
   );
 }
-

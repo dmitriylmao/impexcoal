@@ -86,26 +86,113 @@
 }
 
 .card {
+  position: relative;
   height: 100%;
   display: grid;
   grid-template-rows: auto auto 1fr;
   align-content: start;
   text-align: left;
-  border: 1px solid transparent;
   border-radius: 16px;
-  background:
-    linear-gradient(180deg, rgba(4, 12, 24, 0.72), rgba(2, 8, 16, 0.86)) padding-box,
-    linear-gradient(180deg, rgba(207, 231, 255, 0.32), rgba(207, 231, 255, 0.09)) border-box;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(216, 231, 242, 0.07);
+  background-color: #04070d;
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.05);
   backdrop-filter: blur(12px) saturate(120%);
-  padding: 16px;
+  padding: 24px;
+  gap: 24px;
   cursor: pointer;
-  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 2s cubic-bezier(0.21, 0.93, 0.38, 1),
+              box-shadow 2.5s cubic-bezier(0.21, 0.93, 0.38, 1);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 160%, rgba(255, 80, 0, 0.35) 0%, transparent 70%),
+    radial-gradient(ellipse at 20% 140%, rgba(228, 82, 23, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 140%, rgba(200, 40, 0, 0.2) 0%, transparent 50%);
+  opacity: 0;
+  z-index: -1;
+  transform: translateY(140px) scale(0.8);
+  filter: blur(12px);
+  transition: opacity 2.5s cubic-bezier(0.21, 0.93, 0.38, 1),
+              transform 2.5s cubic-bezier(0.21, 0.93, 0.38, 1),
+              filter 2.5s cubic-bezier(0.21, 0.93, 0.38, 1);
+  pointer-events: none;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to top, rgba(255, 100, 10, 0.8) 0%, rgba(228, 82, 23, 0.35) 15%, rgba(255, 255, 255, 0) 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  z-index: 10;
+  transition: opacity 2s cubic-bezier(0.21, 0.93, 0.38, 1);
+  pointer-events: none;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.28);
+  border-color: transparent;
+  box-shadow:
+    inset 0px 2px 1px 0px rgba(207, 231, 255, 0.02),
+    0 25px 60px -20px rgba(255, 70, 0, 0.18);
+}
+
+.card:hover::before {
+  opacity: 1;
+  transform: translateY(60px) scale(1.15);
+  filter: blur(6px);
+  animation: smolderFlicker 5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+.card:hover::after {
+  opacity: 1;
+  animation: borderSpark 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+@keyframes smolderFlicker {
+  0% { 
+    opacity: 0.7; 
+    transform: translateY(60px) scale(1.15) rotate(0deg); 
+    filter: blur(6px); 
+  }
+  25% { 
+    opacity: 1.0; 
+    transform: translateY(56px) scale(1.2) rotate(1.5deg); 
+    filter: blur(9px); 
+  }
+  50% { 
+    opacity: 0.5; 
+    transform: translateY(64px) scale(1.1) rotate(-1deg); 
+    filter: blur(5px); 
+  }
+  75% { 
+    opacity: 0.9; 
+    transform: translateY(58px) scale(1.18) rotate(0.8deg); 
+    filter: blur(8px); 
+  }
+  100% { 
+    opacity: 0.7; 
+    transform: translateY(60px) scale(1.15) rotate(0deg); 
+    filter: blur(6px); 
+  }
+}
+
+@keyframes borderSpark {
+  0% { opacity: 0.5; }
+  30% { opacity: 1.0; }
+  60% { opacity: 0.3; }
+  85% { opacity: 0.8; }
+  100% { opacity: 0.5; }
 }
 
 .imageWrap {
@@ -146,30 +233,6 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
-
-.actions {
-  display: flex;
-  justify-content: center;
-}
-
-.showAllButton {
-  border: 1px solid rgba(207, 231, 255, 0.24);
-  border-radius: 12px;
-  background: rgba(8, 15, 28, 0.8);
-  color: #e7eef9;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
-  padding: 14px 22px;
-  cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.showAllButton:hover {
-  color: #c8d2e2;
-  border-color: rgba(240, 120, 44, 0.44);
-  transform: translateY(-1px);
 }
 
 .modalOverlay {
@@ -349,11 +412,6 @@
     line-height: 1.4;
   }
 
-  .showAllButton {
-    width: 100%;
-    font-size: 17px;
-  }
-
   .modalOverlay {
     padding: 10px;
   }
@@ -374,7 +432,6 @@
     line-height: 1.48;
   }
 }
-
 
 
 
