@@ -1,8 +1,6 @@
 .root {
   width: 100%;
-  padding: 80px 0 0;
-  background-color: #04070d;
-  background: #270027;
+  padding: 80px 0 80px;
   background-color: #04070d;
 }
 
@@ -16,8 +14,6 @@
   align-items: center;
   gap: 40px;
   padding: 0 24px;
-  background-color: rgb(58, 58, 1);
-  background-color: #04070d;
 }
 
 .top {
@@ -84,8 +80,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 30px;
   align-items: stretch;
-  background-color: rgb(209, 149, 71);
-  background-color: #04070d;
 }
 
 .card {
@@ -99,10 +93,10 @@
   border-radius: 16px;
   border: 1px solid rgba(216, 231, 242, 0.07);
   background-color: #04070d;
-  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.05);
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
   backdrop-filter: blur(12px) saturate(120%);
   padding: 24px;
-  gap: 24px;
+  gap: 12px;
   cursor: pointer;
   overflow: hidden;
   isolation: isolate;
@@ -332,10 +326,9 @@
 .imageWrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 180px;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 14px;
 }
 
 .image {
@@ -346,23 +339,24 @@
 }
 
 .cardTitle {
-  margin: 0 0 8px;
-  min-height: 2.35em;
   display: grid;
   align-items: center;
   text-align: center;
-  color: #e3eaf6;
-  font-size: 28px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   line-height: 1.18;
-  font-weight: 700;
+  margin-top: 8px;
 }
 
 .cardDescription {
-  margin: 0;
   text-align: center;
-  color: #94a2b5;
-  font-size: 18px;
-  line-height: 1.45;
+  color: #82868f;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -474,24 +468,13 @@
 }
 
 @media (max-width: 1200px) {
-  .inner {
-    padding: 0 20px;
-  }
-
-  .subtitle {
-    font-size: 24px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
+ 
   .cardTitle {
-    font-size: 24px;
+    font-size: 18px;
   }
 
   .cardDescription {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .modalTitle {
@@ -504,46 +487,46 @@
 }
 
 @media (max-width: 800px) {
-  .root {
-    padding: 20px 0 56px;
+  
+  .inner{
+    gap:30px;
   }
 
-  .inner {
-    padding: 0 12px;
-    gap: 24px;
-  }
-
-  .top {
-    gap: 10px;
-  }
-
-  .title {
-    font-size: clamp(26px, 12vw, 44px);
-    line-height: 1.12;
+  .title{
+    font-size: 30px;
+    max-width: 300px;
+    letter-spacing: 0em;
+    line-height: 1.2;
+    font-weight: 800;
   }
 
   .subtitle {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.35;
+    background-color: #270027;
+    max-width: 300px;
   }
 
   .grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
   .card {
-    padding: 14px;
+    padding: 8px;
   }
 
   .cardTitle {
-    font-size: 22px;
-    min-height: auto;
+    font-size: 16px;
   }
 
   .cardDescription {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 1.4;
+  }
+
+  .imageWrap{
+    height: 160px;
   }
 
   .modalOverlay {
