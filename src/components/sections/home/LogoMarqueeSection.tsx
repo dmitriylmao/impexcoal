@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import styles from './LogoMarqueeSection.module.css';
 
-// Давай сделаем 8 штук, если они крупные, этого хватит для заполнения
 const items = Array.from({ length: 8 });
 
 export default function LogoMarqueeSection() {
@@ -16,7 +15,7 @@ export default function LogoMarqueeSection() {
                 <Image 
                   src="/logo.png" 
                   alt="Partner Logo" 
-                  width={160}  // Подняли разрешение
+                  width={160}  
                   height={80} 
                   className={styles.logo} 
                 />
