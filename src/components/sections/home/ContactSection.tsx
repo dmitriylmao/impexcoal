@@ -67,6 +67,9 @@ export default function ContactSection({ badge, title, cta }: ContactSectionProp
           </a>
         </div>
       </div>
+
+      <div className={styles.particles} aria-hidden="true" />
+      
     </section>
   );
 }
