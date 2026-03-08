@@ -20,11 +20,10 @@ export default function ContactSection({ badge, title, cta }: ContactSectionProp
       <div className={styles.inner}>
         <div className={styles.badgeRow}>
           <span className={styles.badgeLine} />
-          <span className={styles.badge}>
-            <Image src="/icons/sparkle.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
+          <span className={styles.badgeitalic}>
             {badge}
           </span>
-          <span className={styles.badgeLine} />
+          <span className={styles.badgeLine2} />
         </div>
 
         <h2 className={styles.title}>{title}</h2>
