@@ -54,11 +54,9 @@ export default function FaqSection({ badge, title, items, cardTitle, cardSubtitl
                     <span className={isOpen ? `${styles.chevron} ${styles.chevronOpen}` : styles.chevron} aria-hidden="true" />
                   </button>
 
-                  {isOpen ? (
-                    <div className={styles.answerWrap}>
-                      <p className={styles.answer}>{item.answer}</p>
-                    </div>
-                  ) : null}
+                  <div className={isOpen ? `${styles.answerWrap} ${styles.answerWrapOpen}` : styles.answerWrap}>
+                    <p className={styles.answer}>{item.answer}</p>
+                  </div>
                 </article>
               );
             })}
@@ -66,7 +64,7 @@ export default function FaqSection({ badge, title, items, cardTitle, cardSubtitl
 
           <aside className={styles.ctaCard}>
             <div className={styles.ctaIcon}>
-              <Image src="/icons/question.svg" alt="" width={28} height={28} className={styles.ctaIconImage} aria-hidden />
+              <Image src="/icons/question.svg" alt="" width={32} height={32} className={styles.ctaIconImage} aria-hidden />
             </div>
             <h3 className={styles.ctaTitle}>{cardTitle}</h3>
             <p className={styles.ctaSubtitle}>{cardSubtitle}</p>

@@ -1,8 +1,7 @@
 .root {
   width: 100%;
-  padding: 80px 0 0;
+  padding: 80px 0 80px;
   background-color: #04070d;
-  background-color: #2a3039;
 }
 
 .inner {
@@ -15,7 +14,6 @@
   align-items: center;
   gap: 40px;
   padding: 0 24px;
-  background-color: #181c22;
 }
 
 .top {
@@ -75,7 +73,6 @@
   gap: 32px;
   align-items: start;
   width: 100%;
-  background-color: #2f3949;
 }
 
 .faqList {
@@ -87,7 +84,7 @@
   border-radius: 10px;
   border: 1px solid rgba(216, 231, 242, 0.07);
   border-radius: 12px;
-  background-color: #04070d;
+  background: linear-gradient(to right, #0d1016, #04070d);
   box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
   backdrop-filter: blur(12px) saturate(120%);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -140,7 +137,23 @@
 }
 
 .answerWrap {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 16px;
+  transform: translateY(-6px);
+  transition:
+    max-height 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.38s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.answerWrapOpen {
+  max-height: 220px;
+  opacity: 1;
   padding: 0 16px 16px;
+  transform: translateY(0);
 }
 
 .answer {
@@ -161,7 +174,7 @@
   background-color: #04070d;
   backdrop-filter: blur(14px) saturate(130%);
   padding: 24px;
-  gap: 16px;
+  gap: 8px;
   display: grid;
   justify-items: center;
   align-content: center;
@@ -171,41 +184,46 @@
 .ctaIcon {
   width: 56px;
   height: 56px;
-  border: 1px solid rgba(207, 231, 255, 0.22);
-  border-radius: 12px;
-  background: rgba(9, 18, 32, 0.75);
+  border: 1px solid rgba(10, 17, 31, 0.89);
+  border-radius: 8px;
+  box-shadow: inset 0px 1px 1px 0px rgba(207, 231, 255, 0.2);
+  background-color: #04070d;
   display: grid;
   place-items: center;
+  margin-bottom: 12px;
 }
 
 .ctaIconImage {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
 }
 
 .ctaTitle {
-  color: #dce4f3;
-  font-size: 24px;
+  color: #ffffff;
+  font-size: 20px;
   line-height: 1.18;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .ctaSubtitle {
-  color: #94a4b8;
-  font-size: 20px;
-  line-height: 1.36;
+  color: #828790;
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
 }
 
 .ctaButton {
   box-sizing: border-box;
   position: relative;
-  width: 166px;
-  height: 48px;
+  width: 180px;
+  height: 40px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   border: 0;
   border-radius: 10px;
   background: transparent;
@@ -266,7 +284,7 @@
 
 .innerFill {
   position: absolute;
-  inset: 2px;
+  inset: 1px;
   background-color: rgb(4, 7, 13);
   border-radius: 10px;
   z-index: 1;
@@ -279,8 +297,8 @@
   position: relative;
   z-index: 2;
   color: rgb(213, 219, 230);
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   line-height: 1.2;
   white-space: nowrap;
   transition: color 0.8s ease;
@@ -289,8 +307,8 @@
 .ctaArrow {
   position: relative;
   z-index: 2;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
   transition: filter 0.8s ease, transform 0.8s ease;
 }
@@ -324,83 +342,35 @@
 }
 
 @media (max-width: 1200px) {
-  .inner {
-    padding: 0 20px;
-  }
-
   .content {
-    grid-template-columns: minmax(0, 1.6fr) minmax(300px, 1fr);
-    gap: 20px;
-  }
+  --faq-item-h: 68px;
+  --faq-gap: 12px;
+}
 
-  .question {
-    font-size: 18px;
-  }
-
-  .answer {
-    font-size: 16px;
-  }
-
-  .ctaTitle {
-    font-size: 30px;
-  }
-
-  .ctaSubtitle {
-    font-size: 20px;
-  }
-
-  .ctaButton {
-    font-size: 17px;
-  }
 }
 
 @media (max-width: 800px) {
-  .root {
-    padding: 24px 0 58px;
+  .inner{
+    gap:30px;
   }
 
-  .inner {
-    padding: 0 12px;
-    gap: 22px;
-  }
-
-  .title {
-    font-size: clamp(26px, 12vw, 44px);
-    line-height: 1.12;
+  .title{
+    font-size: 30px;
+    max-width: 300px;
+    letter-spacing: 0em;
+    line-height: 1.2;
+    font-weight: 800;
   }
 
   .content {
     grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .question {
-    font-size: 16px;
-  }
-
-  .answer {
-    font-size: 14px;
-    line-height: 1.45;
+    gap: 32px;
   }
 
   .ctaCard {
-    min-height: 320px;
-    padding: 20px 14px;
+    min-height: 340px;
   }
 
-  .ctaTitle {
-    font-size: 24px;
-    margin-top: 14px;
-  }
-
-  .ctaSubtitle {
-    font-size: 16px;
-  }
-
-  .ctaButton {
-    width: 166px;
-  }
 }
-
 
 
