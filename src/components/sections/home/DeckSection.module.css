@@ -58,6 +58,11 @@
   transition: transform 1s cubic-bezier(0.2, 0.9, 0.22, 1), opacity 0.5s ease;
 }
 
+.cardAnimWrap {
+  width: 100%;
+  height: 100%;
+}
+
 .positionFront {
   z-index: 4;
   transform: translateY(92px) scale(1);
@@ -334,7 +339,6 @@
     line-height: 1.3;
 }
 }
-
 
 
 
