@@ -81,13 +81,16 @@
 }
 
 .tabs {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   gap: 16px;
   background-color: rgb(0, 0, 0);
 }
 
 .tabButton {
+  width:100%;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   background-color: #0a0d14;
@@ -184,131 +187,179 @@
 }
 
 .ctaButton {
-  border: 1px solid transparent;
-  border-radius: 12px;
-  background:
-    linear-gradient(0deg, rgba(7, 14, 26, 0.88), rgba(5, 11, 21, 0.92)) padding-box,
-    linear-gradient(180deg, rgba(168, 179, 196, 0.3) 0%, rgba(168, 179, 196, 0.28) 74%, rgba(240, 119, 44, 0.996) 100%)
-      border-box;
-  color: #e9effa;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: none;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0;
+  isolation: isolate;
+  outline: none;
+}
+
+.glow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 60px;
+  background: radial-gradient(25% 50% at 50% 100%, #e45217 0%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(18px);
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+.borderWrapper {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stroke {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 55px;
+  border-radius: 10px;
+}
+
+.strokeDefault {
+  width: 400px;
+  background: radial-gradient(20.7% 50% at 50% 100%, #fd4c00 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.8;
+  transition: opacity 0.8s ease, width 0.8s ease;
+}
+
+.strokeHover {
+  width: 600px;
+  background: radial-gradient(60.1% 50% at 50% 100%, #e45217 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.8s ease, width 0.8s ease;
+}
+
+.innerFill {
+  position: absolute;
+  inset: 2px;
+  background-color: rgb(4, 7, 13);
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: box-shadow 0.8s ease;
+  pointer-events: none;
+}
+
+.ctaLabel {
+  position: relative;
+  z-index: 2;
+  color: rgb(213, 219, 230);
   font-size: 16px;
   font-weight: 700;
-  line-height: 1;
-  padding: 16px 18px;
-  cursor: default;
-  transition: background 0.28s ease, filter 0.2s ease, transform 0.2s ease;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: color 0.8s ease;
 }
 
-.ctaButton:hover {
-  filter: brightness(1.08);
-  transform: translateY(-1px);
-  background:
-    linear-gradient(0deg, rgba(7, 14, 26, 0.88), rgba(5, 11, 21, 0.92)) padding-box,
-    linear-gradient(180deg, rgba(168, 179, 196, 0.22) 0%, rgba(240, 119, 44, 0.381) 55%, rgba(240, 120, 44, 1) 100%)
-      border-box;
+.ctaButton:hover .glow {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.6, 0.8);
 }
 
-@media (max-width: 1200px) {
-  .inner {
-    padding: 0 20px;
-  }
+.ctaButton:hover .strokeDefault {
+  opacity: 0;
+}
 
-  .title {
-    font-size: 48px;
-  }
+.ctaButton:hover .strokeHover {
+  opacity: 1;
+}
 
-  .tabButton {
-    font-size: 15px;
-    padding: 11px 8px;
-  }
+.ctaButton:hover .innerFill {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 15px rgba(228, 82, 23, 0.15);
+}
 
-  .content {
-    gap: 20px;
-  }
-
-  .visual {
-    min-height: 320px;
-  }
-
-  .itemTitle {
-    font-size: 22px;
-  }
-
-  .itemDescription {
-    font-size: 15px;
-  }
+.ctaButton:hover .ctaLabel {
+  color: #ffffff;
 }
 
 @media (max-width: 800px) {
-  .root {
-    padding-bottom: 52px;
+  .inner{
+    gap:30px;
   }
 
-  .inner {
-    padding: 0 12px;
-    gap: 22px;
-  }
-
-  .title {
-    font-size: 52px;
+  .title{
+    font-size: 30px;
+    max-width: 300px;
+    letter-spacing: 0em;
+    line-height: 1.2;
+    font-weight: 800;
   }
 
   .panel {
-    padding: 14px 12px 16px;
-    border-radius: 14px;
+    padding: 12px;
   }
 
   .tabs {
-    grid-template-columns: repeat(3, minmax(96px, 1fr));
-    overflow-x: auto;
-    padding-bottom: 2px;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .tabButton {
-    font-size: 14px;
-    padding: 10px 8px;
+    padding: 12px 8px;
     white-space: nowrap;
   }
 
   .content {
-    margin-top: 14px;
+    margin-top: 48px;
+    margin-bottom: 0px;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 24px;
   }
 
   .visual {
-    min-height: 206px;
+    height: 240px;
   }
 
   .mainImageWrap {
-    inset: 0 34% 16% 0;
+    inset: 0 16% 20% 0;
     border-radius: 16px;
   }
 
   .overlayImageWrap {
-    inset: 38% 0 0 30%;
+    inset: 40% 0 0 32%;
     border-radius: 14px;
   }
 
   .text {
-    gap: 14px;
+    gap: 16px;
   }
 
   .itemTitle {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .itemDescription {
-    font-size: 13px;
-    line-height: 1.45;
-  }
-
-  .ctaButton {
     font-size: 14px;
-    padding: 14px 12px;
+    line-height: 1.6;
+    margin-bottom: 8px;
   }
 
-  
 }
 
 @media (max-width: 400px){
@@ -327,8 +378,6 @@
     line-height: 1.3;
 }
 }
-
-
 
 
 

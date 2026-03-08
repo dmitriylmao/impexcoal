@@ -86,7 +86,16 @@ export default function SegmentsSection({ badge, title, cta, tabs }: SegmentsSec
               <h3 className={styles.itemTitle}>{activeTab?.title}</h3>
               <p className={styles.itemDescription}>{activeTab?.description}</p>
               <button type="button" className={styles.ctaButton}>
-                {cta}
+                <div className={styles.glow}></div>
+
+                <div className={styles.borderWrapper}>
+                  <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
+                  <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
+                </div>
+
+                <div className={styles.innerFill}></div>
+
+                <span className={styles.ctaLabel}>{cta}</span>
               </button>
             </div>
           </div>
@@ -95,4 +104,3 @@ export default function SegmentsSection({ badge, title, cta, tabs }: SegmentsSec
     </section>
   );
 }
-
