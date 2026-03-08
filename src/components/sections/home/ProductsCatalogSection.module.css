@@ -153,7 +153,7 @@
 .card:hover {
   border-color: transparent;
   box-shadow:
-    inset 0px 2px 1px 0px rgba(207, 231, 255, 0.02),
+    inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2),
     0 25px 60px -20px rgba(255, 70, 0, 0.18);
   animation: emberCardAura var(--ember-cycle) cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
@@ -265,31 +265,31 @@
 
 @keyframes emberCardAura {
   0% {
-    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.02), 0 24px 58px -22px rgba(255, 70, 0, 0.14);
+    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2), 0 24px 58px -22px rgba(255, 70, 0, 0.14);
   }
   13% {
-    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.03), 0 29px 68px -20px rgba(255, 78, 8, 0.22);
+    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.22), 0 29px 68px -20px rgba(255, 78, 8, 0.22);
   }
   24% {
-    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.02), 0 22px 52px -24px rgba(255, 62, 0, 0.12);
+    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.18), 0 22px 52px -24px rgba(255, 62, 0, 0.12);
   }
   36% {
-    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.03), 0 27px 64px -21px rgba(255, 75, 8, 0.2);
+    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.21), 0 27px 64px -21px rgba(255, 75, 8, 0.2);
   }
   49% {
-    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.02), 0 20px 48px -25px rgba(255, 58, 0, 0.1);
+    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.17), 0 20px 48px -25px rgba(255, 58, 0, 0.1);
   }
   61% {
-    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.03), 0 30px 70px -19px rgba(255, 82, 10, 0.23);
+    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.23), 0 30px 70px -19px rgba(255, 82, 10, 0.23);
   }
   76% {
-    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.02), 0 23px 55px -23px rgba(255, 64, 0, 0.13);
+    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.18), 0 23px 55px -23px rgba(255, 64, 0, 0.13);
   }
   88% {
-    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.03), 0 28px 66px -20px rgba(255, 76, 9, 0.2);
+    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.21), 0 28px 66px -20px rgba(255, 76, 9, 0.2);
   }
   100% {
-    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.02), 0 24px 58px -22px rgba(255, 70, 0, 0.14);
+    box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2), 0 24px 58px -22px rgba(255, 70, 0, 0.14);
   }
 }
 
@@ -503,7 +503,6 @@
   .subtitle {
     font-size: 16px;
     line-height: 1.35;
-    background-color: #270027;
     max-width: 300px;
   }
 
