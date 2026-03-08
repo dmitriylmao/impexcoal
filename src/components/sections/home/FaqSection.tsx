@@ -27,7 +27,7 @@ export default function FaqSection({ badge, title, items, cardTitle, cardSubtitl
       <div className={styles.inner}>
         <div className={styles.top}>
           <span className={styles.badge}>
-            <Image src="/icons/sparkle.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
+            <Image src="/icons/book-open-text.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
             {badge}
           </span>
           <h2 className={styles.title}>{title}</h2>

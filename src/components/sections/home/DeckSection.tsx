@@ -151,7 +151,7 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
       <div className={styles.inner}>
         <div className={styles.badgeRow}>
           <span className={styles.badge}>
-            <Image src="/icons/sparkle.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
+            <Image src="/icons/truck.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
             {badge}
           </span>
         </div>

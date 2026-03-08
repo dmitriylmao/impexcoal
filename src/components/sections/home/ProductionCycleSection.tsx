@@ -13,7 +13,7 @@ export default function ProductionCycleSection({ badge, title, imageAlt }: Produ
       <div className={styles.inner}>
         <div className={styles.top}>
           <span className={styles.badge}>
-            <Image src="/icons/sparkle.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
+            <Image src="/icons/arrows-clockwise.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
             {badge}
           </span>
           <h2 className={styles.title}>{title}</h2>
