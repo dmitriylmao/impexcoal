@@ -61,7 +61,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           title={dict.ui.homeWhyChoose.title}
           cards={dict.ui.homeWhyChoose.cards}
         />
-      </div>
+      </div> 
 
       <div id="about" className={styles.anchorSection}>
         <DifferencesSection
@@ -71,9 +71,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           leadRest={dict.ui.homeDifferences.leadRest}
           body={dict.ui.homeDifferences.body}
         />
-      </div>
+      </div> 
 
-      <DeckSection badge={dict.ui.homeDeck.badge} cards={dict.ui.homeDeck.cards} />
+      <DeckSection badge={dict.ui.homeDeck.badge} cards={dict.ui.homeDeck.cards} /> 
 
       <div id="segments" className={styles.anchorSection}>
         <SegmentsSection

@@ -331,7 +331,6 @@
     justify-content: center;
     text-align: center;
     width: fit-content;
-    align-self: flex-start;
     gap: 4px;
     padding: 7px 14px;
     font-size: 12px;
