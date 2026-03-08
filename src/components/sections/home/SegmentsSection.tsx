@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import styles from './SegmentsSection.module.css';
 
 type SegmentTab = {
@@ -20,6 +22,8 @@ type SegmentsSectionProps = {
 const images = ['/image.png', '/image1.jpg', '/image2.jpg'];
 
 export default function SegmentsSection({ badge, title, cta, tabs }: SegmentsSectionProps) {
+  const params = useParams<{ lang?: string }>();
+  const locale = params?.lang ?? 'ru';
   const [active, setActive] = useState(0);
   const safeTabs = tabs.slice(0, 3);
   const activeTab = safeTabs[active] ?? safeTabs[0];
@@ -85,7 +89,7 @@ export default function SegmentsSection({ badge, title, cta, tabs }: SegmentsSec
             <div className={styles.text}>
               <h3 className={styles.itemTitle}>{activeTab?.title}</h3>
               <p className={styles.itemDescription}>{activeTab?.description}</p>
-              <button type="button" className={styles.ctaButton}>
+              <Link href={`/${locale}/contacts`} className={styles.ctaButton}>
                 <div className={styles.glow}></div>
 
                 <div className={styles.borderWrapper}>
@@ -96,7 +100,7 @@ export default function SegmentsSection({ badge, title, cta, tabs }: SegmentsSec
                 <div className={styles.innerFill}></div>
 
                 <span className={styles.ctaLabel}>{cta}</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
