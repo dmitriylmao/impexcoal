@@ -27,7 +27,7 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
       id: item.id,
       slug: item.slug,
       title: localized.title,
-      subtitle: dict.ui.newsList.cardSubtitle,
+      subtitle: localized.content,
       imageUrl: normalizeImageUrl(item.imgUrl),
     };
   });
