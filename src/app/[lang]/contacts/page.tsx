@@ -86,7 +86,13 @@ export default async function ContactsPage({ params }: { params: Promise<{ lang:
               </label>
 
               <button type="button" className={styles.submitButton}>
-                {c.submit}
+                <div className={styles.glow}></div>
+                <div className={styles.borderWrapper}>
+                  <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
+                  <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
+                </div>
+                <div className={styles.innerFill}></div>
+                <span className={styles.submitLabel}>{c.submit}</span>
               </button>
             </form>
           </article>
