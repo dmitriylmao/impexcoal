@@ -11,6 +11,7 @@ type NewsCard = {
   slug: string;
   title: string;
   subtitle: string;
+  publishedAt: string;
   imageUrl: string | null;
 };
 
@@ -24,7 +25,7 @@ type Props = {
 };
 
 const INITIAL_COUNT = 4;
-const STEP_COUNT = 6;
+const STEP_COUNT = 8;
 
 export default function NewsListClient({ locale, badge, title, subtitle, loadMoreLabel, cards }: Props) {
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
@@ -47,6 +48,7 @@ export default function NewsListClient({ locale, badge, title, subtitle, loadMor
           <Link key={card.id} href={`/${locale}/news/${card.slug}`} className={styles.card}>
             <h2 className={styles.cardTitle}>{card.title}</h2>
             <p className={styles.cardSubtitle}>{card.subtitle}</p>
+            <p className={styles.cardSubtitle}>{card.publishedAt}</p>
             {card.imageUrl ? <img src={card.imageUrl} alt={card.title} className={styles.cardImage} loading="lazy" /> : null}
           </Link>
         ))}
@@ -55,7 +57,15 @@ export default function NewsListClient({ locale, badge, title, subtitle, loadMor
       {visibleCount < cards.length ? (
         <div className={styles.actions}>
           <button type="button" className={styles.loadMoreButton} onClick={() => setVisibleCount((value) => value + STEP_COUNT)}>
-            {loadMoreLabel}
+            <div className={styles.buttonGlow}></div>
+
+            <div className={styles.borderWrapper}>
+              <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
+              <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
+            </div>
+
+            <div className={styles.innerFill}></div>
+            <span className={styles.loadMoreButtonLabel}>{loadMoreLabel}</span>
           </button>
         </div>
       ) : null}

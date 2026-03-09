@@ -22,12 +22,18 @@ export default async function NewsPage({ params }: { params: Promise<{ lang: str
 
   const cards = news.map((item: (typeof news)[number]) => {
     const localized = getLocalizedNewsContent(item, locale, i18n.defaultLocale);
+    const publishedAt = new Intl.DateTimeFormat(locale, {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    }).format(item.publishedAt);
 
     return {
       id: item.id,
       slug: item.slug,
       title: localized.title,
       subtitle: localized.content,
+      publishedAt,
       imageUrl: normalizeImageUrl(item.imgUrl),
     };
   });
