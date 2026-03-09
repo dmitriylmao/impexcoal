@@ -29,9 +29,9 @@ export default async function ContactsPage({ params }: { params: Promise<{ lang:
                 <h2 className={styles.cardTitle}>{c.emailTitle}</h2>
               </div>
               <p className={styles.cardText}>{c.emailSubtitle}</p>
-              <button type="button" className={styles.linkButton}>
+              <a href={`mailto:${c.emailLink}`} className={styles.linkButton}>
                 {c.emailLink}
-              </button>
+              </a>
             </article>
 
             <article className={styles.infoCard}>
@@ -42,9 +42,14 @@ export default async function ContactsPage({ params }: { params: Promise<{ lang:
                 <h2 className={styles.cardTitle}>{c.managerTitle}</h2>
               </div>
               <p className={styles.cardText}>{c.managerSubtitle}</p>
-              <button type="button" className={styles.linkButton}>
+              <a
+                href="https://web.telegram.org/k/#@wwwwwwwwwwwwwwwwwwvwwwwwwwwwww"
+                className={styles.linkButton}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {c.managerLink}
-              </button>
+              </a>
             </article>
           </div>
 
@@ -56,9 +61,14 @@ export default async function ContactsPage({ params }: { params: Promise<{ lang:
               <h2 className={styles.cardTitle}>{c.addressTitle}</h2>
             </div>
             <p className={styles.cardText}>{c.addressText}</p>
-            <button type="button" className={styles.linkButton}>
+            <a
+              href="https://yandex.com/maps/39/rostov-na-donu/house/prospekt_korolyova_5_3/Z0AYcA5lT0UHQFptfX54dHVmYQ==/?ll=39.696980%2C47.295832&z=19.2"
+              className={styles.linkButton}
+              target="_blank"
+              rel="noreferrer"
+            >
               {c.mapLink}
-            </button>
+            </a>
           </article>
 
           <article className={styles.formCard}>
