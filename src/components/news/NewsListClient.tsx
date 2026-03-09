@@ -48,7 +48,7 @@ export default function NewsListClient({ locale, badge, title, subtitle, loadMor
           <Link key={card.id} href={`/${locale}/news/${card.slug}`} className={styles.card}>
             <h2 className={styles.cardTitle}>{card.title}</h2>
             <p className={styles.cardSubtitle}>{card.subtitle}</p>
-            <p className={styles.cardSubtitle}>{card.publishedAt}</p>
+            <p className={styles.cardDate}>{card.publishedAt}</p>
             {card.imageUrl ? <img src={card.imageUrl} alt={card.title} className={styles.cardImage} loading="lazy" /> : null}
           </Link>
         ))}
