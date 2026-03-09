@@ -86,7 +86,7 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
         animate="show"
         variants={videoVariants}
       >
-        <source src="/hero.webm" type="video/webm" />
+        <source src="/hero3.webm" type="video/webm" />
       </motion.video>
       <div className={styles.inner}>
         <motion.div className={styles.content} initial="hidden" animate="show" variants={containerVariants}>
