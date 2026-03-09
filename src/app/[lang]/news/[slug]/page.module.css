@@ -1,16 +1,20 @@
 .wrapper {
-  width: min(1200px, calc(100% - 40px));
-  margin: 36px auto 80px;
-  display: grid;
-  gap: 18px;
-  background-color: #3e454e;
+  width: 100%;
+  max-width: 1000px;
+  margin: 48px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 40px;
+  padding: 0 24px;
 }
 
 .backButton {
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  max-width: 220px;
+  max-width: 180px;
   height: 48px;
   display: inline-flex;
   justify-content: center;
@@ -93,8 +97,8 @@
 }
 
 .backIcon {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
   transition: transform 0.35s ease;
 }
@@ -133,35 +137,35 @@
   transform: translateX(-3px);
 }
 
-.subtitle {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 20px;
-}
-
 .title {
   margin: 0;
-  color: var(--text-strong);
-  font-size: clamp(42px, 5vw, 66px);
+  color: #d5dbe6;
+  font-size: 52px;
+  font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
 .image {
   width: 100%;
+  margin: 0 auto;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(216, 231, 242, 0.07);
+  border-radius: 16px;
+  background-color: #04070d;
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
 }
 
 .content {
   display: grid;
-  gap: 18px;
-  color: var(--text-main);
-  font-size: 30px;
-  line-height: 1.45;
+  gap: 16px;
+  color: rgba(213,219,230,0.7);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
 }
 
 .content p {
