@@ -32,6 +32,11 @@ export default async function NewsArticlePage({
 
   const localized = getLocalizedNewsContent(news, locale, i18n.defaultLocale);
   const imageUrl = normalizeImageUrl(news.imgUrl);
+  const publishedAt = new Intl.DateTimeFormat(locale, {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  }).format(news.publishedAt);
 
   const normalizedContent = localized.content.replace(/\r\n/g, '\n').trim();
   const paragraphsByDoubleBreak = normalizedContent
@@ -70,6 +75,8 @@ export default async function NewsArticlePage({
           ? paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)
           : [<p key="fallback">{localized.content}</p>]}
       </div>
+
+      <p className={styles.publishDate}>{publishedAt}</p>
     </article>
   );
 }
