@@ -7,7 +7,7 @@
   --text-strong: #f1f6ff;
   --text-main: #d2dde8;
   --text-muted: #8da2b8;
-  --brand-glow: rgba(219, 119, 63, 0.35);
+  --brand-glow: rgb(63, 219, 89);
 }
 
 @theme inline {
@@ -33,10 +33,7 @@ html {
 
 .app-body {
   font-family: var(--font-manrope), sans-serif;
-  background:
-    radial-gradient(1200px 700px at 50% -180px, rgba(39, 86, 151, 0.22), transparent 60%),
-    radial-gradient(700px 360px at 50% 240px, var(--brand-glow), transparent 70%),
-    var(--bg-base);
+  background-color: #002266;
   color: var(--text-main);
 }
 

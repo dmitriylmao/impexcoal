@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Locale } from '@/i18n/config';
 import styles from './NewsListClient.module.css';
 
@@ -33,7 +34,10 @@ export default function NewsListClient({ locale, badge, title, subtitle, loadMor
   return (
     <section className={styles.wrapper}>
       <div className={styles.hero}>
-        <div className={styles.badge}>{badge}</div>
+          <span className={styles.badge}>
+              <Image src="/icons/newspaper.svg" alt="" width={14} height={14} className={styles.badgeIcon} aria-hidden />
+              {badge}
+          </span>
         <h1 className={styles.title}>{title}</h1>
         <p className={styles.subtitle}>{subtitle}</p>
       </div>

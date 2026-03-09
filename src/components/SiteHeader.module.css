@@ -50,7 +50,6 @@
   object-fit: contain;
 }
 
-/* --- ПРАВАЯ ЧАСТЬ (ДЕСКТОП) --- */
 .desktopRight {
   display: flex;
   align-items: center;

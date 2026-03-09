@@ -3,6 +3,7 @@
   margin: 36px auto 80px;
   display: grid;
   gap: 18px;
+  background-color: #3e454e;
 }
 
 .backButton {
