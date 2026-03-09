@@ -8,7 +8,6 @@
   align-items: center;
   gap: 54px;
   padding: 0 24px;
-  background-color: rgb(41, 0, 79);
 }
 
 .hero {
@@ -18,7 +17,6 @@
   align-items: center;
   max-width: 640px;
   gap: 10px;
-  background-color: rgb(41, 1, 1);
 }
 
 .badge {
@@ -370,38 +368,31 @@
   color: #ffffff;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 800px) {
   .wrapper {
-    width: min(1200px, calc(100% - 28px));
-    margin-top: 32px;
-    gap: 24px;
+    margin: 40px auto;
+    display: flex;
+    padding: 0 24px;
+    gap:24px;
   }
 
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 24px;
   }
 
-  .cardSubtitle {
-    font-size: 28px;
-  }
-
-  
-}
-
-@media (max-width: 800px) {
-  .wrapper {
-    width: calc(100% - 18px);
-    margin-top: 26px;
-    margin-bottom: 52px;
-  }
-
-  .title {
+  .title{
     font-size: 30px;
+    max-width: 300px;
+    letter-spacing: 0em;
+    line-height: 1.2;
+    font-weight: 800;
   }
 
-  .subtitle,
-  .cardSubtitle {
+  .subtitle {
     font-size: 16px;
+    line-height: 1.35;
+    max-width: 300px;
   }
 
   .card {
@@ -409,12 +400,28 @@
   }
 
   .cardTitle {
-    font-size: 18px;
-  }
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+  display: -webkit-box;
+  min-height: 44px;
+}
 
-  .cardImage {
-    height: 130px;
-  }
+.cardSubtitle {
+  margin-top: 8px;
+  font-size: 14px;
+  -webkit-line-clamp: 2;
+  min-height: 32px;
+}
 
-  
+.cardDate{
+  font-size: 12px;
+  margin: 8px 0 10px;
+
+}
+
+.cardImage {
+  width: 100%;
+  height: 200px;
+}
 }
