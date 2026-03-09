@@ -24,7 +24,7 @@ export default async function ContactsPage({ params }: { params: Promise<{ lang:
             <article className={styles.infoCard}>
               <div className={styles.cardHead}>
                 <span className={styles.cardIconWrap}>
-                  <Image src="/telegram.svg" alt="" width={22} height={22} className={styles.icon} />
+                  <Image src="/icons/envelope-open.svg" alt="" width={32} height={32} className={styles.icon} />
                 </span>
                 <h2 className={styles.cardTitle}>{c.emailTitle}</h2>
               </div>
@@ -37,7 +37,7 @@ export default async function ContactsPage({ params }: { params: Promise<{ lang:
             <article className={styles.infoCard}>
               <div className={styles.cardHead}>
                 <span className={styles.cardIconWrap}>
-                  <Image src="/telegram.svg" alt="" width={22} height={22} className={styles.icon} />
+                  <Image src="/icons/user-sound.svg" alt="" width={32} height={32} className={styles.icon} />
                 </span>
                 <h2 className={styles.cardTitle}>{c.managerTitle}</h2>
               </div>
@@ -51,7 +51,7 @@ export default async function ContactsPage({ params }: { params: Promise<{ lang:
           <article className={styles.infoCard}>
             <div className={styles.cardHead}>
               <span className={styles.cardIconWrap}>
-                <Image src="/telegram.svg" alt="" width={22} height={22} className={styles.icon} />
+                <Image src="/icons/map-pin-area.svg" alt="" width={32} height={32} className={styles.icon} />
               </span>
               <h2 className={styles.cardTitle}>{c.addressTitle}</h2>
             </div>
@@ -64,7 +64,7 @@ export default async function ContactsPage({ params }: { params: Promise<{ lang:
           <article className={styles.formCard}>
             <div className={styles.cardHead}>
               <span className={styles.cardIconWrap}>
-                <Image src="/telegram.svg" alt="" width={22} height={22} className={styles.icon} />
+                <Image src="/icons/headset.svg" alt="" width={32} height={32} className={styles.icon} />
               </span>
               <h2 className={styles.cardTitle}>{c.feedbackTitle}</h2>
             </div>

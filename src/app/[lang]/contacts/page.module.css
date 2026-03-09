@@ -1,94 +1,99 @@
 .page {
   width: 100%;
-  background: #240007;
+  padding: 80px 0 0;
+  background-color: #04070d;
 }
 
 .topSection {
-  width: min(1200px, 100%);
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 34px 24px 64px;
+  padding: 0 24px;
   background: #570113;
 }
 
 .contactsGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.08fr);
-  gap: 20px;
+  gap: 32px;
   align-items: start;
+  background-color: #471b01;
 }
 
 .leftColumn {
   display: grid;
-  gap: 20px;
+  gap: 32px;
+  background-color: #8b3300;
 }
 
 .infoCard,
 .formCard {
-  border: 1px solid transparent;
   border-radius: 16px;
-  background:
-    linear-gradient(180deg, rgba(4, 12, 24, 0.72), rgba(2, 8, 16, 0.86)) padding-box,
-    linear-gradient(180deg, rgba(207, 231, 255, 0.32), rgba(207, 231, 255, 0.08)) border-box;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(216, 231, 242, 0.07);
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
+  background-color: #04070d;
   backdrop-filter: blur(12px) saturate(120%);
-  padding: 22px;
-}
-
-.formCard {
-  padding-bottom: 18px;
+  padding: 32px;
+  gap: 32px;
 }
 
 .cardHead {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
+  gap: 10px;
+  margin-bottom: 16px;
 }
 
 .cardIconWrap {
-  width: 58px;
-  height: 58px;
-  border-radius: 10px;
-  background: rgba(9, 18, 32, 0.78);
-  border: 1px solid rgba(207, 231, 255, 0.14);
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background-color: #10131c;
+  box-shadow: inset 0px 1px 1px 0px rgba(207, 231, 255, 0.2);
   display: grid;
   place-items: center;
 }
 
 .icon {
-  filter: invert(53%) sepia(90%) saturate(1500%) hue-rotate(1deg) brightness(102%) contrast(105%);
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
 }
 
 .cardTitle {
   margin: 0;
-  color: #dbe5f5;
-  font-size: 18px;
+  color: #ffffff;
+  font-size: 20px;
   line-height: 1.2;
-  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
 .cardText {
   margin: 0;
-  color: #99aabd;
+  color: rgba(213,219,230,0.7);
   font-size: 16px;
-  line-height: 1.42;
+  line-height: 1.6;
+  letter-spacing: -0.00em;
+  font-weight: 500;
 }
 
 .linkButton {
   margin-top: 16px;
   border: 0;
   background: transparent;
-  color: #dce6f7;
+  color: rgb(213, 219, 230);
   text-decoration: underline;
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1.6;
   padding: 0;
   cursor: default;
   transition: color 0.2s ease;
 }
 
 .linkButton:hover {
-  color: #f0782c;
+  color: #f25200;
 }
 
 .form {
