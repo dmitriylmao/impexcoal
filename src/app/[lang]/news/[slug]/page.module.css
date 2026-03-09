@@ -7,20 +7,130 @@
 }
 
 .backButton {
-  width: fit-content;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 12px;
-  background: rgba(14, 24, 40, 0.72);
-  color: var(--text-main);
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 220px;
+  height: 48px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 11px 14px;
-  transition: color 0.2s ease;
+  cursor: pointer;
+  padding: 0;
+  isolation: isolate;
+  outline: none;
 }
 
-.backButton:hover {
-  color: #b3bfce;
+.glow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 48px;
+  background: radial-gradient(25% 50% at 50% 100%, #e45217 0%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(18px);
+  z-index: -1;
+  opacity: 0.5;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+.borderWrapper {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stroke {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 55px;
+  border-radius: 10px;
+}
+
+.strokeDefault {
+  width: 300px;
+  background: radial-gradient(20.7% 50% at 50% 100%, #fd4c00 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.8;
+  transition: opacity 0.8s ease, width 0.8s ease;
+}
+
+.strokeHover {
+  width: 420px;
+  background: radial-gradient(60.1% 50% at 50% 100%, #e45217 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.8s ease, width 0.8s ease;
+}
+
+.innerFill {
+  position: absolute;
+  inset: 2px;
+  background-color: rgb(4, 7, 13);
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: box-shadow 0.8s ease;
+  pointer-events: none;
+}
+
+.backButtonContent {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.backIcon {
+  width: 16px;
+  height: 16px;
+  filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
+  transition: transform 0.35s ease;
+}
+
+.backLabel {
+  color: rgb(213, 219, 230);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: color 0.8s ease;
+}
+
+.backButton:hover .glow {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.6, 0.8);
+}
+
+.backButton:hover .strokeDefault {
+  opacity: 0;
+}
+
+.backButton:hover .strokeHover {
+  opacity: 1;
+}
+
+.backButton:hover .innerFill {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 15px rgba(228, 82, 23, 0.15);
+}
+
+.backButton:hover .backLabel {
+  color: #ffffff;
+}
+
+.backButton:hover .backIcon {
+  transform: translateX(-3px);
 }
 
 .subtitle {
@@ -81,8 +191,7 @@
   }
 
   .backButton {
-    font-size: 13px;
-    padding: 9px 12px;
+    max-width: 220px;
   }
 
   .title {

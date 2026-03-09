@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
@@ -32,20 +33,35 @@ export default async function NewsArticlePage({
   const localized = getLocalizedNewsContent(news, locale, i18n.defaultLocale);
   const imageUrl = normalizeImageUrl(news.imgUrl);
 
-  const paragraphs = localized.content
-    .split(/\n\n+/)
+  const normalizedContent = localized.content.replace(/\r\n/g, '\n').trim();
+  const paragraphsByDoubleBreak = normalizedContent
+    .split(/\n{2,}/)
     .map((paragraph) => paragraph.trim())
     .filter(Boolean);
+  const paragraphs =
+    paragraphsByDoubleBreak.length > 1
+      ? paragraphsByDoubleBreak
+      : normalizedContent
+          .split(/\n+/)
+          .map((paragraph) => paragraph.trim())
+          .filter(Boolean);
 
   return (
     <article className={styles.wrapper}>
       <Link href={`/${locale}/news`} className={styles.backButton}>
-        {dict.ui.newsArticle.back} <span>←</span>
+        <div className={styles.glow}></div>
+        <div className={styles.borderWrapper}>
+          <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
+          <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
+        </div>
+        <div className={styles.innerFill}></div>
+        <span className={styles.backButtonContent}>
+          <Image src="/icons/arrow-left.svg" alt="" width={16} height={16} className={styles.backIcon} aria-hidden />
+          <span className={styles.backLabel}>{dict.ui.newsArticle.back}</span>
+        </span>
       </Link>
 
-      <p className={styles.subtitle}>{dict.ui.newsArticle.subtitle}</p>
       <h1 className={styles.title}>{localized.title}</h1>
-      <p className={styles.subtitle}>{dict.ui.newsList.cardSubtitle}</p>
 
       {imageUrl ? <img src={imageUrl} alt={localized.title} className={styles.image} /> : null}
 
