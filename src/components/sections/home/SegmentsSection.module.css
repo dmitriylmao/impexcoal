@@ -1,6 +1,6 @@
 .root {
   width: 100%;
-  padding: 80px 0 0;
+  padding: 40px 0 0;
   background-color: #04070d;
 }
 
@@ -293,6 +293,7 @@
 @media (max-width: 800px) {
   .inner{
     gap:30px;
+    padding: 0 12px;
   }
 
   .title{

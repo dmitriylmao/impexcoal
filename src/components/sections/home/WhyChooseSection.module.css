@@ -133,6 +133,7 @@
   }
   .inner{
     gap:30px;
+    padding: 0 12px;
   }
   .cardText{
     padding: 20px;

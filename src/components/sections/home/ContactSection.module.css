@@ -1,7 +1,7 @@
 .root {
   position: relative;
   width: 100%;
-  padding: 100px 0 100px;
+  padding: 80px 0 80px;
   background-color: #04070d;
   overflow: hidden;
 }
@@ -365,8 +365,10 @@
 
 
 @media (max-width: 800px) {
+
   .inner{
     gap:20px;
+    padding: 0 12px;
   }
 
   .root {
