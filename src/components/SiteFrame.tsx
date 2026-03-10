@@ -22,9 +22,7 @@ export default function SiteFrame({ children }: { children: React.ReactNode }) {
       return;
     }
 
-    // DEV TEMP: disables forced scroll-to-top on each page mount/refresh while layouting.
-    // Re-enable this line after finishing UI work to restore default behavior.
-    // window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [isAdminRoute, pathname]);
 
   if (isAdminRoute) {
