@@ -68,10 +68,10 @@ export default function SiteHeader() {
                 ),
               )}
 
-              <button type="button" className={styles.contactButton}>
+              <a href="mailto:tdimpeks@support.com" className={styles.contactButton}>
                 <span>{dict.ui.header.contactButton}</span>
                 <Image src="/icons/mailbox2.svg" alt="mail" className={styles.btnIcon} width={20} height={20} />
-              </button>
+              </a>
             </nav>
           </div>
 
@@ -109,10 +109,10 @@ export default function SiteHeader() {
             ),
           )}
 
-          <button type="button" className={styles.contactButtonmobile} style={{ marginTop: '10px' }}>
+          <a href="mailto:tdimpeks@support.com" className={styles.contactButtonmobile} style={{ marginTop: '10px' }}>
             <span>{dict.ui.header.contactButton}</span>
               <Image src="/icons/mailbox2.svg" alt="mail" className={styles.btnIcon} width={20} height={20} />
-          </button>
+          </a>
         </nav>
       </div>
     </header>
