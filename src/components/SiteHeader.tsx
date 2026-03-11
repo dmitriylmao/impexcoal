@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { getUiDictionary } from '@/dictionaries/ui-dictionary';
+import { i18n, type Locale } from '@/i18n/config';
 import { scrollToSection } from '@/lib/scroll-to-section';
 import styles from './SiteHeader.module.css';
 
@@ -15,10 +16,12 @@ type NavItem =
 export default function SiteHeader() {
   const params = useParams<{ lang?: string }>();
   const dict = getUiDictionary(params?.lang);
-  const locale = params?.lang ?? 'ru';
+  const locale = (params?.lang ?? 'ru') as Locale;
   const pathname = usePathname();
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement | null>(null);
 
   const homePath = `/${locale}`;
 
@@ -32,6 +35,33 @@ export default function SiteHeader() {
   ];
 
   const closeMenu = () => setMenuOpen(false);
+
+  const getLocaleLink = (targetLocale: Locale) => {
+    const segments = pathname.split('/').filter(Boolean);
+    if (segments.length === 0) {
+      return `/${targetLocale}`;
+    }
+    if (i18n.locales.includes(segments[0] as Locale)) {
+      segments[0] = targetLocale;
+    } else {
+      segments.unshift(targetLocale);
+    }
+    return `/${segments.join('/')}`;
+  };
+
+  useEffect(() => {
+    const onPointerDown = (event: MouseEvent) => {
+      if (!langRef.current) {
+        return;
+      }
+      if (!langRef.current.contains(event.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', onPointerDown);
+    return () => document.removeEventListener('mousedown', onPointerDown);
+  }, []);
 
   const handleAnchorNavigation = (target: NavItem & { kind: 'anchor' }) => {
     closeMenu();
@@ -68,9 +98,30 @@ export default function SiteHeader() {
                 ),
               )}
 
+              <div className={styles.langDropdown} ref={langRef}>
+                <button
+                  type="button"
+                  className={langOpen ? `${styles.langTrigger} ${styles.langTriggerOpen}` : styles.langTrigger}
+                  onClick={() => setLangOpen((prev) => !prev)}
+                  aria-expanded={langOpen}
+                >
+                  <span>{locale.toUpperCase()}</span>
+                  <Image src="/icons/translate.svg" alt="" width={20} height={20} className={styles.langIcon} aria-hidden />
+                </button>
+                <div className={`${styles.langMenu} ${langOpen ? styles.langMenuOpen : ''}`}>
+                  {i18n.locales
+                    .filter((item) => item !== locale)
+                    .map((item) => (
+                      <Link key={item} href={getLocaleLink(item)} className={styles.langOption} onClick={() => setLangOpen(false)}>
+                        {item.toUpperCase()}
+                      </Link>
+                    ))}
+                </div>
+              </div>
+
               <a href="mailto:tdimpeks@support.com" className={styles.contactButton}>
                 <span>{dict.ui.header.contactButton}</span>
-                <Image src="/icons/mailbox2.svg" alt="mail" className={styles.btnIcon} width={20} height={20} />
+                <Image src="/icons/mailbox2.svg" alt="mail" className={styles.btnIcon} width={18} height={18} />
               </a>
             </nav>
           </div>
@@ -108,6 +159,19 @@ export default function SiteHeader() {
               </button>
             ),
           )}
+
+          <div className={styles.mobileLangs}>
+            {i18n.locales.map((item) => (
+              <Link
+                key={item}
+                href={getLocaleLink(item)}
+                className={item === locale ? `${styles.mobileLangLink} ${styles.mobileLangLinkActive}` : styles.mobileLangLink}
+                onClick={closeMenu}
+              >
+                {item.toUpperCase()}
+              </Link>
+            ))}
+          </div>
 
           <a href="mailto:tdimpeks@support.com" className={styles.contactButtonmobile} style={{ marginTop: '10px' }}>
             <span>{dict.ui.header.contactButton}</span>
