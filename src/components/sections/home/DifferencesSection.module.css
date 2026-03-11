@@ -69,8 +69,9 @@
   box-sizing: border-box;
   width: 100%;
   display: flex;
-  justify-content: start;
-  align-items: center;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 24px;
   padding: 80px 24px;
   border-radius: 15px;
   position: relative;
@@ -94,16 +95,30 @@
 }
 
 .textWrap {
-  width: 60%;
+  width: 50%;
   position: relative;
   z-index: 2;
   text-align: start;
 }
 
+.imageWrap {
+  width: 50%;
+  position: relative;
+  align-self: stretch;
+  z-index: 2;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
+}
+
+.image {
+  object-fit: cover;
+}
+
 .lead {
   margin: 0;
   color: #d5dbe6;
-  font-size: 35px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.03em;
@@ -126,7 +141,7 @@
 .body {
   margin: 40px 0 0;
   color: #d5dbe6;
-  font-size: 35px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.03em;
@@ -139,6 +154,22 @@
   .lead,
   .body {
     font-size: 30px;
+  }
+
+  .frame {
+    flex-direction: column;
+    padding: 24px 20px;
+  }
+
+  .textWrap {
+    width: 100%;
+    order: 2;
+  }
+
+  .imageWrap {
+    width: 100%;
+    min-height: 400px;
+    order: 1;
   }
 }
 
@@ -161,14 +192,6 @@
     font-weight: 800;
   }
 
-  .frame {
-    padding: 40px 20px;
-  }
-
-  .textWrap {
-    width: 100%;
-  }
-
   .lead,
   .body {
     font-size: 20px;
@@ -180,7 +203,6 @@
     margin-top: 18px;
   }
 }
-
 
 
 
