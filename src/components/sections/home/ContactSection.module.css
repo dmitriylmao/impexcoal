@@ -4,7 +4,7 @@
   padding: 80px 0 80px;
   background-color: #04070d;
   overflow: hidden;
-}
+} 
 
 .root::before {
   content: "";
