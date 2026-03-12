@@ -25,34 +25,30 @@ function buildFeedbackEmailHtml(params: { fullName: string; email: string; comme
   const comment = escapeHtml(params.comment).replaceAll('\n', '<br />');
 
   return `
-    <div style="margin:0;padding:24px;background:#04070d;font-family:Arial,sans-serif;color:#d5dbe6;">
-      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:680px;margin:0 auto;border-collapse:collapse;background:#0b111b;border:1px solid rgba(216,231,242,0.12);border-radius:14px;overflow:hidden;">
+    <div style="margin:0;padding:28px;background:#04070d;font-family:Arial,sans-serif;color:#d5dbe6;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:740px;margin:0 auto;border-collapse:collapse;background:#04070d;border:1px solid rgba(216,231,242,0.12);border-radius:18px;overflow:hidden;box-shadow:inset 0 2px 1px rgba(207,231,255,0.2),0 24px 64px rgba(0,0,0,0.45);">
         <tr>
-          <td style="padding:20px 24px;background:linear-gradient(180deg,#121a28 0%,#0b111b 100%);border-bottom:1px solid rgba(216,231,242,0.12);">
-            <div style="font-size:18px;font-weight:700;letter-spacing:0.5px;color:#ffffff;">IMPEX COAL</div>
-            <div style="margin-top:6px;font-size:13px;line-height:1.45;color:#aab4c5;">New feedback form submission</div>
+          <td style="padding:26px 30px;background:radial-gradient(55% 90% at 50% 120%,rgba(242,82,0,0.22) 0%,rgba(4,7,13,0) 100%),#04070d;border-bottom:1px solid rgba(216,231,242,0.12);">
+            <div style="font-size:30px;font-weight:800;line-height:1;color:#ffffff;letter-spacing:0.7px;">IMPEX COAL</div>
+            <div style="margin-top:10px;font-size:15px;line-height:1.4;color:rgba(213,219,230,0.76);">Новая заявка с формы обратной связи</div>
           </td>
         </tr>
         <tr>
-          <td style="padding:20px 24px 24px;">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;background:#0e1624;border:1px solid rgba(216,231,242,0.14);border-radius:10px;overflow:hidden;">
+          <td style="padding:24px 30px 30px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;background:#04070d;border:1px solid rgba(216,231,242,0.1);border-radius:14px;overflow:hidden;">
               <tr>
-                <td style="padding:12px 14px;width:140px;font-size:13px;font-weight:600;color:#8f9cb2;border-bottom:1px solid rgba(216,231,242,0.1);">Full name</td>
-                <td style="padding:12px 14px;font-size:14px;color:#ffffff;border-bottom:1px solid rgba(216,231,242,0.1);">${fullName}</td>
+                <td style="padding:15px 18px;width:180px;font-size:14px;font-weight:700;color:rgba(213,219,230,0.72);border-bottom:1px solid rgba(216,231,242,0.1);">ФИО</td>
+                <td style="padding:15px 18px;font-size:18px;font-weight:700;color:#ffffff;border-bottom:1px solid rgba(216,231,242,0.1);">${fullName}</td>
               </tr>
               <tr>
-                <td style="padding:12px 14px;width:140px;font-size:13px;font-weight:600;color:#8f9cb2;border-bottom:1px solid rgba(216,231,242,0.1);">Email</td>
-                <td style="padding:12px 14px;font-size:14px;color:#ffffff;border-bottom:1px solid rgba(216,231,242,0.1);">${email}</td>
+                <td style="padding:15px 18px;width:180px;font-size:14px;font-weight:700;color:rgba(213,219,230,0.72);border-bottom:1px solid rgba(216,231,242,0.1);">Email</td>
+                <td style="padding:15px 18px;font-size:17px;font-weight:600;color:#ffffff;border-bottom:1px solid rgba(216,231,242,0.1);">${email}</td>
               </tr>
               <tr>
-                <td style="padding:12px 14px;width:140px;font-size:13px;font-weight:600;color:#8f9cb2;vertical-align:top;">Comment</td>
-                <td style="padding:12px 14px;font-size:14px;line-height:1.55;color:#d5dbe6;">${comment}</td>
+                <td style="padding:15px 18px;width:180px;font-size:14px;font-weight:700;color:rgba(213,219,230,0.72);vertical-align:top;">Комментарий</td>
+                <td style="padding:15px 18px;font-size:17px;line-height:1.6;color:rgb(213,219,230);">${comment}</td>
               </tr>
             </table>
-
-            <div style="margin-top:16px;font-size:12px;line-height:1.5;color:#8694ac;">
-              Accent color: <span style="display:inline-block;padding:2px 8px;border-radius:999px;background:#f25200;color:#ffffff;font-weight:700;">#F25200</span>
-            </div>
           </td>
         </tr>
       </table>
