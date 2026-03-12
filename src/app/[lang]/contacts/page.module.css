@@ -16,56 +16,124 @@
 .thanksSection {
   width: 100%;
   max-width: 1200px;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 0px 24px 40px;
 }
 
 .thanksCard {
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto;
   border-radius: 16px;
   border: 1px solid rgba(216, 231, 242, 0.12);
   box-shadow: inset 0 2px 1px rgba(207, 231, 255, 0.2);
   background-color: #04070d;
-  padding: 40px 32px;
+  padding: 80px 80px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
 }
+
+.thanksCard::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -250px;
+  transform: translateX(-50%) rotate(-13deg);
+  max-width: 793px;
+  width: 100%;
+  height: 499px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(50% 50% at 50% 50%, rgb(213, 219, 230, 0.85) 0%, rgba(4, 7, 13, 0) 100%);
+  opacity: 0.1;
+  filter: blur(60px);
+}
+
+
 
 .thanksTitle {
   margin: 0;
-  color: #ffffff;
-  font-size: 34px;
-  line-height: 1.15;
+  color: #d5dbe6;
+  text-align: center;
+  font-size: 44px;
   font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+  max-width: 640px;
+  width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .thanksSubtitle {
-  margin: 14px 0 0;
-  color: rgba(213, 219, 230, 0.8);
-  font-size: 18px;
+  margin: 16px 0 0;
+  color: rgba(213, 219, 230, 0.7);
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
   line-height: 1.6;
 }
 
 .thanksHomeButton {
   display: inline-flex;
-  margin-top: 28px;
+  margin-top: 60px;
+  box-sizing: border-box;
+  position: relative;
   align-items: center;
   justify-content: center;
-  min-width: 240px;
+  width: min-content;
   height: 48px;
   border-radius: 10px;
-  border: 1px solid rgba(242, 82, 0, 0.55);
-  color: #ffffff;
-  background: linear-gradient(180deg, rgba(242, 82, 0, 0.22) 0%, rgba(242, 82, 0, 0.1) 100%);
+  border: none;
+  background: transparent;
+  padding:0 24px;
+  isolation: isolate;
+  outline: none;
   text-decoration: none;
-  font-weight: 700;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  overflow: visible;
 }
 
 .thanksHomeButton:hover {
-  border-color: #f25200;
-  box-shadow: 0 0 0 4px rgba(242, 82, 0, 0.14);
-  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.thanksHomeLabel {
+  position: relative;
+  z-index: 2;
+  color: rgb(213, 219, 230);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: color 0.8s ease;
+}
+
+.thanksHomeButton:hover .glow {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.6, 0.8);
+}
+
+.thanksHomeButton:hover .strokeDefault {
+  opacity: 0;
+}
+
+.thanksHomeButton:hover .strokeHover {
+  opacity: 1;
+}
+
+.thanksHomeButton:hover .innerFill {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 15px rgba(228, 82, 23, 0.15);
+}
+
+.thanksHomeButton:hover .thanksHomeLabel {
+  color: #ffffff;
 }
 
 
@@ -412,25 +480,21 @@
   }
 
   .thanksSection {
-    padding: 24px 12px 48px;
+    padding: 0px 12px 40px;
   }
 
   .thanksCard {
-    padding: 28px 20px;
+    padding: 40px;
   }
 
   .thanksTitle {
-    font-size: 27px;
+    font-size: 28px;
   }
 
   .thanksSubtitle {
     font-size: 16px;
   }
 
-  .thanksHomeButton {
-    width: 100%;
-    min-width: 0;
-  }
 
   .contactsGrid {
     grid-template-columns: 1fr;

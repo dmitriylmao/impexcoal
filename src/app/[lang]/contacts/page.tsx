@@ -33,7 +33,13 @@ export default async function ContactsPage({ params, searchParams }: ContactsPag
             <h1 className={styles.thanksTitle}>{t.title}</h1>
             <p className={styles.thanksSubtitle}>{t.subtitle}</p>
             <Link href={`/${locale}`} className={styles.thanksHomeButton}>
-              {t.homeButton}
+              <div className={styles.glow}></div>
+              <div className={styles.borderWrapper}>
+                <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
+                <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
+              </div>
+              <div className={styles.innerFill}></div>
+              <span className={styles.thanksHomeLabel}>{t.homeButton}</span>
             </Link>
           </div>
         </section>
