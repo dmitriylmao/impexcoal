@@ -1,6 +1,5 @@
 .root {
   background-color: #04070d;
-  background-color: rgb(14, 48, 37);
 }
 
 .inner {
@@ -13,18 +12,46 @@
 }
 
 .logoButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   border: 0;
   background: transparent;
-  width: fit-content;
   padding: 0;
   cursor: pointer;
-  margin-right: auto;
+  flex: 0 0 auto;
+  color: #c1c2c2;
+  transition: color 0.2s ease-in-out;
+}
+
+.logoButton:hover,
+.logoButton:focus-visible {
+  color: #ffffff;
 }
 
 .logo {
-  width: auto;
-  height: 48px;
-  object-fit: contain;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: currentColor;
+  mask-image: url('/logo.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('/logo.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.brandText {
+  color: currentColor;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .links {
@@ -72,7 +99,18 @@
 }
 
 .telegramIcon {
-  filter: brightness(0) invert(1);
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-color: #ffffff;
+  mask-image: url('/telegram.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('/telegram.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 
 .bottomLine {
@@ -85,10 +123,6 @@
   color:rgb(213,219,230);
   font-size: 14px;
   font-weight: 500;
-}
-
-.switcher {
-  justify-content: center;
 }
 
 @media (max-width: 800px) {

@@ -1,11 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
-import LangSwitcher from '@/components/LangSwitcher';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import { getUiDictionary } from '@/dictionaries/ui-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
+import { scrollToSection } from '@/lib/scroll-to-section';
 import styles from './SiteFooter.module.css';
 
 export default function SiteFooter() {
@@ -18,7 +17,9 @@ export default function SiteFooter() {
     : localeFromPath && isValidLocale(localeFromPath)
       ? localeFromPath
       : i18n.defaultLocale;
+  const router = useRouter();
   const dict = getUiDictionary(locale);
+  const homePath = `/${locale}`;
 
   const links = [
     { label: dict.ui.footer.links.home, href: `/${locale}#top` },
@@ -26,11 +27,21 @@ export default function SiteFooter() {
     { label: dict.ui.footer.links.news, href: `/${locale}/news` },
   ];
 
+  const handleLogoNavigation = () => {
+    if (pathname !== homePath) {
+      router.push(`${homePath}#top`);
+      return;
+    }
+
+    scrollToSection('top');
+  };
+
   return (
     <footer className={styles.root}>
       <div className={styles.inner}>
-        <button type="button" className={styles.logoButton} aria-label="IMPEKS logo">
-          <Image src="/logo.png" alt="ТД ИМПЭКС" width={196} height={44} className={styles.logo} />
+        <button type="button" className={styles.logoButton} aria-label="IMPEKS logo" onClick={handleLogoNavigation}>
+          <span className={styles.logo} aria-hidden />
+          <span className={styles.brandText}>{dict.ui.header.brand}</span>
         </button>
 
         <div className={styles.links}>
@@ -44,14 +55,13 @@ export default function SiteFooter() {
         <div className={styles.socials}>
           {Array.from({ length: 4 }).map((_, index) => (
             <button key={index} type="button" className={styles.socialButton}>
-              <Image src="/telegram.svg" alt="Telegram" width={18} height={18} className={styles.telegramIcon} />
+              <span className={styles.telegramIcon} aria-hidden />
             </button>
           ))}
         </div>
 
         <div className={styles.bottomLine}>
           <span>{dict.ui.footer.copyright}</span>
-          <LangSwitcher className={styles.switcher} />
           <span>{dict.ui.footer.email}</span>
         </div>
       </div>
