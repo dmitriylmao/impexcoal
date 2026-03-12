@@ -175,7 +175,17 @@
       "emailPlaceholder": "ivan.ivanov@impeks.ru",
       "commentLabel": "Comment",
       "commentPlaceholder": "Comment",
-      "submit": "Send"
+      "submit": "Send",
+      "submitSending": "Sending...",
+      "errorRequired": "Please fill in all fields.",
+      "errorServiceUnavailable": "Mail service is temporarily unavailable. Please try later.",
+      "errorSendFailed": "Failed to send message. Please try again.",
+      "errorNetwork": "Network error while sending. Please try later."
+    },
+    "thanksPage": {
+      "title": "Thank you for your request",
+      "subtitle": "We received your message and will contact you shortly.",
+      "homeButton": "Back to home"
     },
     "footer": {
       "links": {

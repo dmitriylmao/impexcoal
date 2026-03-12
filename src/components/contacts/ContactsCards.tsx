@@ -1,9 +1,6 @@
-'use client';
-
-import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
-import { motion, useReducedMotion } from 'framer-motion';
 import styles from '@/app/[lang]/contacts/page.module.css';
+import FeedbackForm from '@/components/contacts/FeedbackForm';
 
 type ContactsContent = {
   emailTitle: string;
@@ -23,58 +20,19 @@ type ContactsContent = {
   commentLabel: string;
   commentPlaceholder: string;
   submit: string;
+  submitSending: string;
+  errorRequired: string;
+  errorServiceUnavailable: string;
+  errorSendFailed: string;
+  errorNetwork: string;
 };
 
-function useIsMobile(maxWidth = 800) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia(`(max-width: ${maxWidth}px)`);
-    const update = () => setIsMobile(media.matches);
-    update();
-    media.addEventListener('change', update);
-    return () => media.removeEventListener('change', update);
-  }, [maxWidth]);
-
-  return isMobile;
-}
-
-export default function ContactsCards({ c }: { c: ContactsContent }) {
-  const reduceMotion = useReducedMotion();
-  const isMobile = useIsMobile();
-
-  const delayMap = useMemo(() => {
-    if (isMobile) {
-      return { email: 0, manager: 1, address: 2, feedback: 3 } as const;
-    }
-    return { manager: 0, email: 1, address: 2, feedback: 3 } as const;
-  }, [isMobile]);
-
-  const cardVariants = {
-    hidden: { opacity: reduceMotion ? 1 : 0, y: reduceMotion ? 0 : 18 },
-    show: (orderIndex: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: reduceMotion ? 0.01 : 0.45,
-        delay: reduceMotion ? 0 : orderIndex * 0.05,
-        ease: [0.22, 1, 0.36, 1] as const,
-      },
-    }),
-  };
-
+export default function ContactsCards({ c, locale }: { c: ContactsContent; locale: string }) {
   return (
     <section className={styles.topSection}>
       <div className={styles.contactsGrid}>
         <div className={styles.leftColumn}>
-          <motion.article
-            className={styles.infoCard}
-            custom={delayMap.email}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={cardVariants}
-          >
+          <article className={styles.infoCard}>
             <div className={styles.cardHead}>
               <span className={styles.cardIconWrap}>
                 <Image src="/icons/envelope-open.svg" alt="" width={32} height={32} className={styles.icon} />
@@ -85,16 +43,9 @@ export default function ContactsCards({ c }: { c: ContactsContent }) {
             <a href={`mailto:${c.emailLink}`} className={styles.linkButton}>
               {c.emailLink}
             </a>
-          </motion.article>
+          </article>
 
-          <motion.article
-            className={styles.infoCard}
-            custom={delayMap.manager}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={cardVariants}
-          >
+          <article className={styles.infoCard}>
             <div className={styles.cardHead}>
               <span className={styles.cardIconWrap}>
                 <Image src="/icons/user-sound.svg" alt="" width={32} height={32} className={styles.icon} />
@@ -110,17 +61,10 @@ export default function ContactsCards({ c }: { c: ContactsContent }) {
             >
               {c.managerLink}
             </a>
-          </motion.article>
+          </article>
         </div>
 
-        <motion.article
-          className={styles.infoCard}
-          custom={delayMap.address}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={cardVariants}
-        >
+        <article className={styles.infoCard}>
           <div className={styles.cardHead}>
             <span className={styles.cardIconWrap}>
               <Image src="/icons/map-pin-area.svg" alt="" width={32} height={32} className={styles.icon} />
@@ -136,16 +80,9 @@ export default function ContactsCards({ c }: { c: ContactsContent }) {
           >
             {c.mapLink}
           </a>
-        </motion.article>
+        </article>
 
-        <motion.article
-          className={styles.formCard}
-          custom={delayMap.feedback}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={cardVariants}
-        >
+        <article className={styles.formCard}>
           <div className={styles.cardHead}>
             <span className={styles.cardIconWrap}>
               <Image src="/icons/headset.svg" alt="" width={32} height={32} className={styles.icon} />
@@ -153,33 +90,22 @@ export default function ContactsCards({ c }: { c: ContactsContent }) {
             <h2 className={styles.cardTitle}>{c.feedbackTitle}</h2>
           </div>
 
-          <form className={styles.form} action="#">
-            <label className={styles.label}>
-              {c.fullNameLabel}
-              <input className={styles.input} type="text" placeholder={c.fullNamePlaceholder} />
-            </label>
-
-            <label className={styles.label}>
-              {c.emailLabel}
-              <input className={styles.input} type="email" placeholder={c.emailPlaceholder} />
-            </label>
-
-            <label className={styles.label}>
-              {c.commentLabel}
-              <textarea className={styles.textarea} rows={4} placeholder={c.commentPlaceholder} />
-            </label>
-
-            <button type="button" className={styles.submitButton}>
-              <div className={styles.glow}></div>
-              <div className={styles.borderWrapper}>
-                <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
-                <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
-              </div>
-              <div className={styles.innerFill}></div>
-              <span className={styles.submitLabel}>{c.submit}</span>
-            </button>
-          </form>
-        </motion.article>
+          <FeedbackForm
+            locale={locale}
+            fullNameLabel={c.fullNameLabel}
+            fullNamePlaceholder={c.fullNamePlaceholder}
+            emailLabel={c.emailLabel}
+            emailPlaceholder={c.emailPlaceholder}
+            commentLabel={c.commentLabel}
+            commentPlaceholder={c.commentPlaceholder}
+            submit={c.submit}
+            submitSending={c.submitSending}
+            errorRequired={c.errorRequired}
+            errorServiceUnavailable={c.errorServiceUnavailable}
+            errorSendFailed={c.errorSendFailed}
+            errorNetwork={c.errorNetwork}
+          />
+        </article>
       </div>
     </section>
   );

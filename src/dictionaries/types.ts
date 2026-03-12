@@ -113,6 +113,16 @@ export type SiteDictionary = {
       commentLabel: string;
       commentPlaceholder: string;
       submit: string;
+      submitSending: string;
+      errorRequired: string;
+      errorServiceUnavailable: string;
+      errorSendFailed: string;
+      errorNetwork: string;
+    };
+    thanksPage: {
+      title: string;
+      subtitle: string;
+      homeButton: string;
     };
     footer: {
       links: {

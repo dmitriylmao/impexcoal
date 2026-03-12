@@ -175,7 +175,17 @@
       "emailPlaceholder": "ivan.ivanov@impeks.ru",
       "commentLabel": "Yorum",
       "commentPlaceholder": "Yorum",
-      "submit": "Gönder"
+      "submit": "Gönder",
+      "submitSending": "Gönderiliyor...",
+      "errorRequired": "Lütfen tüm alanları doldurun.",
+      "errorServiceUnavailable": "Posta servisi şu anda kullanılamıyor. Lütfen daha sonra tekrar deneyin.",
+      "errorSendFailed": "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
+      "errorNetwork": "Gönderim sırasında ağ hatası. Lütfen daha sonra tekrar deneyin."
+    },
+    "thanksPage": {
+      "title": "Talebiniz için teşekkürler",
+      "subtitle": "Mesajınızı aldık, kısa süre içinde sizinle iletişime geçeceğiz.",
+      "homeButton": "Ana sayfaya dön"
     },
     "footer": {
       "links": {
