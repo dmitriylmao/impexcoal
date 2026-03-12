@@ -78,7 +78,16 @@
 .mainLogo {
   width: 100px;
   height: 100px;
-  object-fit: contain;
+  display: block;
+  background-color: #ffffff;
+  mask-image: url('/logo.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('/logo.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 
 /* ========================================= */

@@ -92,7 +92,7 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
         <motion.div className={styles.content} initial="hidden" animate="show" variants={containerVariants}>
           <motion.div className={styles.logoWrap} variants={logoVariants}>
             <div className={styles.logoGlow} />
-            <Image src="/logo.png" alt="IMPEKS" width={98} height={98} className={styles.mainLogo} priority />
+            <span className={styles.mainLogo} aria-hidden />
           </motion.div>
 
           <motion.div className={styles.textBlock} variants={scaleFadeVariants}>
