@@ -22,6 +22,7 @@ export type SiteDictionary = {
         news: string;
         contacts: string;
       };
+      brand: string;
       contactButton: string;
     };
     homeHero: {

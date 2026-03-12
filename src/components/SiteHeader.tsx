@@ -87,7 +87,8 @@ export default function SiteHeader() {
       <div className={`${styles.inner} ${menuOpen ? styles.innerMenuOpen : ''}`}>
         <div className={styles.contentContainer}>
           <button type="button" className={styles.logoButton} aria-label="IMPEKS logo" onClick={() => handleAnchorNavigation({ label: '', kind: 'anchor', target: 'top' })}>
-            <Image src="/logo.png" alt='ТД "ИМПЭКС"' width={196} height={44} className={styles.logo} priority />
+            <span className={styles.logo} aria-hidden />
+            <span className={styles.brandText}>{dict.ui.header.brand}</span>
           </button>
 
           <div className={styles.desktopRight}>

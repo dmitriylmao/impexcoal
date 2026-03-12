@@ -36,18 +36,46 @@
 }
 
 .logoButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   border: 0;
   background: transparent;
   padding: 0;
   cursor: pointer;
   flex: 0 0 auto;
-  margin-right: auto;
+  color: #c1c2c2;
+  transition: color 0.2s ease-in-out;
+}
+
+.logoButton:hover,
+.logoButton:focus-visible {
+  color: #ffffff;
 }
 
 .logo {
-  width: auto;
-  height: 36px;
-  object-fit: contain;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: currentColor;
+  mask-image: url('/logo.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('/logo.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.brandText {
+  color: currentColor;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .desktopRight {
