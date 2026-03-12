@@ -124,6 +124,9 @@
       "showLess": "Show less",
       "modalClose": "Close"
     },
+    "homeDocuments": {
+      "badge": "Quality certificates and accompanying documents"
+    },
     "homeFaq": {
       "badge": "FAQ",
       "title": "Frequently asked questions",

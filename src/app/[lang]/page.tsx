@@ -7,6 +7,7 @@ import SegmentsSection from '@/components/sections/home/SegmentsSection';
 import LogoMarqueeSection from '@/components/sections/home/LogoMarqueeSection';
 import ProductionCycleSection from '@/components/sections/home/ProductionCycleSection';
 import ProductsCatalogSection from '@/components/sections/home/ProductsCatalogSection';
+import DocumentsSection from '@/components/sections/home/DocumentsSection';
 import FaqSection from '@/components/sections/home/FaqSection';
 import ContactSection from '@/components/sections/home/ContactSection';
 import { getDictionary } from '@/dictionaries/get-dictionary';
@@ -103,6 +104,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           cards={productCards}
         />
       </div>
+
+      <DocumentsSection badge={dict.ui.homeDocuments.badge} />
 
       <FaqSection
         badge={dict.ui.homeFaq.badge}

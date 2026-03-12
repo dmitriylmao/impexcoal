@@ -124,6 +124,9 @@
       "showLess": "Gizle",
       "modalClose": "Kapat"
     },
+    "homeDocuments": {
+      "badge": "Kalite sertifikalari ve eslik eden belgeler"
+    },
     "homeFaq": {
       "badge": "Soru-cevap",
       "title": "Sık sorulan sorular",

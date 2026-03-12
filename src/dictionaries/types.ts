@@ -79,6 +79,9 @@ export type SiteDictionary = {
       showLess: string;
       modalClose: string;
     };
+    homeDocuments: {
+      badge: string;
+    };
     homeFaq: {
       badge: string;
       title: string;
