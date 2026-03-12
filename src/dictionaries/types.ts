@@ -124,6 +124,11 @@ export type SiteDictionary = {
       subtitle: string;
       homeButton: string;
     };
+    notFound: {
+      codeLabel: string;
+      title: string;
+      homeButton: string;
+    };
     footer: {
       links: {
         home: string;

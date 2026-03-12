@@ -187,6 +187,11 @@
       "subtitle": "We received your message and will contact you shortly.",
       "homeButton": "Back to home"
     },
+    "notFound": {
+      "codeLabel": "Oops",
+      "title": "Something is not working :(",
+      "homeButton": "Home"
+    },
     "footer": {
       "links": {
         "home": "Home",

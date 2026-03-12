@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { getUiDictionary } from '@/dictionaries/ui-dictionary';
-import { i18n, type Locale } from '@/i18n/config';
+import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { scrollToSection } from '@/lib/scroll-to-section';
 import styles from './SiteHeader.module.css';
 
@@ -15,9 +15,15 @@ type NavItem =
 
 export default function SiteHeader() {
   const params = useParams<{ lang?: string }>();
-  const dict = getUiDictionary(params?.lang);
-  const locale = (params?.lang ?? 'ru') as Locale;
   const pathname = usePathname();
+  const localeFromParams = params?.lang;
+  const localeFromPath = pathname.split('/').filter(Boolean)[0];
+  const locale: Locale = localeFromParams && isValidLocale(localeFromParams)
+    ? localeFromParams
+    : localeFromPath && isValidLocale(localeFromPath)
+      ? localeFromPath
+      : i18n.defaultLocale;
+  const dict = getUiDictionary(locale);
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);

@@ -2,15 +2,23 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { useParams, usePathname } from 'next/navigation';
 import LangSwitcher from '@/components/LangSwitcher';
 import { getUiDictionary } from '@/dictionaries/ui-dictionary';
+import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import styles from './SiteFooter.module.css';
 
 export default function SiteFooter() {
   const params = useParams<{ lang?: string }>();
-  const dict = getUiDictionary(params?.lang);
-  const locale = params?.lang ?? 'ru';
+  const pathname = usePathname();
+  const localeFromParams = params?.lang;
+  const localeFromPath = pathname.split('/').filter(Boolean)[0];
+  const locale: Locale = localeFromParams && isValidLocale(localeFromParams)
+    ? localeFromParams
+    : localeFromPath && isValidLocale(localeFromPath)
+      ? localeFromPath
+      : i18n.defaultLocale;
+  const dict = getUiDictionary(locale);
 
   const links = [
     { label: dict.ui.footer.links.home, href: `/${locale}#top` },

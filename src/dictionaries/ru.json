@@ -208,6 +208,11 @@
     "newsArticle": {
       "back": "Назад к новостям",
       "subtitle": "Подзаголовок"
+    },
+    "notFound": {
+      "codeLabel": "УПС",
+      "title": "Что-то не работает :(",
+      "homeButton": "На главную"
     }
   }
 }

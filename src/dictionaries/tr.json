@@ -208,6 +208,11 @@
     "newsArticle": {
       "back": "Haberlere dön",
       "subtitle": "Alt başlık"
+    },
+    "notFound": {
+      "codeLabel": "Oops",
+      "title": "Bir seyler calismiyor :(",
+      "homeButton": "Ana sayfaya don"
     }
   }
 }
