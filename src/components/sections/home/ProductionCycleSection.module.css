@@ -106,7 +106,7 @@
 .imageFrame {
   position: relative;
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 9;
   border: 1px solid transparent;
   border-radius: 22px;
   background-color: #04070d;
@@ -132,18 +132,11 @@
 }
 
 .image {
-  width: 100%;
   object-fit: cover;
 }
 
 @media (max-width: 1200px) {
-  .imageFrame{
-  }
-
-  .image {
-    width: 100%;
-    height: auto;
-  }
+  
 }
 
 @media (max-width: 800px) {
@@ -163,9 +156,6 @@
     font-weight: 800;
   }
 
-  .imageFrame {
-    min-height: 430px;
-  }
 }
 
 
