@@ -320,6 +320,12 @@
     border-radius: 16px;
   }
 
+  .mainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
   .text {
     gap: 16px;
   }
@@ -334,6 +340,14 @@
     margin-bottom: 8px;
   }
 
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+  .mainImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 800px){
@@ -351,4 +365,3 @@
     line-height: 1.3;
 }
 }
-
