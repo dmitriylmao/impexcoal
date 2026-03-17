@@ -29,7 +29,7 @@ export default function WhyChooseSection({ badge, title, cards }: WhyChooseSecti
           {cards.slice(0, 4).map((card, index) => (
             <article key={`${card.title}-${index}`} className={styles.card}>
               <div className={styles.iconWrap}>
-                <Image src="/globe.svg" alt="" width={86} height={86} className={styles.cardIcon} />
+                <Image src="/images/ch1.png" alt="" width={400} height={400} className={styles.cardIcon} />
               </div>
               <div className={styles.cardText}>
                 <h3 className={styles.cardTitle}>{card.title}</h3>

@@ -127,28 +127,14 @@
 
 .mainImageWrap {
   position: absolute;
-  inset: 0 24% 24% 0;
+  inset: 0;
   border-radius: 22px;
   border: 1px solid transparent;
-  background:
-    linear-gradient(180deg, rgba(4, 12, 24, 0.58), rgba(2, 8, 16, 0.78)) padding-box,
-    linear-gradient(180deg, rgba(207, 231, 255, 0.34), rgba(207, 231, 255, 0.1)) border-box;
+  background-color: #04070d;
   overflow: hidden;
 }
-
-.overlayImageWrap {
-  position: absolute;
-  inset: 45% 0 0 32%;
-  border-radius: 18px;
-  border: 1px solid transparent;
-  background:
-    linear-gradient(180deg, rgba(4, 12, 24, 0.58), rgba(2, 8, 16, 0.78)) padding-box,
-    linear-gradient(180deg, rgba(207, 231, 255, 0.34), rgba(207, 231, 255, 0.1)) border-box;
-  overflow: hidden;
-}
-
-.mainImage,
-.overlayImage {
+.mainImage {
+  width: 100%;
   object-fit: cover;
   transition: opacity 0.3s ease;
 }
@@ -330,13 +316,8 @@
   }
 
   .mainImageWrap {
-    inset: 0 16% 20% 0;
+    inset: 0;
     border-radius: 16px;
-  }
-
-  .overlayImageWrap {
-    inset: 40% 0 0 32%;
-    border-radius: 14px;
   }
 
   .text {
@@ -370,6 +351,4 @@
     line-height: 1.3;
 }
 }
-
-
 

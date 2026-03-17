@@ -21,7 +21,7 @@ type SegmentsSectionProps = {
   tabs: SegmentTab[];
 };
 
-const images = ['/image.png', '/image1.jpg', '/image2.jpg'];
+const images = ['/images/s2.png', '/images/s3.png', '/images/s6.png'];
 
 export default function SegmentsSection({ badge, title, cta, tabs }: SegmentsSectionProps) {
   const params = useParams<{ lang?: string }>();
@@ -32,9 +32,6 @@ export default function SegmentsSection({ badge, title, cta, tabs }: SegmentsSec
   const [active, setActive] = useState(0);
   const safeTabs = tabs.slice(0, 3);
   const activeTab = safeTabs[active] ?? safeTabs[0];
-
-  const nextImage =
-    safeTabs.length < 2 ? images[0] : (images[(active + 1) % safeTabs.length] ?? images[0]);
 
   const panelVariants = {
     hidden: { opacity: reduceMotion ? 1 : 0 },
@@ -158,17 +155,6 @@ export default function SegmentsSection({ badge, title, cta, tabs }: SegmentsSec
                     className={styles.mainImage}
                     sizes="(max-width: 800px) 90vw, 40vw"
                   />
-                </motion.div>
-              </div>
-              <div className={styles.overlayImageWrap}>
-                <motion.div
-                  key={`overlay-${active}-${panelInView ? 'in' : 'out'}`}
-                  style={{ position: 'absolute', inset: 0 }}
-                  initial="hidden"
-                  animate={panelInView ? 'show' : 'hidden'}
-                  variants={imageFadeVariants}
-                >
-                  <Image src={nextImage} alt="" fill className={styles.overlayImage} sizes="(max-width: 800px) 70vw, 26vw" />
                 </motion.div>
               </div>
             </div>
