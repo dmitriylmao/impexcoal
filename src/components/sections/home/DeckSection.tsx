@@ -18,7 +18,7 @@ type DeckSectionProps = {
   cards: DeckCard[];
 };
 
-const DECK_IMAGES = ['/images/d0.png', '/images/d3.png', '/images/d2.png'] as const;
+const DECK_IMAGES = ['/images/deck/d0.png', '/images/deck/d3.png', '/images/deck/d2.png'] as const;
 
 function reorderDeck(current: number[], selected: number): number[] {
   if (current[0] === selected) {
