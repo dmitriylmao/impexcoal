@@ -206,7 +206,7 @@ export default async function AdminPage({
             </button>
           </form>
 
-          <div className="overflow-x-auto rounded-xl border border-white/10">
+          <div className="max-h-[360px] overflow-x-auto overflow-y-auto rounded-xl border border-white/10">
             <table className="w-full text-left text-sm text-[#c8d2e2]">
               <thead className="bg-[#081326] text-[#9aa8be]">
                 <tr>
@@ -239,7 +239,7 @@ export default async function AdminPage({
             locales={i18n.locales}
           />
 
-          <div className="overflow-x-auto rounded-xl border border-white/10">
+          <div className="max-h-[360px] overflow-x-auto overflow-y-auto rounded-xl border border-white/10">
             <table className="w-full text-left text-sm text-[#c8d2e2]">
               <thead className="bg-[#081326] text-[#9aa8be]">
                 <tr>

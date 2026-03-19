@@ -61,7 +61,12 @@ export default function SiteFooter() {
         </div>
 
         <div className={styles.bottomLine}>
-          <span>{dict.ui.footer.copyright}</span>
+          <div className={styles.bottomLeft}>
+            <span>{dict.ui.footer.copyright}</span>
+            <Link href="/admin" className={styles.adminLink} aria-label="Admin panel">
+              <span className={styles.keyIcon} aria-hidden />
+            </Link>
+          </div>
           <span>{dict.ui.footer.email}</span>
         </div>
       </div>
