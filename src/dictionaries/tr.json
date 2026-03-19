@@ -126,7 +126,7 @@
       "modalClose": "Kapat"
     },
     "homeDocuments": {
-      "badge": "Kalite sertifikalari ve eslik eden belgeler"
+      "badge": "Kalite sertifikaları ve eşlik eden belgeler"
     },
     "homeFaq": {
       "badge": "Soru-cevap",
@@ -215,8 +215,8 @@
     },
     "notFound": {
       "codeLabel": "Oops",
-      "title": "Bir seyler calismiyor :(",
-      "homeButton": "Ana sayfaya don"
+      "title": "Bir şeyler çalışmıyor :(",
+      "homeButton": "Ana sayfaya dön"
     }
   }
 }
