@@ -9,6 +9,9 @@
   position: sticky;
   top: 0;
   z-index: 80;
+  /* Safari: keep header flush with the visual top even when the URL bar is visible */
+  padding-top: env(safe-area-inset-top);
+  margin-top: calc(env(safe-area-inset-top) * -1);
 }
 
 .inner {
