@@ -106,16 +106,16 @@
 .imageFrame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio:1824 / 674;
   border: 1px solid transparent;
   border-radius: 22px;
-  background-color: #04070d;
+  /*background-color: #04070d;
   border: 1px solid rgba(216, 231, 242, 0.07);
-  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);*/
   overflow: hidden;
 }
 
-.imageFrame::before {
+/*.imageFrame::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -129,9 +129,10 @@
   background: radial-gradient(50% 50% at 50% 50%, rgb(213, 219, 230, 0.85) 0%, rgba(4, 7, 13, 0) 100%);
   opacity: 0.1;
   filter: blur(60px);
-}
+} */
 
 .image {
+  width: 100%;
   object-fit: cover;
 }
 
