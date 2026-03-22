@@ -150,7 +150,6 @@
   .root {
     left: 12px;
     bottom: 24px;
-    height: min-content;
     max-width: calc(100vw - 24px);
     padding: 12px;
     gap: 12px;
