@@ -16,7 +16,7 @@ import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { prisma } from '@/lib/prisma';
 import { getLocalizedProductContent } from '@/lib/product-localization';
 import { normalizeImageUrl } from '@/lib/news-localization';
-import { getHomeTitle } from '@/lib/seo';
+import { getDefaultDescription, getHomeTitle, getLocaleAlternates } from '@/lib/seo';
 import styles from './page.module.css';
 
 export function generateStaticParams() {
@@ -36,6 +36,12 @@ export async function generateMetadata({
 
   return {
     title: getHomeTitle(lang),
+    description: getDefaultDescription(lang),
+    alternates: getLocaleAlternates({
+      ru: '/ru',
+      en: '/en',
+      tr: '/tr',
+    }, lang),
   };
 }
 

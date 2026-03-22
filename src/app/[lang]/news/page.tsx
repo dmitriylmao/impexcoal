@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { getLocalizedNewsContent, normalizeImageUrl } from '@/lib/news-localization';
-import { getSectionTitle } from '@/lib/seo';
+import { getDefaultDescription, getLocaleAlternates, getSectionTitle } from '@/lib/seo';
 import NewsListClient from '@/components/news/NewsListClient';
 
 export async function generateMetadata({
@@ -20,6 +20,12 @@ export async function generateMetadata({
 
   return {
     title: getSectionTitle(lang, 'news'),
+    description: getDefaultDescription(lang),
+    alternates: getLocaleAlternates({
+      ru: '/ru/news',
+      en: '/en/news',
+      tr: '/tr/news',
+    }, lang),
   };
 }
 

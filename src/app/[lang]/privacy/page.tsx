@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { isValidLocale, type Locale } from '@/i18n/config';
-import { getSectionTitle } from '@/lib/seo';
+import { getDefaultDescription, getLocaleAlternates, getSectionTitle } from '@/lib/seo';
 import styles from './page.module.css';
 
 export async function generateMetadata({
@@ -18,6 +18,12 @@ export async function generateMetadata({
 
   return {
     title: getSectionTitle(lang, 'privacy'),
+    description: getDefaultDescription(lang),
+    alternates: getLocaleAlternates({
+      ru: '/ru/privacy',
+      en: '/en/privacy',
+      tr: '/tr/privacy',
+    }, lang),
   };
 }
 

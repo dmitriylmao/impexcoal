@@ -6,7 +6,7 @@ import { prisma } from '@/lib/prisma';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { getLocalizedNewsContent, normalizeImageUrl } from '@/lib/news-localization';
-import { getArticleTitle, getSectionTitle } from '@/lib/seo';
+import { getDefaultDescription, getArticleTitle, getLocaleAlternates, getSectionTitle } from '@/lib/seo';
 import styles from './page.module.css';
 
 export async function generateMetadata({
@@ -29,6 +29,12 @@ export async function generateMetadata({
   if (!news) {
     return {
       title: getSectionTitle(locale, 'news'),
+      description: getDefaultDescription(locale),
+      alternates: getLocaleAlternates({
+        ru: `/ru/news/${slug}`,
+        en: `/en/news/${slug}`,
+        tr: `/tr/news/${slug}`,
+      }, locale),
     };
   }
 
@@ -36,6 +42,12 @@ export async function generateMetadata({
 
   return {
     title: getArticleTitle(locale, localized.title),
+    description: localized.content.slice(0, 160),
+    alternates: getLocaleAlternates({
+      ru: `/ru/news/${slug}`,
+      en: `/en/news/${slug}`,
+      tr: `/tr/news/${slug}`,
+    }, locale),
   };
 }
 

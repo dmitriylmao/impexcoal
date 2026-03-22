@@ -5,7 +5,7 @@ import FaqSection from '@/components/sections/home/FaqSection';
 import ContactsCards from '@/components/contacts/ContactsCards';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { isValidLocale, type Locale } from '@/i18n/config';
-import { getSectionTitle } from '@/lib/seo';
+import { getDefaultDescription, getLocaleAlternates, getSectionTitle } from '@/lib/seo';
 import styles from './page.module.css';
 
 type ContactsPageProps = {
@@ -26,6 +26,12 @@ export async function generateMetadata({
 
   return {
     title: getSectionTitle(lang, 'contacts'),
+    description: getDefaultDescription(lang),
+    alternates: getLocaleAlternates({
+      ru: '/ru/contacts',
+      en: '/en/contacts',
+      tr: '/tr/contacts',
+    }, lang),
   };
 }
 
