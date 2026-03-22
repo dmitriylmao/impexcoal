@@ -1,9 +1,27 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { getLocalizedNewsContent, normalizeImageUrl } from '@/lib/news-localization';
+import { getSectionTitle } from '@/lib/seo';
 import NewsListClient from '@/components/news/NewsListClient';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+
+  if (!isValidLocale(lang)) {
+    return {};
+  }
+
+  return {
+    title: getSectionTitle(lang, 'news'),
+  };
+}
 
 export default async function NewsPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;

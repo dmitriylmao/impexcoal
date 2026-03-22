@@ -10,8 +10,14 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: 'IMPEX Coal',
-  description: 'IMPEX coal landing page and news feed',
+  title: 'TD "IMPEKS"',
+  description: 'International anthracite and thermal coal supply',
+  icons: {
+    icon: [{ url: '/favicon.ico?v=2', sizes: 'any' }],
+    apple: [{ url: '/logo.png', type: 'image/png' }],
+    shortcut: [{ url: '/favicon.ico?v=2' }],
+  },
+  manifest: '/manifest.webmanifest',
 };
 
 export const viewport: Viewport = {

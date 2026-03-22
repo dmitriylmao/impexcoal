@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -5,7 +6,38 @@ import { prisma } from '@/lib/prisma';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { getLocalizedNewsContent, normalizeImageUrl } from '@/lib/news-localization';
+import { getArticleTitle, getSectionTitle } from '@/lib/seo';
 import styles from './page.module.css';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+  const { lang, slug } = await params;
+
+  if (!isValidLocale(lang)) {
+    return {};
+  }
+
+  const locale: Locale = lang;
+  const news = await prisma.news.findUnique({
+    where: { slug },
+    include: { translations: true },
+  });
+
+  if (!news) {
+    return {
+      title: getSectionTitle(locale, 'news'),
+    };
+  }
+
+  const localized = getLocalizedNewsContent(news, locale, i18n.defaultLocale);
+
+  return {
+    title: getArticleTitle(locale, localized.title),
+  };
+}
 
 export default async function NewsArticlePage({
   params,

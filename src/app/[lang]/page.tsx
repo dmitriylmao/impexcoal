@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import HeroSection from '@/components/sections/home/HeroSection';
 import WhyChooseSection from '@/components/sections/home/WhyChooseSection';
@@ -15,10 +16,27 @@ import { i18n, isValidLocale, type Locale } from '@/i18n/config';
 import { prisma } from '@/lib/prisma';
 import { getLocalizedProductContent } from '@/lib/product-localization';
 import { normalizeImageUrl } from '@/lib/news-localization';
+import { getHomeTitle } from '@/lib/seo';
 import styles from './page.module.css';
 
 export function generateStaticParams() {
   return i18n.locales.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+
+  if (!isValidLocale(lang)) {
+    return {};
+  }
+
+  return {
+    title: getHomeTitle(lang),
+  };
 }
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {

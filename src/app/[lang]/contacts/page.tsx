@@ -1,15 +1,33 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import FaqSection from '@/components/sections/home/FaqSection';
 import ContactsCards from '@/components/contacts/ContactsCards';
 import { getDictionary } from '@/dictionaries/get-dictionary';
 import { isValidLocale, type Locale } from '@/i18n/config';
+import { getSectionTitle } from '@/lib/seo';
 import styles from './page.module.css';
 
 type ContactsPageProps = {
   params: Promise<{ lang: string }>;
   searchParams: Promise<{ status?: string }>;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+
+  if (!isValidLocale(lang)) {
+    return {};
+  }
+
+  return {
+    title: getSectionTitle(lang, 'contacts'),
+  };
+}
 
 export default async function ContactsPage({ params, searchParams }: ContactsPageProps) {
   const { lang } = await params;
