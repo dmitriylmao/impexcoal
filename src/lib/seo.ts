@@ -40,14 +40,15 @@ const DEFAULT_DESCRIPTION_BY_LOCALE: Record<Locale, string> = {
 };
 
 export const DEFAULT_OG_TITLE = '\u0422\u0414 \u0418\u041c\u041f\u042d\u041a\u0421';
-export const DEFAULT_OG_DESCRIPTION = DEFAULT_DESCRIPTION_BY_LOCALE.ru;
 export const DEFAULT_OG_IMAGE = '/images/AKO.png';
 
 function getBaseUrl(): URL {
-  const envUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  const primaryUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  const vercelHost = process.env.VERCEL_URL?.trim();
+  const resolved = primaryUrl ?? (vercelHost ? `https://${vercelHost}` : undefined);
 
-  if (envUrl) {
-    const normalized = envUrl.replace(/\/+$/, '');
+  if (resolved) {
+    const normalized = resolved.replace(/\/+$/, '');
     return new URL(normalized);
   }
 
@@ -69,6 +70,10 @@ export function getArticleTitle(locale: Locale, articleTitle: string): string {
 }
 
 export function getDefaultDescription(locale: Locale): string {
+  return DEFAULT_DESCRIPTION_BY_LOCALE[locale];
+}
+
+export function getDefaultOgDescription(locale: Locale): string {
   return DEFAULT_DESCRIPTION_BY_LOCALE[locale];
 }
 

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Manrope } from 'next/font/google';
 import './globals.css';
 import SiteFrame from '@/components/SiteFrame';
-import { DEFAULT_OG_DESCRIPTION, DEFAULT_OG_IMAGE, DEFAULT_OG_TITLE, SITE_URL } from '@/lib/seo';
+import { DEFAULT_OG_IMAGE, DEFAULT_OG_TITLE, getDefaultOgDescription, SITE_URL } from '@/lib/seo';
 
 const manrope = Manrope({
   variable: '--font-manrope',
@@ -13,7 +13,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: SITE_URL,
   title: 'TD "IMPEKS"',
-  description: DEFAULT_OG_DESCRIPTION,
+  description: getDefaultOgDescription('ru'),
   icons: {
     icon: [{ url: '/favicon.ico?v=2', sizes: 'any' }],
     apple: [{ url: '/logo.png', type: 'image/png' }],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: DEFAULT_OG_TITLE,
     title: DEFAULT_OG_TITLE,
-    description: DEFAULT_OG_DESCRIPTION,
+    description: getDefaultOgDescription('ru'),
     url: SITE_URL,
     images: [
       {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: DEFAULT_OG_TITLE,
-    description: DEFAULT_OG_DESCRIPTION,
+    description: getDefaultOgDescription('ru'),
     images: [new URL(DEFAULT_OG_IMAGE, SITE_URL)],
   },
 };
