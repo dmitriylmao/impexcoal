@@ -1,0 +1,164 @@
+.root {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 9999;
+  display: grid;
+  width: 460px;
+  gap: 12px;
+  padding: 16px 10px 16px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(216, 231, 242, 0.07);
+  background: rgba(4, 7, 13, 0.4);
+  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2), 0 16px 34px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px) saturate(120%);
+}
+
+.text {
+  color: rgba(213, 219, 230, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: left;
+  overflow: hidden;
+}
+
+.link {
+  margin-left: 2px;
+  color: rgba(213, 219, 230, 0.9);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: #f25200;
+}
+
+.acceptButton {
+  box-sizing: border-box;
+  position: relative;
+  width: fit-content;
+  min-width: 128px;
+  height: 40px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  padding: 0 16px;
+  isolation: isolate;
+  outline: none;
+}
+
+.glow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 52px;
+  background: radial-gradient(25% 50% at 50% 100%, #e45217 0%, rgba(255, 255, 255, 0) 100%);
+  filter: blur(18px);
+  z-index: -1;
+  opacity: 0.4;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+
+.borderWrapper {
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stroke {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 55px;
+  border-radius: 10px;
+}
+
+.strokeDefault {
+  width: 280px;
+  background: radial-gradient(20.7% 50% at 50% 100%, #fd4c00 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0.8;
+  transition: opacity 0.8s ease, width 0.8s ease;
+}
+
+.strokeHover {
+  width: 420px;
+  background: radial-gradient(60.1% 50% at 50% 100%, #e45217 0%, rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+  transition: opacity 0.8s ease, width 0.8s ease;
+}
+
+.innerFill {
+  position: absolute;
+  inset: 2px;
+  background-color: #04070d;
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: box-shadow 0.8s ease;
+  pointer-events: none;
+}
+
+.acceptLabel {
+  position: relative;
+  z-index: 2;
+  color: rgb(213, 219, 230);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+  transition: color 0.8s ease;
+}
+
+.acceptButton:hover .glow {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.5, 0.8);
+}
+
+.acceptButton:hover .strokeDefault {
+  opacity: 0;
+}
+
+.acceptButton:hover .strokeHover {
+  opacity: 1;
+}
+
+.acceptButton:hover .innerFill {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -1px 15px rgba(228, 82, 23, 0.15);
+}
+
+.acceptButton:hover .acceptLabel {
+  color: #ffffff;
+}
+
+@media (max-width: 800px) {
+  .root {
+    left: 12px;
+    bottom: 24px;
+    height: min-content;
+    max-width: calc(100vw - 24px);
+    padding: 12px;
+    gap: 12px;
+    background: rgba(4, 7, 13, 0.6);
+  }
+
+  .text {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+}
