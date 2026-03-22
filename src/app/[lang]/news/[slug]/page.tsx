@@ -52,31 +52,36 @@ export default async function NewsArticlePage({
           .filter(Boolean);
 
   return (
-    <article className={styles.wrapper}>
-      <Link href={`/${locale}/news`} className={styles.backButton}>
-        <div className={styles.glow}></div>
-        <div className={styles.borderWrapper}>
-          <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
-          <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
+    <section className={styles.root}>
+      <div className={styles.rays} aria-hidden="true" />
+      <div className={styles.particles} aria-hidden="true" />
+
+      <article className={styles.wrapper}>
+        <Link href={`/${locale}/news`} className={styles.backButton}>
+          <div className={styles.glow}></div>
+          <div className={styles.borderWrapper}>
+            <div className={`${styles.stroke} ${styles.strokeDefault}`}></div>
+            <div className={`${styles.stroke} ${styles.strokeHover}`}></div>
+          </div>
+          <div className={styles.innerFill}></div>
+          <span className={styles.backButtonContent}>
+            <Image src="/icons/arrow-left.svg" alt="" width={16} height={16} className={styles.backIcon} aria-hidden />
+            <span className={styles.backLabel}>{dict.ui.newsArticle.back}</span>
+          </span>
+        </Link>
+
+        <h1 className={styles.title}>{localized.title}</h1>
+
+        {imageUrl ? <img src={imageUrl} alt={localized.title} className={styles.image} /> : null}
+
+        <div className={styles.content}>
+          {paragraphs.length > 0
+            ? paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)
+            : [<p key="fallback">{localized.content}</p>]}
         </div>
-        <div className={styles.innerFill}></div>
-        <span className={styles.backButtonContent}>
-          <Image src="/icons/arrow-left.svg" alt="" width={16} height={16} className={styles.backIcon} aria-hidden />
-          <span className={styles.backLabel}>{dict.ui.newsArticle.back}</span>
-        </span>
-      </Link>
 
-      <h1 className={styles.title}>{localized.title}</h1>
-
-      {imageUrl ? <img src={imageUrl} alt={localized.title} className={styles.image} /> : null}
-
-      <div className={styles.content}>
-        {paragraphs.length > 0
-          ? paragraphs.map((paragraph, index) => <p key={index}>{paragraph}</p>)
-          : [<p key="fallback">{localized.content}</p>]}
-      </div>
-
-      <p className={styles.publishDate}>{publishedAt}</p>
-    </article>
+        <p className={styles.publishDate}>{publishedAt}</p>
+      </article>
+    </section>
   );
 }
