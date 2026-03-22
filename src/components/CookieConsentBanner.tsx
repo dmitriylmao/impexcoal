@@ -14,7 +14,6 @@ type ConsentState = 'pending' | 'show' | 'hidden';
 
 export default function CookieConsentBanner({ locale }: { locale: Locale }) {
   const [consentState, setConsentState] = useState<ConsentState>('pending');
-  const [isMounted, setIsMounted] = useState(false);
 
   const copy = useMemo(() => {
     if (locale === 'en') {
@@ -44,7 +43,6 @@ export default function CookieConsentBanner({ locale }: { locale: Locale }) {
   }, [locale]);
 
   useEffect(() => {
-    setIsMounted(true);
     console.log('Проверка наличия куки...');
 
     let consentValue: string | null = null;
@@ -62,7 +60,6 @@ export default function CookieConsentBanner({ locale }: { locale: Locale }) {
     console.log(`Состояние согласия: ${consentValue ?? 'null'}`);
     const accepted = consentValue === 'accepted';
     if (accepted) {
-      setConsentState('hidden');
       console.log('Компонент смонтирован, показываем: false');
       return;
     }
@@ -94,7 +91,7 @@ export default function CookieConsentBanner({ locale }: { locale: Locale }) {
     setConsentState('hidden');
   };
 
-  if (!isMounted || consentState !== 'show' || typeof document === 'undefined') {
+  if (consentState !== 'show' || typeof document === 'undefined') {
     return null;
   }
 
