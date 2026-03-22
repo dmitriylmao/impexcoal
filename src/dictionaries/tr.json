@@ -145,24 +145,24 @@
       "title": "Sık sorulan sorular",
       "items": [
         {
-          "question": "1. DPR'den toptan kömür tedarikini hangi ülkelere yapıyorsunuz?",
-          "answer": "Türkiye'ye, Ermenistan'a ve Rusya Federasyonu'nun tamamına toptan kömür sevkiyatı yapıyoruz. Lojistik her güzergâhın özelliklerine göre planlanır."
+          "question": "Sipariş onaylandıktan sonra sevkiyatın başlaması ne kadar sürer?",
+          "answer": "Sözleşme imzalandıktan hemen sonra sevkiyata başlayabilir, hızlı operasyon hazırlığı ve anlaşma koşullarına tam uyum sağlarız."
         },
         {
-          "question": "2. Toptan alım için hangi kömür türleri mevcut?",
-          "answer": "Antrasit, taş kömürü ve koklaşabilir kömür mevcut. Farklı fraksiyonlarda sevkiyat mümkündür, ayrıca kömür markası müşteri taleplerine ve kullanım alanına göre seçilir."
+          "question": "A ve T dışında hangi kömür tiplerini sağlayabilirsiniz?",
+          "answer": "Geniş bir kömür ürünü yelpazesiyle çalışıyor ve teknik gereksinimleriniz ile hacimlerinize uygun her tür kömürü temin edebiliyoruz."
         },
         {
-          "question": "3. Hangi hacimlerde teslimat mümkündür?",
-          "answer": "Teslimatlar birkaç yüz tondan başlayan toptan partiler halinde yapılır. Maksimum hacimler kömür türüne ve teslimat yönüne göre bireysel olarak kararlaştırılır."
+          "question": "Büyük kömür partileri için gemi navlunu organize ediyor musunuz?",
+          "answer": "Evet, büyük partilerin taşınması için gemi kiralama hizmeti sunuyor, güvenli ve zamanında teslimatı garanti ediyoruz."
         },
         {
-          "question": "4. Türkiye ve Ermenistan'a teslimat nasıl yapılıyor?",
-          "answer": "Teslimat demiryolu ve karayolu taşımacılığı ile organize edilir; ardından limanlar veya karasal hatlar üzerinden aktarma yapılır. Her sipariş için en uygun lojistik şeması seçilir."
+          "question": "Depolarınız nerede bulunuyor ve acil sevkiyat mümkün mü?",
+          "answer": "Depolarımız Rostov-na-Donu ve Donetsk'te bulunuyor; bu sayede hızlı tedarik organize edebiliyor ve müşteri talebi üzerine acil sevkiyat sağlayabiliyoruz."
         },
         {
-          "question": "5. Kömür teslimatında hangi belgeler sağlanır?",
-          "answer": "Her parti için menşe belgeleri, kalite sertifikaları ve gümrükleme ile teslim alma süreçleri için gerekli eşlik eden taşıma belgeleri sunulur."
+          "question": "Liman terminaliniz üzerinden hangi teslimat seçenekleri mevcut ve bu süreleri nasıl etkiler?",
+          "answer": "Kendi liman terminalimiz üzerinden tüm teslimat türlerini sunuyoruz: karayolu, demiryolu ve denizyolu. CIF, FOB, FCA, FAS ve CPT dahil farklı teslim şekilleriyle çalışıyor; süre, maliyet ve müşteri gereksinimlerine göre en uygun seçeneği belirliyoruz."
         }
       ],
       "cardTitle": "Sorularınız kaldı mı?",
