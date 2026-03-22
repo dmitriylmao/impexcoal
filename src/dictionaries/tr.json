@@ -229,6 +229,10 @@
       "codeLabel": "Oops",
       "title": "Bir şeyler çalışmıyor :(",
       "homeButton": "Ana sayfaya dön"
+    },
+    "privacyPage": {
+      "title": "Gizlilik Politikası",
+      "content": "Her kullanıcının gizlilik hakkına saygı duyuyor ve kişisel verileri yürürlükteki mevzuata uygun şekilde koruyoruz.\n\nSağlanan bilgileri yalnızca taleplerin işlenmesi, ticari tekliflerin hazırlanması ve sözleşme yükümlülüklerinin yerine getirilmesi için kullanıyoruz. Veriler, yalnızca hizmet sunumu ve lojistik operasyonların yürütülmesi için gerekli olduğu ölçüde üçüncü taraflarla paylaşılabilir.\n\nSiteyi kullanarak, verilerinizin belirtilen amaçlarla işlenmesine onay vermiş olursunuz. Kişisel verilerin güncellenmesi veya silinmesi talepleri için tdimpeks@support.com adresine ulaşabilirsiniz."
     }
   }
 }

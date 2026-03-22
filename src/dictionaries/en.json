@@ -229,6 +229,10 @@
     "newsArticle": {
       "back": "Back to news",
       "subtitle": "Subtitle"
+    },
+    "privacyPage": {
+      "title": "Privacy Policy",
+      "content": "We respect every user's right to privacy and protect personal data in accordance with applicable legal requirements.\n\nWe use the information provided only to process requests, prepare commercial offers, and fulfill contractual obligations. Data may be shared with third parties only to the extent required for service delivery and logistics operations.\n\nBy using this website, you consent to the processing of data for the purposes described above. For requests to update or delete personal data, please contact tdimpeks@support.com."
     }
   }
 }

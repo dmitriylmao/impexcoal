@@ -167,5 +167,9 @@ export type SiteDictionary = {
       back: string;
       subtitle: string;
     };
+    privacyPage: {
+      title: string;
+      content: string;
+    };
   };
 };

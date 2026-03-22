@@ -25,6 +25,7 @@ export default function SiteFooter() {
     { label: dict.ui.footer.links.home, href: `/${locale}#top` },
     { label: dict.ui.footer.links.contacts, href: `/${locale}/contacts` },
     { label: dict.ui.footer.links.news, href: `/${locale}/news` },
+    { label: dict.ui.footer.links.privacy, href: `/${locale}/privacy` },
   ];
   const socialLinks = [
     { label: 'Telegram', href: 'https://t.me/+79508655519', iconClass: styles.telegramIcon, external: true },
