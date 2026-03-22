@@ -108,7 +108,7 @@
   border-radius: 16px;
   border: 1px solid transparent;
   background: transparent;
-  transition: border-color 0.24s ease-in-out, background-color 0.24s ease-in-out, transform 0.24s ease;
+  transition: border-color 0.24s ease-in, background-color 0.24s ease-in-out, transform 0.24s ease;
 }
 
 .item + .item {
@@ -128,7 +128,6 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  color: #153058;
   text-decoration: none;
 }
 
@@ -164,8 +163,9 @@
   transition: transform 0.24s ease;
 }
 
-.downloadIcon:hover {
-  transform:translateY(-2px);
+.downloadLink:hover .downloadIcon,
+.downloadLink:focus-visible .downloadIcon {
+  transform: translateY(-2px);
 }
 
 .documentTitle {
