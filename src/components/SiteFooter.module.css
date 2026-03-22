@@ -5,7 +5,7 @@
 .inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 24px;
+  padding: 40px 24px 36px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -90,24 +90,71 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  cursor: default;
-  transition: color 0.2s ease;
+  color: #c1c2c2;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 
 .socialButton:hover {
-  color: #9ea9b6;
+  color: #ffffff;
 }
 
-.telegramIcon {
+.socialButton:focus-visible {
+  outline: none;
+  color: #ffffff;
+}
+
+.socialIcon {
   display: block;
-  width: 18px;
-  height: 18px;
-  background-color: #ffffff;
-  mask-image: url('/telegram.svg');
+  width: 22px;
+  height: 22px;
+  background-color: currentColor;
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  -webkit-mask-image: url('/telegram.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+.telegramIcon {
+  mask-image: url('/icons/telegram.svg');
+  -webkit-mask-image: url('/icons/telegram.svg');
+}
+
+.whatsappIcon {
+  mask-image: url('/icons/whatsapp.svg');
+  -webkit-mask-image: url('/icons/whatsapp.svg');
+}
+
+.maxIcon {
+  mask-image: url('/icons/max.svg');
+  -webkit-mask-image: url('/icons/max.svg');
+}
+
+.phoneIcon {
+  mask-image: url('/icons/phone.svg');
+  -webkit-mask-image: url('/icons/phone.svg');
+}
+
+.mailHeroIcon {
+  mask-image: url('/icons/hero-mail.svg');
+  -webkit-mask-image: url('/icons/hero-mail.svg');
+}
+
+.maxIcon,
+.phoneIcon,
+.mailHeroIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.whatsappIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.telegramIcon {
   -webkit-mask-size: contain;
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;

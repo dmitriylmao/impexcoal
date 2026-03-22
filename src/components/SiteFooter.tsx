@@ -26,6 +26,13 @@ export default function SiteFooter() {
     { label: dict.ui.footer.links.contacts, href: `/${locale}/contacts` },
     { label: dict.ui.footer.links.news, href: `/${locale}/news` },
   ];
+  const socialLinks = [
+    { label: 'Telegram', href: 'https://t.me/+79508655519', iconClass: styles.telegramIcon, external: true },
+    { label: 'WhatsApp', href: 'https://wa.me/79508655519', iconClass: styles.whatsappIcon, external: true },
+    { label: 'MAX', href: 'https://web.max.ru/141145462', iconClass: styles.maxIcon, external: true },
+    { label: 'Phone', href: 'tel:+79508655519', iconClass: styles.phoneIcon, external: false },
+    { label: 'Email', href: 'mailto:tdimpeks@support.com', iconClass: styles.mailHeroIcon, external: false },
+  ];
 
   const handleLogoNavigation = () => {
     if (pathname !== homePath) {
@@ -53,10 +60,16 @@ export default function SiteFooter() {
         </div>
 
         <div className={styles.socials}>
-          {Array.from({ length: 4 }).map((_, index) => (
-            <button key={index} type="button" className={styles.socialButton}>
-              <span className={styles.telegramIcon} aria-hidden />
-            </button>
+          {socialLinks.map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className={styles.socialButton}
+              aria-label={item.label}
+              {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
+              <span className={`${styles.socialIcon} ${item.iconClass}`} aria-hidden />
+            </a>
           ))}
         </div>
 
