@@ -105,7 +105,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         />
       </div>
 
-      <DocumentsSection badge={dict.ui.homeDocuments.badge} />
+      <DocumentsSection
+        badge={dict.ui.homeDocuments.badge}
+        emptyLabel={dict.ui.homeDocuments.empty}
+        downloadLabel={dict.ui.homeDocuments.downloadLabel}
+        documentTitles={dict.ui.homeDocuments.documents}
+      />
 
       <FaqSection
         badge={dict.ui.homeFaq.badge}

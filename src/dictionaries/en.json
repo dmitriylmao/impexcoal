@@ -126,7 +126,19 @@
       "modalClose": "Close"
     },
     "homeDocuments": {
-      "badge": "Quality certificates and accompanying documents"
+      "badge": "Quality certificates and accompanying documents",
+      "empty": "Documents are not available yet.",
+      "downloadLabel": "Download PDF",
+      "documents": {
+        "anthraciteAko": "Certificate of Analysis Anthracite AKO",
+        "anthraciteAm1325": "Certificate of Analysis Anthracite AM (13-25 mm)",
+        "anthraciteAs613": "Certificate of Analysis Anthracite AS (6-13 mm)",
+        "anthraciteAsh06": "Certificate of Analysis Anthracite ASH (0-6 mm)",
+        "inspectionTs613": "Inspection Report Coal Grade TS (6-13 mm)",
+        "coalT13100": "Certificate of Analysis Coal Grade T (13-100 mm)",
+        "coalT6500": "Certificate of Analysis Coal Grade T (6500+ kcal)",
+        "coalT6000": "Certificate of Analysis Coal Grade T (6000+ kcal)"
+      }
     },
     "homeFaq": {
       "badge": "FAQ",

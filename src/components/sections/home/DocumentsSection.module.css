@@ -1,4 +1,6 @@
 .root {
+  --accent: #f25200;
+  --accent-rgb: 242 82 0;
   position: relative;
   width: 100%;
   padding: 40px 0 80px;
@@ -43,6 +45,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 40px;
   padding: 0 24px;
@@ -71,127 +74,132 @@
   filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
 }
 
-.carousel {
+.listCard {
   position: relative;
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.frame {
-  position: relative;
-  width: 100%;
-  min-height: 560px;
-  border-radius: 22px;
+  border-radius: 20px;
   border: 1px solid rgba(216, 231, 242, 0.07);
-  background: #04070d;
-  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
+  box-shadow: inset 0 2px 1px rgba(207, 231, 255, 0.16);
   overflow: hidden;
 }
 
-.frame::after {
+.listCard::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
   border-radius: inherit;
-  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-.slide {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
+.list {
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  margin: 0;
+  padding: 12px;
 }
 
-.imageLink {
-  position: absolute;
-  inset: 1px;
-  border-radius: 20px;
-  display: block;
-  overflow: hidden;
-  cursor: zoom-in;
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: border-color 0.24s ease-in-out, background-color 0.24s ease-in-out, transform 0.24s ease;
 }
 
-.imageLink::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(5, 8, 13, 0.34) 0%, rgba(5, 8, 13, 0.24) 44%, rgba(5, 8, 13, 0.4) 100%);
+.item + .item {
+  margin-top: 12px;
 }
 
-.image {
-  object-fit: cover;
-  object-position: top center;
-  filter: brightness(0.6) contrast(1.4) saturate(1) ;
+.item:hover,
+.item:focus-within {
+  border-color: rgb(var(--accent-rgb) / 35%);
+  /*background: rgb(var(--accent-rgb) / 4%);*/
 }
 
-.navButton {
-  position: absolute;
-  top: 50%;
-  z-index: 3;
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
-  border: 1px solid #16191b;
-  background: rgba(7, 10, 17, 0.8);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  transform: translateY(-50%);
-  transition: border-color 0.2s ease, box-shadow 0.25s ease;
+.documentLink {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 12px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  color: #153058;
+  text-decoration: none;
 }
 
-.navButton:hover {
-  border-color: #23282c;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+.fileIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgb(var(--accent-rgb) / 40%);
+  background: rgb(var(--accent-rgb) / 0%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.24s ease, border-color 0.24s ease;
 }
 
-.navButton:focus-visible {
-  outline: none;
-  border-color: rgba(233, 240, 248, 0.55);
-  box-shadow: 0 0 0 2px rgba(190, 208, 224, 0.25);
+.item:hover .fileIconWrap,
+.item:focus-within .fileIconWrap {
+  border-color: rgb(var(--accent-rgb) / 52%);
+  background: rgb(var(--accent-rgb) / 10%);
 }
 
-.navButtonLeft {
-  left: -52px;
+.fileIcon,
+.downloadIcon {
+  width: 24px;
+  height: 24px;
+  filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
 }
 
-.navButtonRight {
-  right: -52px;
-}
-
-.navIcon {
+.downloadIcon {
   width: 20px;
   height: 20px;
-  filter: invert(55%) sepia(6%) saturate(124%) hue-rotate(176deg) brightness(86%) contrast(89%);
-  transition: filter 0.2s ease;
+  transition: transform 0.24s ease;
 }
 
-.navButton:hover .navIcon {
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(31deg) brightness(102%) contrast(101%);
+.downloadIcon:hover {
+  transform:translateY(-2px);
 }
 
-.navIconRight {
-  transform: rotate(180deg);
+.documentTitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(213,219,230);
+  text-wrap: balance;
 }
 
-@media (max-width: 1200px) {
-  .frame {
-    min-height: 500px;
-  }
+.downloadLink {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgb(var(--accent-rgb) / 40%);
+  background: rgb(var(--accent-rgb) / 0%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+  transition: border-color 0.24s ease, background-color 0.24s ease, transform 0.24s ease;
+}
 
-  .navButtonLeft {
-    left: 12px;
-  }
+.downloadLink:hover,
+.downloadLink:focus-visible {
+  border-color: rgb(var(--accent-rgb) / 52%);
+  background: rgb(var(--accent-rgb) / 10%);
+}
 
-  .navButtonRight {
-    right: 12px;
-  }
+.documentLink:focus-visible,
+.downloadLink:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(var(--accent-rgb) / 28%);
 }
 
 @media (max-width: 800px) {
@@ -218,25 +226,54 @@
     line-height: 1.3;
   }
 
-  .frame {
-    min-height: 380px;
+  .listCard {
     border-radius: 16px;
   }
 
-  .imageLink {
-    border-radius: 14px;
+  .item {
+    gap: 12px;
   }
 
-  .navButton {
-    width: 38px;
-    height: 38px;
+  .documentLink {
+    padding: 12px 12px;
+    gap: 12px;
   }
 
-  .navButtonLeft {
-    left: 8px;
+  .fileIconWrap {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
   }
 
-  .navButtonRight {
-    right: 8px;
+  .documentTitle {
+    font-size: 14px;
+    font-weight: 400;
   }
+
+  .downloadLink {
+    width: 32px;
+    height: 32px;
+    margin-right: 12px;
+    border-radius: 8px;
+  }
+
+  .fileIcon{
+    width: 18px;
+    height: 18px;
+  }
+  .downloadIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+}
+
+.empty {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 20px;
+  color: #b4bfcd;
+  font-size: 15px;
+  line-height: 1.45;
 }

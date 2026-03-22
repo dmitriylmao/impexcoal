@@ -126,7 +126,19 @@
       "modalClose": "Kapat"
     },
     "homeDocuments": {
-      "badge": "Kalite sertifikaları ve eşlik eden belgeler"
+      "badge": "Kalite sertifikaları ve eşlik eden belgeler",
+      "empty": "Belgeler henüz eklenmedi.",
+      "downloadLabel": "PDF indir",
+      "documents": {
+        "anthraciteAko": "Antrasit AKO Analiz Sertifikası",
+        "anthraciteAm1325": "Antrasit AM (13-25 mm) Analiz Sertifikası",
+        "anthraciteAs613": "Antrasit AS (6-13 mm) Analiz Sertifikası",
+        "anthraciteAsh06": "Antrasit ASH (0-6 mm) Analiz Sertifikası",
+        "inspectionTs613": "TS Tipi Kömür (6-13 mm) Denetim Raporu",
+        "coalT13100": "T Tipi Kömür (13-100 mm) Analiz Sertifikası",
+        "coalT6500": "T Tipi Kömür (6500+ kcal) Analiz Sertifikası",
+        "coalT6000": "T Tipi Kömür (6000+ kcal) Analiz Sertifikası"
+      }
     },
     "homeFaq": {
       "badge": "Soru-cevap",

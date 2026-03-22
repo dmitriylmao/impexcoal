@@ -82,6 +82,18 @@ export type SiteDictionary = {
     };
     homeDocuments: {
       badge: string;
+      empty: string;
+      downloadLabel: string;
+      documents: {
+        anthraciteAko: string;
+        anthraciteAm1325: string;
+        anthraciteAs613: string;
+        anthraciteAsh06: string;
+        inspectionTs613: string;
+        coalT13100: string;
+        coalT6500: string;
+        coalT6000: string;
+      };
     };
     homeFaq: {
       badge: string;
