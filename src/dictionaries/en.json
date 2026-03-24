@@ -22,7 +22,7 @@
         "news": "News",
         "contacts": "Contacts"
       },
-      "brand": "TD \"IMPEKS\"",
+      "brand": "TD IMPEX",
       "contactButton": "Contact Email"
     },
     "homeHero": {
@@ -33,7 +33,7 @@
     },
     "homeWhyChoose": {
       "badge": "Our advantages",
-      "title": "Why choose TD \"IMPEKS\"",
+      "title": "Why choose TD IMPEX",
       "cards": [
         {
           "title": "Anthracite with ash up to 7%",
@@ -60,7 +60,7 @@
     "homeDifferences": {
       "badge": "Our advantages",
       "title": "What sets us apart",
-      "leadAccent": "Trading House \"IMPEKS\"",
+      "leadAccent": "Trading House TD IMPEX",
       "leadRest": "is the exclusive representative of the \"Progress\" and \"Komsomolets Donbassa\" mines.",
       "body": "A direct contract with the producer eliminates intermediaries, reduces costs, and ensures quality control at the extraction stage. This allows us to keep competitive pricing and deliver a stable product with verified characteristics."
     },
@@ -216,12 +216,12 @@
         "news": "News",
         "privacy": "Privacy Policy"
       },
-      "copyright": "© 2026 TD IMPEKS",
+      "copyright": "© 2026 TD IMPEX LLC",
       "email": "tdimpeks@support.com"
     },
     "newsList": {
       "badge": "What's new?",
-      "title": "TD \"IMPEKS\" News",
+      "title": "TD IMPEX News",
       "subtitle": "Latest updates from company life",
       "cardSubtitle": "Subtitle",
       "loadMore": "More news"
@@ -232,7 +232,7 @@
     },
     "privacyPage": {
       "title": "Privacy Policy",
-      "content": "We respect every user's right to privacy and protect personal data in accordance with applicable legal requirements.\n\nWe use the information provided only to process requests, prepare commercial offers, and fulfill contractual obligations. Data may be shared with third parties only to the extent required for service delivery and logistics operations.\n\nBy using this website, you consent to the processing of data for the purposes described above. For requests to update or delete personal data, please contact tdimpeks@support.com."
+      "content": "TD IMPEX LLC respects every user's right to privacy and protect personal data in accordance with applicable legal requirements.\n\nWe use the information provided only to process requests, prepare commercial offers, and fulfill contractual obligations. Data may be shared with third parties only to the extent required for service delivery and logistics operations.\n\nBy using this website, you consent to the processing of data for the purposes described above. For requests to update or delete personal data, please contact tdimpeks@support.com."
     }
   }
 }

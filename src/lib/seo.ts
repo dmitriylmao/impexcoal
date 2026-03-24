@@ -1,18 +1,18 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import type { Locale } from '@/i18n/config';
 
 type SiteSectionKey = 'news' | 'contacts' | 'privacy';
 
 const HOME_TITLE_BY_LOCALE: Record<Locale, string> = {
   ru: '\u0422\u0414 "\u0418\u041c\u041f\u042d\u041a\u0421" \u2014 \u0410\u043d\u0442\u0440\u0430\u0446\u0438\u0442 \u0438 \u043c\u0430\u0440\u043a\u0430 \u0422 \u043e\u0442 \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u0442\u0435\u043b\u044f',
-  en: 'TD "IMPEKS" \u2014 International Anthracite & Thermal Coal Supply',
-  tr: 'TD "IMPEKS" \u2014 Uluslararas\u0131 Antrasit ve K\u00f6m\u00fcr Tedari\u011fi',
+  en: 'TD IMPEX \u2014 International Anthracite & Thermal Coal Supply',
+  tr: 'TD IMPEX \u2014 Uluslararas\u0131 Antrasit ve K\u00f6m\u00fcr Tedari\u011fi',
 };
 
 const BRAND_BY_LOCALE: Record<Locale, string> = {
   ru: '\u0422\u0414 "\u0418\u041c\u041f\u042d\u041a\u0421"',
-  en: 'TD "IMPEKS"',
-  tr: 'TD "IMPEKS"',
+  en: 'TD IMPEX',
+  tr: 'TD IMPEX',
 };
 
 const SECTION_BY_LOCALE: Record<Locale, Record<SiteSectionKey, string>> = {
@@ -91,3 +91,4 @@ export function getLocaleAlternates(
     },
   };
 }
+

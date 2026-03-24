@@ -22,7 +22,7 @@
         "news": "Haberler",
         "contacts": "İletişim"
       },
-      "brand": "TD \"IMPEKS\"",
+      "brand": "TD IMPEX",
       "contactButton": "İletişim E-postası"
     },
     "homeHero": {
@@ -33,7 +33,7 @@
     },
     "homeWhyChoose": {
       "badge": "Avantajlarımız",
-      "title": "Neden TD \"IMPEKS\" seçiliyor",
+      "title": "Neden TD IMPEX seçiliyor",
       "cards": [
         {
           "title": "Kül oranı %7'ye kadar antrasit",
@@ -60,7 +60,7 @@
     "homeDifferences": {
       "badge": "Avantajlarımız",
       "title": "Bizi diğerlerinden ayıran nedir",
-      "leadAccent": "Ticaret evi \"IMPEKS\"",
+      "leadAccent": "Ticaret evi TD IMPEX",
       "leadRest": "\"Progress\" ve \"Komsomolets Donbassa\" madenlerinin münhasır temsilcisidir.",
       "body": "Üreticiyle doğrudan sözleşme, aracıları ortadan kaldırır, maliyetleri düşürür ve kalite kontrolünü üretim aşamasında sağlar. Bu sayede rekabetçi fiyatı korur ve doğrulanmış özelliklere sahip istikrarlı bir ürün sunarız."
     },
@@ -211,12 +211,12 @@
         "news": "Haberler",
         "privacy": "Gizlilik Politikası"
       },
-      "copyright": "© 2026 TD IMPEKS",
+      "copyright": "© 2026 TD IMPEX LLC",
       "email": "tdimpeks@support.com"
     },
     "newsList": {
       "badge": "Yeni olan ne?",
-      "title": "TD \"IMPEKS\" Haberleri",
+      "title": "TD IMPEX Haberleri",
       "subtitle": "Şirket yaşamından son gelişmeler",
       "cardSubtitle": "Alt başlık",
       "loadMore": "Daha fazla haber"
@@ -232,7 +232,7 @@
     },
     "privacyPage": {
       "title": "Gizlilik Politikası",
-      "content": "Her kullanıcının gizlilik hakkına saygı duyuyor ve kişisel verileri yürürlükteki mevzuata uygun şekilde koruyoruz.\n\nSağlanan bilgileri yalnızca taleplerin işlenmesi, ticari tekliflerin hazırlanması ve sözleşme yükümlülüklerinin yerine getirilmesi için kullanıyoruz. Veriler, yalnızca hizmet sunumu ve lojistik operasyonların yürütülmesi için gerekli olduğu ölçüde üçüncü taraflarla paylaşılabilir.\n\nSiteyi kullanarak, verilerinizin belirtilen amaçlarla işlenmesine onay vermiş olursunuz. Kişisel verilerin güncellenmesi veya silinmesi talepleri için tdimpeks@support.com adresine ulaşabilirsiniz."
+      "content": "TD IMPEX LLC olarak her kullanıcının gizlilik hakkına saygı duyuyor ve kişisel verileri yürürlükteki mevzuata uygun şekilde koruyoruz.\n\nSağlanan bilgileri yalnızca taleplerin işlenmesi, ticari tekliflerin hazırlanması ve sözleşme yükümlülüklerinin yerine getirilmesi için kullanıyoruz. Veriler, yalnızca hizmet sunumu ve lojistik operasyonların yürütülmesi için gerekli olduğu ölçüde üçüncü taraflarla paylaşılabilir.\n\nSiteyi kullanarak, verilerinizin belirtilen amaçlarla işlenmesine onay vermiş olursunuz. Kişisel verilerin güncellenmesi veya silinmesi talepleri için tdimpeks@support.com adresine ulaşabilirsiniz."
     }
   }
 }

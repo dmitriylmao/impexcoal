@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from 'next';
+﻿import type { Metadata, Viewport } from 'next';
 import { Manrope } from 'next/font/google';
 import './globals.css';
 import SiteFrame from '@/components/SiteFrame';
@@ -12,7 +12,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: SITE_URL,
-  title: 'TD "IMPEKS"',
+  title: 'TD IMPEX',
   description: getDefaultOgDescription('ru'),
   icons: {
     icon: [{ url: '/favicon.ico?v=2', sizes: 'any' }],
@@ -59,3 +59,4 @@ export default function RootLayout({
     </html>
   );
 }
+
