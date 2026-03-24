@@ -5,10 +5,10 @@ export type FeedbackActionState = {
   errorCode?: 'missing_fields' | 'not_configured' | 'send_failed' | 'network';
 };
 
-const IS_TEST_MODE = false;
+const IS_TEST_MODE = true;
 const MAIN_RECIPIENT = 'sales@tdimpeks.ru';
 const TEST_RECIPIENT = 'dimaeleckij2016@gmail.com';
-const MAIL_FROM = 'onboarding@resend.dev';
+const MAIL_FROM = process.env.RESEND_FROM_EMAIL?.trim() || 'onboarding@resend.dev';
 
 function escapeHtml(value: string) {
   return value
@@ -104,6 +104,12 @@ export async function sendFeedbackAction(
     });
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Resend send failed', {
+        status: response.status,
+        statusText: response.statusText,
+        body: errorText,
+      });
       return {
         status: 'error',
         errorCode: 'send_failed',
