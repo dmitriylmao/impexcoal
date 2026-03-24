@@ -32,7 +32,7 @@ export default function SiteFooter() {
     { label: 'WhatsApp', href: 'https://wa.me/79508655519', iconClass: styles.whatsappIcon, external: true },
     { label: 'MAX', href: 'https://web.max.ru/141145462', iconClass: styles.maxIcon, external: true },
     { label: 'Phone', href: 'tel:+79508655519', iconClass: styles.phoneIcon, external: false },
-    { label: 'Email', href: 'mailto:tdimpeks@support.com', iconClass: styles.mailHeroIcon, external: false },
+    { label: 'Email', href: 'mailto:sales@tdimpeks.ru', iconClass: styles.mailHeroIcon, external: false },
   ];
 
   const handleLogoNavigation = () => {

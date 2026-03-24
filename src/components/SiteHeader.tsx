@@ -126,7 +126,7 @@ export default function SiteHeader() {
                 </div>
               </div>
 
-              <a href="mailto:tdimpeks@support.com" className={styles.contactButton}>
+              <a href="mailto:sales@tdimpeks.ru" className={styles.contactButton}>
                 <span>{dict.ui.header.contactButton}</span>
                 <Image src="/icons/mailbox2.svg" alt="mail" className={styles.btnIcon} width={18} height={18} />
               </a>
@@ -180,7 +180,7 @@ export default function SiteHeader() {
             ))}
           </div>
 
-          <a href="mailto:tdimpeks@support.com" className={styles.contactButtonmobile} style={{ marginTop: '10px' }}>
+          <a href="mailto:sales@tdimpeks.ru" className={styles.contactButtonmobile} style={{ marginTop: '10px' }}>
             <span>{dict.ui.header.contactButton}</span>
               <Image src="/icons/mailbox2.svg" alt="mail" className={styles.btnIcon} width={20} height={20} />
           </a>

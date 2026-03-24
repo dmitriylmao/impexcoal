@@ -5,8 +5,8 @@ export type FeedbackActionState = {
   errorCode?: 'missing_fields' | 'not_configured' | 'send_failed' | 'network';
 };
 
-const IS_TEST_MODE = true;
-const MAIN_RECIPIENT = 'tdimpeks@support.com';
+const IS_TEST_MODE = false;
+const MAIN_RECIPIENT = 'sales@tdimpeks.ru';
 const TEST_RECIPIENT = 'dimaeleckij2016@gmail.com';
 const MAIL_FROM = 'onboarding@resend.dev';
 
