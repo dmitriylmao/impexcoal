@@ -107,10 +107,10 @@
   box-sizing: border-box;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: stretch;
   gap: 24px;
-  padding: 80px 24px;
+  padding: 40px 24px;
   border-radius: 15px;
   position: relative;
   overflow: hidden;
@@ -133,24 +133,28 @@
 }
 
 .textWrap {
-  width: 50%;
+  width: 100%;
   position: relative;
   z-index: 2;
-  text-align: start;
+  text-align: center;
 }
 
 .imageWrap {
-  width: 50%;
+  width:100%;
+  height:380px;
   position: relative;
   align-self: stretch;
   z-index: 2;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);
+  /*box-shadow: inset 0px 2px 1px 0px rgba(207, 231, 255, 0.2);*/
 }
 
 .image {
+  width: 100%;    
+  height: 100%;  
   object-fit: cover;
+  object-position: bottom;
 }
 
 .lead {
@@ -201,13 +205,12 @@
 
   .textWrap {
     width: 100%;
-    order: 2;
+    order: 1;
   }
 
   .imageWrap {
     width: 100%;
-    min-height: 400px;
-    order: 1;
+    order: 2;
   }
 }
 
@@ -240,6 +243,15 @@
   .body {
     margin-top: 18px;
   }
+
+  .imageWrap {
+    height: 240px;
+  }
 }
 
+@media (max-width: 460px) {
+  .imageWrap {
+    height: 130px;
+  }
+}
 
