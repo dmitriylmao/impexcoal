@@ -122,6 +122,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           badge={dict.ui.homeProducts.badge}
           title={dict.ui.homeProducts.title}
           subtitle={dict.ui.homeProducts.subtitle}
+          availabilityNote={dict.ui.homeProducts.availabilityNote}
           showAllLabel={dict.ui.homeProducts.showAll}
           showLessLabel={dict.ui.homeProducts.showLess}
           modalCloseLabel={dict.ui.homeProducts.modalClose}

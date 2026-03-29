@@ -59,7 +59,7 @@
     },
     "homeDifferences": {
       "badge": "Avantajlarımız",
-      "title": "Bizi diğerlerinden ayıran nedir",
+      "title": "Hakkımızda",
       "leadAccent": "Ticaret evi TD IMPEX",
       "leadRest": "\"Progress\" ve \"Komsomolets Donbassa\" madenlerinin münhasır temsilcisidir.",
       "body": "Üreticiyle doğrudan sözleşme, aracıları ortadan kaldırır, maliyetleri düşürür ve kalite kontrolünü üretim aşamasında sağlar. Bu sayede rekabetçi fiyatı korur ve doğrulanmış özelliklere sahip istikrarlı bir ürün sunarız."
@@ -123,7 +123,8 @@
       "subtitle": "Sanayi ve belediye ihtiyaçları için",
       "showAll": "Tümünü göster",
       "showLess": "Gizle",
-      "modalClose": "Kapat"
+      "modalClose": "Kapat",
+      "availabilityNote": "Katalogda t\u00fcm k\u00f6m\u00fcr s\u0131n\u0131flar\u0131 \u015fu anda yer almamaktad\u0131r: AS ve ASH ge\u00e7ici olarak mevcut de\u011fildir."
     },
     "homeDocuments": {
       "badge": "Kalite sertifikaları ve eşlik eden belgeler",

@@ -59,7 +59,7 @@
     },
     "homeDifferences": {
       "badge": "Our advantages",
-      "title": "What sets us apart",
+      "title": "About Us",
       "leadAccent": "Trading House TD IMPEX",
       "leadRest": "is the exclusive representative of the \"Progress\" and \"Komsomolets Donbassa\" mines.",
       "body": "A direct contract with the producer eliminates intermediaries, reduces costs, and ensures quality control at the extraction stage. This allows us to keep competitive pricing and deliver a stable product with verified characteristics."
@@ -123,7 +123,8 @@
       "subtitle": "For industrial and utility applications",
       "showAll": "Show all",
       "showLess": "Show less",
-      "modalClose": "Close"
+      "modalClose": "Close",
+      "availabilityNote": "Not all coal grades are currently listed in the catalog: AS and ASH are temporarily unavailable."
     },
     "homeDocuments": {
       "badge": "Quality certificates and accompanying documents",
