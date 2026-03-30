@@ -28,6 +28,8 @@ type ContactsContent = {
 };
 
 export default function ContactsCards({ c, locale }: { c: ContactsContent; locale: string }) {
+  const CONTACT_PHONE_PLAIN = '79889451728';
+
   return (
     <section className={styles.topSection}>
       <div className={styles.contactsGrid}>
@@ -54,7 +56,7 @@ export default function ContactsCards({ c, locale }: { c: ContactsContent; local
             </div>
             <p className={styles.cardText}>{c.managerSubtitle}</p>
             <a
-              href="https://web.telegram.org/k/#@wwwwwwwwwwwwwwwwwwvwwwwwwwwwww"
+              href={`https://t.me/+${CONTACT_PHONE_PLAIN}`}
               className={styles.linkButton}
               target="_blank"
               rel="noreferrer"
@@ -73,7 +75,7 @@ export default function ContactsCards({ c, locale }: { c: ContactsContent; local
           </div>
           <p className={styles.cardText}>{c.addressText}</p>
           <a
-            href="https://yandex.com/maps/39/rostov-na-donu/house/prospekt_korolyova_5_3/Z0AYcA5lT0UHQFptfX54dHVmYQ==/?ll=39.696980%2C47.295832&z=19.2"
+            href="https://yandex.com/maps/-/CPbUqUJU"
             className={styles.linkButton}
             target="_blank"
             rel="noreferrer"

@@ -8,6 +8,8 @@ import { scrollToSection } from '@/lib/scroll-to-section';
 import styles from './SiteFooter.module.css';
 
 export default function SiteFooter() {
+  const CONTACT_PHONE = '+79889451728';
+  const CONTACT_PHONE_PLAIN = '79889451728';
   const params = useParams<{ lang?: string }>();
   const pathname = usePathname();
   const localeFromParams = params?.lang;
@@ -28,11 +30,11 @@ export default function SiteFooter() {
     { label: dict.ui.footer.links.privacy, href: `/${locale}/privacy` },
   ];
   const socialLinks = [
-    { label: 'Telegram', href: 'https://t.me/+79508655519', iconClass: styles.telegramIcon, external: true },
-    { label: 'WhatsApp', href: 'https://wa.me/79508655519', iconClass: styles.whatsappIcon, external: true },
-    { label: 'MAX', href: 'https://web.max.ru/141145462', iconClass: styles.maxIcon, external: true },
-    { label: 'Phone', href: 'tel:+79508655519', iconClass: styles.phoneIcon, external: false },
-    { label: 'Email', href: 'mailto:sales@tdimpeks.ru', iconClass: styles.mailHeroIcon, external: false },
+    { label: 'Telegram', href: `https://t.me/+${CONTACT_PHONE_PLAIN}`, iconClass: styles.telegramIcon, external: true },
+    { label: 'WhatsApp', href: `https://wa.me/${CONTACT_PHONE_PLAIN}`, iconClass: styles.whatsappIcon, external: true },
+    { label: 'MAX', href: `tel:${CONTACT_PHONE}`, iconClass: styles.maxIcon, external: false },
+    { label: 'Phone', href: `tel:${CONTACT_PHONE}`, iconClass: styles.phoneIcon, external: false },
+    { label: 'Email', href: `tel:${CONTACT_PHONE}`, iconClass: styles.mailHeroIcon, external: false },
   ];
 
   const handleLogoNavigation = () => {

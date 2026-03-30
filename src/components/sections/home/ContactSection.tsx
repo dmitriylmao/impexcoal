@@ -12,6 +12,8 @@ type ContactSectionProps = {
 };
 
 export default function ContactSection({ badge, title, cta }: ContactSectionProps) {
+  const CONTACT_PHONE = '+79889451728';
+  const CONTACT_PHONE_PLAIN = '79889451728';
   const params = useParams<{ lang?: string }>();
   const locale = params?.lang ?? 'ru';
 
@@ -39,7 +41,7 @@ export default function ContactSection({ badge, title, cta }: ContactSectionProp
         </Link>
 
         <div className={styles.socials}>
-          <a href="tel:+79508655519" className={styles.socialButton} aria-label="Call us">
+          <a href={`tel:${CONTACT_PHONE}`} className={styles.socialButton} aria-label="Call us">
             <div className={styles.iconWrapper}>
               <Image src="/icons/phone.svg" alt="" width={24} height={24} className={styles.iconDefault} />
               <Image src="/icons/phone.svg" alt="" width={24} height={24} className={styles.iconHover} />
@@ -47,7 +49,7 @@ export default function ContactSection({ badge, title, cta }: ContactSectionProp
           </a>
           <span className={styles.divider} />
           <a
-            href="https://t.me/wwwwwwwwwwwwwwwwwwvwwwwwwwwwww"
+            href={`https://t.me/+${CONTACT_PHONE_PLAIN}`}
             className={styles.socialButton}
             aria-label="Write to Telegram"
             target="_blank"
@@ -59,7 +61,7 @@ export default function ContactSection({ badge, title, cta }: ContactSectionProp
             </div>
           </a>
           <span className={styles.divider} />
-          <a href="mailto:sales@tdimpeks.ru" className={styles.socialButton} aria-label="Send email">
+          <a href={`tel:${CONTACT_PHONE}`} className={styles.socialButton} aria-label="Call us">
             <div className={styles.iconWrapper}>
               <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconDefault} />
               <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconHover} />

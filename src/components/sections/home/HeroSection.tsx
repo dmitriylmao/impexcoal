@@ -15,6 +15,8 @@ type HeroSectionProps = {
 };
 
 export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroSectionProps) {
+  const CONTACT_PHONE = '+79889451728';
+  const CONTACT_PHONE_PLAIN = '79889451728';
   const params = useParams<{ lang?: string }>();
   const locale = params?.lang ?? 'ru';
   const reduceMotion = useReducedMotion();
@@ -120,7 +122,7 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
           </motion.div>
 
           <motion.div className={styles.socials} variants={scaleFadeVariants}>
-            <a href="tel:+79508655519" className={styles.socialButton} aria-label="Call us">
+            <a href={`tel:${CONTACT_PHONE}`} className={styles.socialButton} aria-label="Call us">
               <div className={styles.iconWrapper}>
                 <Image src="/icons/phone.svg" alt="" width={24} height={24} className={styles.iconDefault} />
                 <Image src="/icons/phone.svg" alt="" width={24} height={24} className={styles.iconHover} />
@@ -130,7 +132,7 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
             <span className={styles.divider} />
 
             <a
-              href="https://t.me/wwwwwwwwwwwwwwwwwwvwwwwwwwwwww"
+              href={`https://t.me/+${CONTACT_PHONE_PLAIN}`}
               className={styles.socialButton}
               aria-label="Write to Telegram"
               target="_blank"
@@ -144,7 +146,7 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
 
             <span className={styles.divider} />
 
-            <a href="mailto:sales@tdimpeks.ru" className={styles.socialButton} aria-label="Send email">
+            <a href={`tel:${CONTACT_PHONE}`} className={styles.socialButton} aria-label="Call us">
               <div className={styles.iconWrapper}>
                 <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconDefault} />
                 <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconHover} />
