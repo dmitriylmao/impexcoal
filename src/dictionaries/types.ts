@@ -76,7 +76,6 @@ export type SiteDictionary = {
       badge: string;
       title: string;
       subtitle: string;
-      availabilityNote: string;
       showAll: string;
       showLess: string;
       modalClose: string;

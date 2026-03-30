@@ -16,7 +16,6 @@ type ProductsCatalogSectionProps = {
   badge: string;
   title: string;
   subtitle: string;
-  availabilityNote: string;
   showAllLabel: string;
   showLessLabel: string;
   modalCloseLabel: string;
@@ -27,7 +26,6 @@ export default function ProductsCatalogSection({
   badge,
   title,
   subtitle,
-  availabilityNote,
   modalCloseLabel,
   cards,
 }: ProductsCatalogSectionProps) {
@@ -111,8 +109,6 @@ export default function ProductsCatalogSection({
             </button>
           ))}
         </div>
-
-        <p className={styles.availabilityNote}>{availabilityNote}</p>
       </div>
 
       <AnimatePresence>

@@ -1,0 +1,423 @@
+.root {
+  --accent-rgb: 242 82 0;
+  position: relative;
+  width: 100%;
+  padding: 40px 0 80px;
+  background-color: #04070d;
+  overflow: hidden;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -250px;
+  transform: translateX(-50%) rotate(-13deg);
+  max-width: 793px;
+  width: 100%;
+  height: 499px;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(50% 50% at 50% 50%, rgb(213, 219, 230, 0.85) 0%, rgba(4, 7, 13, 0) 100%);
+  opacity: 0.1;
+  filter: blur(60px);
+}
+
+.root::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(90deg, #04070d 10%, rgba(40, 44, 52, 0.4) 50%, #04070d 90%);
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 0 24px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #04070d;
+  color: #d5dbe6;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  white-space: wrap;
+}
+
+.badgeIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
+}
+
+.grid {
+  width: 100%;
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  border-radius: 22px;
+  overflow: hidden;
+  /*border: 1px solid rgba(216, 231, 242, 0.08);
+  box-shadow:
+    inset 0 2px 1px rgba(207, 231, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 16px 36px rgba(0, 0, 0, 0.28);
+  background: #04070d;*/
+}
+
+.column {
+  min-height: clamp(420px, 52vw, 560px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  position: relative;
+  flex: 1 1 0;
+  border-radius: 16px;
+  border: 1px solid rgba(216, 231, 242, 0.06);
+  background:
+    linear-gradient(180deg, rgba(242, 82, 0, 0.05), rgba(242, 82, 0, 0) 20%),
+    linear-gradient(190deg, rgba(214, 231, 255, 0.08) 0%, rgba(4, 7, 13, 0.92) 58%, rgba(4, 7, 13, 0.98) 100%);
+  box-shadow: inset 0 2px 1px rgba(207, 231, 255, 0.14);
+  backdrop-filter: blur(9px);
+  overflow: hidden;
+  min-height: 160px;
+  transition: flex-grow 0.46s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cardExpanded {
+  flex-grow: 1.28;
+}
+
+.cardCompressed {
+  flex-grow: 0.72;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.layoutHero {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.layoutTallTop {
+  grid-column: 3 / span 1;
+  grid-row: 1 / span 3;
+}
+
+.layoutWideTop {
+  grid-column: 4 / span 1;
+  grid-row: 1 / span 2;
+}
+
+.layoutLeftMid {
+  grid-column: 1 / span 1;
+  grid-row: 3 / span 2;
+}
+
+.layoutCenterMid {
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 4;
+}
+
+.layoutRightTall {
+  grid-column: 4 / span 1;
+  grid-row: 3 / span 4;
+}
+
+.layoutLeftBottom {
+  grid-column: 1 / span 1;
+  grid-row: 5 / span 2;
+}
+
+.layoutWideBottom {
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 3;
+}
+
+.cardLink {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+
+.downloadButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 8;
+  width: 38px;
+  height: 38px;
+  /*border-radius: 12px;
+  border: 1px solid rgb(var(--accent-rgb) / 42%);
+  background: rgb(var(--accent-rgb) / 8%); */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.24s ease, border-color 0.24s ease, transform 0.24s ease;
+}
+
+.downloadButton:hover,
+.downloadButton:focus-visible {
+  border-color: rgb(var(--accent-rgb) / 62%);
+  background: rgb(var(--accent-rgb) / 16%);
+  border-radius: 12px;
+  border: 1px solid rgb(var(--accent-rgb) / 42%);
+}
+
+.downloadButton:hover .downloadIcon,
+.downloadButton:focus-visible .downloadIcon {
+  transform: translateY(-2px);
+}
+
+.downloadIcon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.24s ease;
+  filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
+}
+
+.topBar {
+  position: relative;
+  z-index: 7;
+  display: flex;
+  align-items: flex-start;
+  padding: 14px;
+  pointer-events: none;
+}
+
+.fileChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  height: 38px;
+  /*border: 1px solid rgb(var(--accent-rgb) / 38%);
+  background: rgb(var(--accent-rgb) / 9%);*/
+  color: #d5dbe6;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.fileIcon {
+  width: 18px;
+  height: 18px;
+  filter: invert(36%) sepia(81%) saturate(3600%) hue-rotate(10deg) brightness(101%) contrast(105%);
+}
+
+.content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 72px 14px 16px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(4, 7, 13, 0) 0%, rgba(4, 7, 13, 0.64) 44%, rgba(4, 7, 13, 0.95) 100%);
+}
+
+.title {
+  margin: 0;
+  max-width: 86%;
+  color: #d5dbe6;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.preview {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  border-radius: inherit;
+  border: 1px solid rgba(216, 231, 242, 0.12);
+  background: linear-gradient(180deg, rgba(16, 19, 28, 0.2) 0%, rgba(4, 7, 13, 0.85) 100%);
+  overflow: hidden;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.previewFallback {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  border: 1px solid rgba(216, 231, 242, 0.08);
+  background:
+    radial-gradient(circle at 30% 18%, rgb(var(--accent-rgb) / 25%) 0%, rgb(var(--accent-rgb) / 0%) 48%),
+    linear-gradient(180deg, rgba(18, 24, 37, 0.6) 0%, rgba(4, 7, 13, 0.94) 100%);
+}
+
+.card:focus-within {
+  box-shadow:
+    inset 0 2px 1px rgba(207, 231, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 16px 36px rgba(0, 0, 0, 0.28),
+    0 0 0 2px rgb(var(--accent-rgb) / 30%);
+}
+
+.cardLink:focus-visible,
+.downloadButton:focus-visible {
+  outline: none;
+}
+
+.empty {
+  margin: 0;
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(216, 231, 242, 0.07);
+  box-shadow: inset 0 2px 1px rgba(207, 231, 255, 0.16);
+  padding: 22px;
+  color: #b4bfcd;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1000px) {
+  
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .column {
+    min-height: clamp(320px, 46vw, 420px);
+  }
+
+  .layoutHero,
+  .layoutWideTop,
+  .layoutCenterMid,
+  .layoutWideBottom {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .layoutTallTop,
+  .layoutLeftMid,
+  .layoutRightTall,
+  .layoutLeftBottom {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+
+  .card {
+    min-height: 88px;
+  }
+  
+}
+
+@media (max-width: 800px) {
+  .root {
+    padding: 40px 0;
+  }
+
+  .inner {
+    gap: 30px;
+    padding: 0 12px;
+  }
+
+  .badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: fit-content;
+    gap: 4px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0px;
+    border-radius: 16px;
+  }
+
+  .column {
+    min-height: 360px;
+  }
+
+  .layoutHero,
+  .layoutTallTop,
+  .layoutWideTop,
+  .layoutLeftMid,
+  .layoutCenterMid,
+  .layoutRightTall,
+  .layoutLeftBottom,
+  .layoutWideBottom {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+
+  .card {
+    min-height: 150px;
+    border-radius: 14px;
+  }
+
+  .downloadButton {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .downloadIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .title {
+    max-width: 100%;
+    font-size: 16px;
+  }
+}

@@ -8,7 +8,8 @@ import SegmentsSection from '@/components/sections/home/SegmentsSection';
 import LogoMarqueeSection from '@/components/sections/home/LogoMarqueeSection';
 import ProductionCycleSection from '@/components/sections/home/ProductionCycleSection';
 import ProductsCatalogSection from '@/components/sections/home/ProductsCatalogSection';
-import DocumentsSection from '@/components/sections/home/DocumentsSection';
+// import DocumentsSection from '@/components/sections/home/DocumentsSection';
+import BentoDocsGrid from '@/components/sections/home/BentoDocsGrid';
 import FaqSection from '@/components/sections/home/FaqSection';
 import ContactSection from '@/components/sections/home/ContactSection';
 import { getDictionary } from '@/dictionaries/get-dictionary';
@@ -122,7 +123,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           badge={dict.ui.homeProducts.badge}
           title={dict.ui.homeProducts.title}
           subtitle={dict.ui.homeProducts.subtitle}
-          availabilityNote={dict.ui.homeProducts.availabilityNote}
           showAllLabel={dict.ui.homeProducts.showAll}
           showLessLabel={dict.ui.homeProducts.showLess}
           modalCloseLabel={dict.ui.homeProducts.modalClose}
@@ -130,7 +130,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         />
       </div>
 
-      <DocumentsSection
+      {/* <DocumentsSection
+        badge={dict.ui.homeDocuments.badge}
+        emptyLabel={dict.ui.homeDocuments.empty}
+        downloadLabel={dict.ui.homeDocuments.downloadLabel}
+        documentTitles={dict.ui.homeDocuments.documents}
+      /> */}
+
+      <BentoDocsGrid
         badge={dict.ui.homeDocuments.badge}
         emptyLabel={dict.ui.homeDocuments.empty}
         downloadLabel={dict.ui.homeDocuments.downloadLabel}
