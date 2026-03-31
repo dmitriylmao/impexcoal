@@ -70,22 +70,22 @@
         {
           "title": "Tedarik coğrafyası",
           "description": "Rusya, BDT ülkeleri, Türkiye ve Avrupa'ya kömür tedarik ediyor; ayda 150.000 tonun üzerinde istikrarlı sevkiyat sağlıyoruz.",
-          "metricValue": "100 %",
-          "metricLabel": "Mutlu müşteriler",
+          "metricValue": "150 000+",
+          "metricLabel": "Ayda ton",
           "imageAlt": "Tedarik haritası"
         },
         {
           "title": "Uzun vadeli ortaklık",
           "description": "Yaklaşımımız uzun vadeli iş birliğine odaklıdır: müşterilerimiz bizimle iki yıldan uzun süredir çalışır.",
-          "metricValue": "100 %",
-          "metricLabel": "Mutlu müşteriler",
+          "metricValue": "86%",
+          "metricLabel": "Müşteriler bizimle tekrar tekrar çalışıyor",
           "imageAlt": "Ortaklık"
         },
         {
           "title": "Esnek lojistik",
           "description": "Depodan limana esnek teslimat koşulları sunuyor, ayrıca charter süreçlerini yürütüyor ve her hacim için en uygun lojistik çözümleri seçiyoruz.",
-          "metricValue": "100 %",
-          "metricLabel": "Mutlu müşteriler",
+          "metricValue": "",
+          "metricLabel": "Görevinize özel bireysel lojistik",
           "imageAlt": "Lojistik"
         }
       ]

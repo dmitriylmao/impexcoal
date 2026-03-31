@@ -221,6 +221,10 @@
   row-gap: 14px;
 }
 
+.metricBoxSingle {
+  row-gap: 0;
+}
+
 .metricValue {
   color: #fefefe;
   font-size: 32px;
@@ -234,15 +238,24 @@
   line-height: 1.2;
 }
 
+.metricLabelSingle {
+  text-align: center;
+  line-height: 1.45;
+}
+
 .cardMedia {
   position: relative;
-  height: 100%; 
+  width: 100%; 
   border-radius: 12px;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+
 }
 
 .mediaImage {
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .navDots {
@@ -384,6 +397,5 @@
     line-height: 1.3;
 }
 }
-
 
 

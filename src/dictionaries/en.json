@@ -70,22 +70,22 @@
         {
           "title": "Supply geography",
           "description": "We deliver coal across Russia, CIS countries, Turkey and Europe, ensuring stable supply of more than 150,000 tons per month.",
-          "metricValue": "100 %",
-          "metricLabel": "Happy clients",
+          "metricValue": "150 000+",
+          "metricLabel": "Tons per month",
           "imageAlt": "Supply map"
         },
         {
           "title": "Long-term partnership",
           "description": "Our approach is focused on long-term cooperation: clients work with us for more than two years.",
-          "metricValue": "100 %",
-          "metricLabel": "Happy clients",
+          "metricValue": "86 %",
+          "metricLabel": "Of customers work with us again",
           "imageAlt": "Partnership"
         },
         {
           "title": "Flexible logistics",
           "description": "We provide flexible delivery terms - from warehouse to port, handle chartering, and select optimal logistics solutions for every volume.",
-          "metricValue": "100 %",
-          "metricLabel": "Happy clients",
+          "metricValue": "",
+          "metricLabel": "Individual logistics for your task",
           "imageAlt": "Logistics"
         }
       ]

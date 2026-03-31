@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import styles from './DeckSection.module.css';
 
 type DeckCard = {
@@ -18,7 +18,7 @@ type DeckSectionProps = {
   cards: DeckCard[];
 };
 
-const DECK_IMAGES = ['/images/deck/d0.png', '/images/deck/d3.png', '/images/deck/d2.png'] as const;
+const DECK_IMAGES = ['/images/deck/d0_1.png', '/images/deck/d3_3.png', '/images/deck/d2_3.png'] as const;
 
 function reorderDeck(current: number[], selected: number): number[] {
   if (current[0] === selected) {
@@ -33,10 +33,7 @@ function reorderDeck(current: number[], selected: number): number[] {
 export default function DeckSection({ badge, cards }: DeckSectionProps) {
   const baseOrder = useMemo(() => cards.map((_, index) => index), [cards]);
   const [order, setOrder] = useState<number[]>(baseOrder);
-  const [metricCount, setMetricCount] = useState(0);
   const reduceMotion = useReducedMotion();
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.25 });
 
   const sectionVariants = {
     hidden: {},
@@ -102,37 +99,7 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
     return () => clearInterval(timer);
   }, [order.length]);
 
-  useEffect(() => {
-    if (!isInView) {
-      return;
-    }
-
-    if (reduceMotion) {
-      setMetricCount(100);
-      return;
-    }
-
-    const duration = 1600;
-    const start = performance.now();
-    let frame = 0;
-
-    const tick = (time: number) => {
-      const progress = Math.min((time - start) / duration, 1);
-      setMetricCount(Math.round(progress * 100));
-
-      if (progress < 1) {
-        frame = requestAnimationFrame(tick);
-      }
-    };
-
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [isInView, reduceMotion]);
-
-  const renderMetricValue = (rawValue: string) => {
-    const suffix = rawValue.replace(/^\s*\d+\s*/, '').trim();
-    return suffix ? `${metricCount} ${suffix}` : String(metricCount);
-  };
+  const hasMetricValue = (value: string) => value.trim().length > 0;
 
   const activateCard = (cardIndex: number) => {
     setOrder((prev) => reorderDeck(prev, cardIndex));
@@ -140,7 +107,6 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
 
   return (
     <motion.section
-      ref={sectionRef}
       className={styles.root}
       aria-label={badge}
       initial="hidden"
@@ -185,14 +151,31 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
                       <div className={styles.cardText}>
                         <h3 className={styles.cardTitle}>{card.title}</h3>
                         <p className={styles.cardDescription}>{card.description}</p>
-                        <div className={styles.metricBox}>
-                          <strong className={styles.metricValue}>{renderMetricValue(card.metricValue)}</strong>
-                          <span className={styles.metricLabel}>{card.metricLabel}</span>
+                        <div className={hasMetricValue(card.metricValue) ? styles.metricBox : `${styles.metricBox} ${styles.metricBoxSingle}`}>
+                          {hasMetricValue(card.metricValue) ? (
+                            <strong className={styles.metricValue}>{card.metricValue}</strong>
+                          ) : null}
+                          <span
+                            className={
+                              hasMetricValue(card.metricValue)
+                                ? styles.metricLabel
+                                : `${styles.metricLabel} ${styles.metricLabelSingle}`
+                            }
+                          >
+                            {card.metricLabel}
+                          </span>
                         </div>
                       </div>
 
                       <div className={styles.cardMedia}>
-                        <Image src={imageSrc} alt={card.imageAlt} fill className={styles.mediaImage} sizes="40vw" />
+                        <Image
+                          src={imageSrc}
+                          alt={card.imageAlt}
+                          width={1200}
+                          height={700}
+                          className={styles.mediaImage}
+                          sizes="(max-width: 1200px) 100vw, 50vw"
+                        />
                       </div>
                     </div>
                     </div>
@@ -231,9 +214,19 @@ export default function DeckSection({ badge, cards }: DeckSectionProps) {
               <div className={styles.mobileBody}>
                 <h3 className={styles.cardTitle}>{card.title}</h3>
                 <p className={styles.cardDescription}>{card.description}</p>
-                <div className={styles.metricBox}>
-                  <strong className={styles.metricValue}>{renderMetricValue(card.metricValue)}</strong>
-                  <span className={styles.metricLabel}>{card.metricLabel}</span>
+                <div className={hasMetricValue(card.metricValue) ? styles.metricBox : `${styles.metricBox} ${styles.metricBoxSingle}`}>
+                  {hasMetricValue(card.metricValue) ? (
+                    <strong className={styles.metricValue}>{card.metricValue}</strong>
+                  ) : null}
+                  <span
+                    className={
+                      hasMetricValue(card.metricValue)
+                        ? styles.metricLabel
+                        : `${styles.metricLabel} ${styles.metricLabelSingle}`
+                    }
+                  >
+                    {card.metricLabel}
+                  </span>
                 </div>
               </div>
             </motion.article>
