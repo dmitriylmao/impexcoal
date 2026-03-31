@@ -21,7 +21,7 @@ type SegmentsSectionProps = {
   tabs: SegmentTab[];
 };
 
-const images = ['/images/segment/s2.png', '/images/segment/s3.png', '/images/segment/s6.png'];
+const images = ['/images/segment/s2_1_0.png', '/images/segment/s3_2_0.png', '/images/segment/s6_3_0.png'];
 
 export default function SegmentsSection({ badge, title, cta, tabs }: SegmentsSectionProps) {
   const params = useParams<{ lang?: string }>();
