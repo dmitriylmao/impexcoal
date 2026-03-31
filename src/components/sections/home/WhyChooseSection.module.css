@@ -74,7 +74,7 @@
 
 .card {
   position: relative;
-  min-height: 400px;
+  min-height: 350px;
   border: 1px solid transparent;
   border-radius: 20px;
   background-color: #04070d;
@@ -88,12 +88,35 @@
 }
 
 .iconWrap {
-  margin-top:10px;
+  position: relative;
+  margin-top: 24px;
+  height: 160px;
 }
 
 .cardIcon {
-  width: 300px;
+  height: 100%;
   object-fit: contain;
+  display: block;
+  transition: opacity 320ms ease;
+  will-change: opacity;
+}
+
+.cardIconBase {
+  position: relative;
+}
+
+.cardIconHover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.card:hover .cardIconBase {
+  opacity: 0;
+}
+
+.card:hover .cardIconHover {
+  opacity: 1;
 }
 
 .cardText{
@@ -116,7 +139,14 @@
 
 @media (max-width: 1200px) {
 
+  .iconWrap {
+    height: 140px;
+  }
 
+  .card {
+    min-height: 350px;
+  }
+  
   .grid {
     gap: 24px;
   }
@@ -134,14 +164,14 @@
   }
 
   .card{
-    min-height: 280px;
+    min-height: 320px;
   }
   .cardText{
     padding: 0 20px 20px;
   }
 
-  .cardIcon {
-    width: 200px;
+  .iconWrap {
+    height: 120px;
   }
 
   .title{
@@ -152,7 +182,5 @@
     font-weight: 800;
   }
 }
-
-
 
 
