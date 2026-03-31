@@ -61,7 +61,7 @@ export default function ContactSection({ badge, title, cta }: ContactSectionProp
             </div>
           </a>
           <span className={styles.divider} />
-          <a href={`tel:${CONTACT_PHONE}`} className={styles.socialButton} aria-label="Call us">
+          <a href="mailto:sales@tdimpeks.ru" className={styles.socialButton} aria-label="Send email">
             <div className={styles.iconWrapper}>
               <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconDefault} />
               <Image src="/icons/hero-mail.svg" alt="" width={24} height={24} className={styles.iconHover} />

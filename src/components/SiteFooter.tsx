@@ -34,7 +34,7 @@ export default function SiteFooter() {
     { label: 'WhatsApp', href: `https://wa.me/${CONTACT_PHONE_PLAIN}`, iconClass: styles.whatsappIcon, external: true },
     { label: 'MAX', href: `tel:${CONTACT_PHONE}`, iconClass: styles.maxIcon, external: false },
     { label: 'Phone', href: `tel:${CONTACT_PHONE}`, iconClass: styles.phoneIcon, external: false },
-    { label: 'Email', href: `tel:${CONTACT_PHONE}`, iconClass: styles.mailHeroIcon, external: false },
+    { label: 'Email', href: 'mailto:sales@tdimpeks.ru', iconClass: styles.mailHeroIcon, external: false },
   ];
 
   const handleLogoNavigation = () => {
