@@ -40,7 +40,7 @@ const DEFAULT_DESCRIPTION_BY_LOCALE: Record<Locale, string> = {
 };
 
 export const DEFAULT_OG_TITLE = '\u0422\u0414 \u0418\u041c\u041f\u042d\u041a\u0421';
-export const DEFAULT_OG_IMAGE = '/OG.png';
+export const DEFAULT_OG_IMAGE = '/OG2.jpg';
 
 function getBaseUrl(): URL {
   const primaryUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
