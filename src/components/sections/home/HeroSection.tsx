@@ -76,20 +76,22 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
 
   return (
     <section className={styles.root}>
-      <motion.video
+      <motion.div
         className={styles.bgVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="auto"
         aria-hidden
         initial="hidden"
         animate="show"
         variants={videoVariants}
       >
-        <source src="/hero3.webm" type="video/webm" />
-      </motion.video>
+        <Image
+          src="/hero_img2.png"
+          alt=""
+          fill
+          priority
+          className={styles.bgMedia}
+          sizes="100vw"
+        />
+      </motion.div>
       <div className={styles.inner}>
         <motion.div className={styles.content} initial="hidden" animate="show" variants={containerVariants}>
           <motion.div className={styles.logoWrap} variants={logoVariants}>
