@@ -31,7 +31,7 @@ export default function DifferencesSection({ badge, title, leadAccent, leadRest,
             <p className={styles.body}>{body}</p>
           </div>
           <div className={styles.imageWrap}>
-            <Image src="/komcomol.png" alt="" fill className={styles.image} sizes="(max-width: 800px) 100vw, 50vw" />
+            <Image src="/images/about/about.png" alt="" fill className={styles.image} sizes="(max-width: 1200px) 100vw, 1200px" />
           </div>
         </div>
       </div>
