@@ -115,6 +115,30 @@ export default function BentoDocsGridClient({ badge, emptyLabel, downloadLabel, 
                   </motion.div>
 
                   <motion.div
+                    className={styles.certificateWrap}
+                    initial={false}
+                    animate={
+                      reduceMotion
+                        ? { opacity: showPreview ? 0 : 1 }
+                        : showPreview
+                          ? { opacity: 0, scale: 0.9 }
+                          : { opacity: 1, scale: 1 }
+                    }
+                    transition={{ duration: reduceMotion ? 0.01 : 0.26, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <div className={styles.certificateInner}>
+                      <Image
+                        src="/icons/certificateBento.svg"
+                        alt=""
+                        width={132}
+                        height={132}
+                        className={styles.certificateIcon}
+                        aria-hidden
+                      />
+                    </div>
+                  </motion.div>
+
+                  <motion.div
                     className={styles.content}
                     initial={false}
                     animate={

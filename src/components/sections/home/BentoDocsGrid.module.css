@@ -220,6 +220,36 @@
   pointer-events: none;
 }
 
+.certificateWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.certificateInner {
+  transform: translateY(-12px);
+}
+
+.certificateIcon {
+  width: clamp(84px, 34%, 132px);
+  height: auto;
+  opacity: 0.1;
+  filter: brightness(0) saturate(100%) invert(87%) sepia(6%) saturate(487%) hue-rotate(187deg) brightness(84%) contrast(84%);
+}
+
+.cardCompressed .certificateInner {
+  transform: translateY(-12px);
+}
+
+.cardCompressed .certificateIcon {
+  scale: 0.88;
+  opacity: 0.08;
+}
+
 .fileChip {
   display: inline-flex;
   align-items: center;
