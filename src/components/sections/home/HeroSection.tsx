@@ -84,7 +84,7 @@ export default function HeroSection({ title, subtitle, cta, scrollLabel }: HeroS
         variants={videoVariants}
       >
         <Image
-          src="/hero_img2.png"
+          src="/hero_img4.png"
           alt=""
           fill
           priority

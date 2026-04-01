@@ -15,10 +15,10 @@ type WhyChooseSectionProps = {
 
 export default function WhyChooseSection({ badge, title, cards }: WhyChooseSectionProps) {
   const cardImages = [
-    { default: '/images/whyChoose/3_1.png', hover: '/images/whyChoose/3_2.png' },
-    { default: '/images/whyChoose/4_1.png', hover: '/images/whyChoose/4_2.png' },
-    { default: '/images/whyChoose/5_1.png', hover: '/images/whyChoose/5_2.png' },
-    { default: '/images/whyChoose/6_1.png', hover: '/images/whyChoose/6_2.png' },
+    '/images/whyChoose/67percent.png',
+    '/images/whyChoose/quality.png',
+    '/images/whyChoose/geo.png',
+    '/images/whyChoose/stability.png',
   ];
 
   return (
@@ -35,20 +35,12 @@ export default function WhyChooseSection({ badge, title, cards }: WhyChooseSecti
         <div className={styles.grid}>
           {cards.slice(0, 4).map((card, index) => (
             <article key={`${card.title}-${index}`} className={styles.card}>
-              <div className={styles.iconWrap}>
+              <div className={styles.cardBackground}>
                 <Image
-                  src={cardImages[index]?.default ?? '/images/ch1.png'}
-                  alt={card.title}
-                  width={400}
-                  height={400}
-                  className={`${styles.cardIcon} ${styles.cardIconBase}`}
-                />
-                <Image
-                  src={cardImages[index]?.hover ?? cardImages[index]?.default ?? '/images/ch1.png'}
+                  src={cardImages[index] ?? '/images/ch1.png'}
                   alt=""
-                  width={400}
-                  height={400}
-                  className={`${styles.cardIcon} ${styles.cardIconHover}`}
+                  fill
+                  className={styles.cardBackgroundImage}
                   aria-hidden
                 />
               </div>
